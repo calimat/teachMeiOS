@@ -13,16 +13,28 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
- setup_travis
+ENV["MATCH_KEYCHAIN_NAME"] = "KeychainNameFastFile"
+ENV["MATCH_KEYCHAIN_PASSWORD"] = "fastfiledev"
 
 default_platform(:ios)
+  
 
 platform :ios do
   desc "Push a new beta build to TestFlight"
   lane :beta do   
     increment_build_number
+    disable_automatic_code_signing(path: "teachMe.xcworkspace")
+    create_keychain(
+      name: ENV["MATCH_KEYCHAIN_NAME"],
+      password: ENV["MATCH_KEYCHAIN_PASSWORD"],
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      add_to_search_list: true
+    )
     get_certificates           
     get_provisioning_profile
+    enable_automatic_code_signing(path: "teachMe.xcworkspace")
     build_app(scheme: "teachMe")
     upload_to_testflight
   end
