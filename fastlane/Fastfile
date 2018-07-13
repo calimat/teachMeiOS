@@ -19,7 +19,7 @@ default_platform(:ios)
 platform :ios do
   desc "Push a new beta build to TestFlight"
   lane :beta do   
-  	disable_automatic_code_signing(path: "/Users/calimat1/Documents/teachMe")
+  	disable_automatic_code_signing(path: "/Users/calimat1/Documents/teachMe/teachMe.xcodeproj")
     increment_build_number
     get_certificates           
     get_provisioning_profile
