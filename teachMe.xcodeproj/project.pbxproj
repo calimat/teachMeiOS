@@ -99,6 +99,7 @@
 				TargetAttributes = {
 					F6392F1C20B1D98A00973418 = {
 						CreatedOnToolsVersion = 9.3.1;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -286,7 +287,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = AMLYNCKP6M;
 				INFOPLIST_FILE = teachMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -309,7 +310,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = AMLYNCKP6M;
 				INFOPLIST_FILE = teachMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
