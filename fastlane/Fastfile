@@ -13,16 +13,16 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 setup_travis
-disable_automatic_code_signing(path: "/Users/calimat1/Documents/teachMe/teachMe.xcodeproj")
+
 default_platform(:ios)
 
 platform :ios do
   desc "Push a new beta build to TestFlight"
   lane :beta do   
-
     increment_build_number
     get_certificates           
     get_provisioning_profile
+    disable_automatic_code_signing(path: "teachMe.xcodeproj")
     build_app(scheme: "teachMe")
     upload_to_testflight
   end
