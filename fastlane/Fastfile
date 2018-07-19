@@ -22,9 +22,6 @@ platform :ios do
     increment_build_number
     get_certificates           
     get_provisioning_profile
-    disable_automatic_code_signing(path: "teachMe.xcodeproj")
-    gym(shecme:"teachMe")
-    enable_automatic_code_signing(path: "teachMe.xcodeproj")
     #build_app(scheme: "teachMe")
     #upload_to_testflight
   end

@@ -5,22 +5,27 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: setup_travis" time="0.025993">
+      <testcase classname="fastlane.lanes" name="0: setup_travis" time="0.024269">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.018895">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000948">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: increment_build_number" time="1.458035">
+      <testcase classname="fastlane.lanes" name="2: increment_build_number" time="1.458625">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: get_certificates" time="2.394744">
+      <testcase classname="fastlane.lanes" name="3: get_certificates" time="5.052676">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="4: get_provisioning_profile" time="8.070749">
         
       </testcase>
     
