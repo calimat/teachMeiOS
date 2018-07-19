@@ -20,9 +20,9 @@ platform :ios do
   desc "Push a new beta build to TestFlight"
   lane :beta do   
     increment_build_number
-    get_certificates           
-    get_provisioning_profile
-    #build_app(scheme: "teachMe")
-    #upload_to_testflight
+    #get_certificates           
+    #get_provisioning_profile
+    build_app(scheme: "teachMe")
+    upload_to_testflight
   end
 end
