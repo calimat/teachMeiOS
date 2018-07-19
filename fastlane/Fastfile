@@ -23,22 +23,9 @@ platform :ios do
     get_certificates           
     get_provisioning_profile
     disable_automatic_code_signing(path: "teachMe.xcodeproj")
-    create_keychain(
-      name: ENV["MATCH_KEYCHAIN_NAME"],
-      password: ENV["MATCH_PASSWORD"],
-      default_keychain: true,
-      unlock: true,
-      timeout: 3600,
-      add_to_search_list: true
-    )
-
-    match(
-      type: "adhoc",
-      keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
-      keychain_password: ENV["MATCH_PASSWORD"],
-      readonly: true
-    )
-    build_app(scheme: "teachMe")
-    upload_to_testflight
+    gym(shecme:"teachMe")
+    enable_automatic_code_signing(path: "teachMe.xcodeproj")
+    #build_app(scheme: "teachMe")
+    #upload_to_testflight
   end
 end
