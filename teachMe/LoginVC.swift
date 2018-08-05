@@ -14,22 +14,48 @@ class LoginVC: UIViewController {
     @IBOutlet weak var usernameTxtField: UITextField!
     
     @IBOutlet weak var passwordTxtField: UITextField!
+    @IBOutlet weak var loginBtn: UIButton!
+    
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        self.view.addGestureRecognizer(tapGesture)
+        setupLoginBtn()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    private func setupLoginBtn() {
+        if(!(usernameTxtField.text?.isEmpty)! && !(passwordTxtField.text?.isEmpty)!) {
+            loginBtn.isEnabled = true
+        } else {
+            loginBtn.isEnabled = false
+        }
     }
+    
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        usernameTxtField.resignFirstResponder()
+        passwordTxtField.resignFirstResponder()
+    }
+    
     
     @IBAction func logintBtn_pressed(_ sender: Any) {
+        
     }
     
     
-
+    @IBAction func userNametextFieldEndEditing(_ sender: Any) {
+       setupLoginBtn()
+    }
+    
+    @IBAction func passwordTxtFieldEndEditing(_ sender: Any) {
+        setupLoginBtn()
+    }
+    
+    
 
 }
 

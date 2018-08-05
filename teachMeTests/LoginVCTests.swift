@@ -18,14 +18,14 @@ class LoginVCTests: XCTestCase {
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
         sut = mainStoryBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
         sut.loadView() // This line is the key
+        sut.viewDidLoad()
 
     }
     
     func testHasPasswordTextField() {
         guard let passwordTextField = sut.passwordTxtField else { XCTFail(); return }
-        XCTAssert(passwordTextField.isSecureTextEntry == true, "Not secured")
+        XCTAssert(passwordTextField.isSecureTextEntry, "Not secured")
     }
-    
     
 }
 

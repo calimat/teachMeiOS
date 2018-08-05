@@ -29,12 +29,18 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="userNametextFieldEndEditing:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="HYX-NS-2EB"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="16s-UW-HUc">
                                         <rect key="frame" x="0.0" y="50" width="200" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <action selector="passwordTxtFieldEndEditing:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="BJ7-Pu-HEC"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ri-ZJ-Wmp">
                                         <rect key="frame" x="0.0" y="100" width="200" height="30"/>
@@ -54,6 +60,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="loginBtn" destination="6ri-ZJ-Wmp" id="vdU-Fw-QtK"/>
                         <outlet property="passwordTxtField" destination="16s-UW-HUc" id="GXB-Os-l8z"/>
                         <outlet property="usernameTxtField" destination="NQk-TI-hVb" id="9Nr-PD-ojy"/>
                     </connections>
