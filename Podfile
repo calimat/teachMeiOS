@@ -12,6 +12,7 @@ target 'teachMe' do
   target 'teachMeTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'Firebase/Core'  
   end
 
   target 'teachMeUITests' do
