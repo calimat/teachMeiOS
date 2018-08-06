@@ -10,6 +10,9 @@
 		6B6311698DB8AAFC42C9E88E /* Pods_teachMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18EA3650C2A24850044A2BF /* Pods_teachMe.framework */; };
 		6B69944DF37184BFF4F2E40F /* Pods_teachMeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F509885E3595C24AA6B959A /* Pods_teachMeUITests.framework */; };
 		EAD0C9D2FBBCE3374DC6577A /* Pods_teachMeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 387D2509110F790BFD6DA9B0 /* Pods_teachMeTests.framework */; };
+		F61E5F512117D2F4004D66FF /* AuthServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E5F502117D2F4004D66FF /* AuthServiceTests.swift */; };
+		F61E5F542117D33F004D66FF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E5F532117D33F004D66FF /* AuthService.swift */; };
+		F61E5F552117E258004D66FF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E5F532117D33F004D66FF /* AuthService.swift */; };
 		F6392F2120B1D98A00973418 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6392F2020B1D98A00973418 /* AppDelegate.swift */; };
 		F6392F2320B1D98A00973418 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6392F2220B1D98A00973418 /* LoginVC.swift */; };
 		F6392F2620B1D98A00973418 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6392F2420B1D98A00973418 /* Main.storyboard */; };
@@ -49,6 +52,8 @@
 		B18EA3650C2A24850044A2BF /* Pods_teachMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teachMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4AADF1A5FDEB09FCBCB8B45 /* Pods-teachMeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teachMeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-teachMeUITests/Pods-teachMeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E477D0688042F05CB832AB61 /* Pods-teachMeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teachMeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-teachMeTests/Pods-teachMeTests.release.xcconfig"; sourceTree = "<group>"; };
+		F61E5F502117D2F4004D66FF /* AuthServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceTests.swift; sourceTree = "<group>"; };
+		F61E5F532117D33F004D66FF /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		F6392F1D20B1D98A00973418 /* teachMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teachMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6392F2020B1D98A00973418 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6392F2220B1D98A00973418 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -118,6 +123,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F61E5F522117D32A004D66FF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F61E5F532117D33F004D66FF /* AuthService.swift */,
+			);
+			name = Services;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		F6392F1420B1D98A00973418 = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +157,7 @@
 		F6392F1F20B1D98A00973418 /* teachMe */ = {
 			isa = PBXGroup;
 			children = (
+				F61E5F522117D32A004D66FF /* Services */,
 				F6392F2020B1D98A00973418 /* AppDelegate.swift */,
 				F6392F2220B1D98A00973418 /* LoginVC.swift */,
 				F6392F2420B1D98A00973418 /* Main.storyboard */,
@@ -160,6 +175,7 @@
 			children = (
 				F669856E2103FE1B0004CC7F /* Info.plist */,
 				F6698588211682430004CC7F /* LoginVCTests.swift */,
+				F61E5F502117D2F4004D66FF /* AuthServiceTests.swift */,
 			);
 			path = teachMeTests;
 			sourceTree = "<group>";
@@ -456,6 +472,7 @@
 				F6392F2320B1D98A00973418 /* LoginVC.swift in Sources */,
 				F6392F2920B1D98A00973418 /* teachMe.xcdatamodeld in Sources */,
 				F6392F2120B1D98A00973418 /* AppDelegate.swift in Sources */,
+				F61E5F542117D33F004D66FF /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,7 +480,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F61E5F552117E258004D66FF /* AuthService.swift in Sources */,
 				F6698589211682430004CC7F /* LoginVCTests.swift in Sources */,
+				F61E5F512117D2F4004D66FF /* AuthServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
