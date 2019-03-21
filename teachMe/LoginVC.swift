@@ -23,8 +23,6 @@ class LoginVC: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
         setupLoginBtn()
-        
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     
