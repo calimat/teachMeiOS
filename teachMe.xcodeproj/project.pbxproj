@@ -127,9 +127,10 @@
 		F6392F1F20B1D98A00973418 /* teachMe */ = {
 			isa = PBXGroup;
 			children = (
+				F63CD525224492F200A66C60 /* View */,
+				F63CD524224492D200A66C60 /* Controller */,
 				F61E5F522117D32A004D66FF /* Services */,
 				F6392F2020B1D98A00973418 /* AppDelegate.swift */,
-				F6392F2220B1D98A00973418 /* LoginVC.swift */,
 				F6392F2420B1D98A00973418 /* Main.storyboard */,
 				F6392F2A20B1D98C00973418 /* Assets.xcassets */,
 				F6392F2C20B1D98C00973418 /* LaunchScreen.storyboard */,
@@ -138,6 +139,21 @@
 				F66985862116697A0004CC7F /* GoogleService-Info.plist */,
 			);
 			path = teachMe;
+			sourceTree = "<group>";
+		};
+		F63CD524224492D200A66C60 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F6392F2220B1D98A00973418 /* LoginVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F63CD525224492F200A66C60 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		F669856B2103FE1B0004CC7F /* teachMeTests */ = {
