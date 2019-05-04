@@ -130,6 +130,14 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
+		F62424A7227E5D660022ECD0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F6392F2220B1D98A00973418 /* LoginVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		F6392F1420B1D98A00973418 = {
 			isa = PBXGroup;
 			children = (
@@ -155,9 +163,9 @@
 		F6392F1F20B1D98A00973418 /* teachMe */ = {
 			isa = PBXGroup;
 			children = (
+				F62424A7227E5D660022ECD0 /* Controller */,
 				F61E5F522117D32A004D66FF /* Services */,
 				F6392F2020B1D98A00973418 /* AppDelegate.swift */,
-				F6392F2220B1D98A00973418 /* LoginVC.swift */,
 				F6392F2420B1D98A00973418 /* Main.storyboard */,
 				F6392F2A20B1D98C00973418 /* Assets.xcassets */,
 				F6392F2C20B1D98C00973418 /* LaunchScreen.storyboard */,
