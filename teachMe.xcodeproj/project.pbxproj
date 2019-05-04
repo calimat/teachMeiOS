@@ -22,7 +22,6 @@
 		F669857B2103FE2D0004CC7F /* teachMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F669857A2103FE2D0004CC7F /* teachMeUITests.swift */; };
 		F66985872116697A0004CC7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F66985862116697A0004CC7F /* GoogleService-Info.plist */; };
 		F6698589211682430004CC7F /* LoginVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6698588211682430004CC7F /* LoginVCTests.swift */; };
-		F669858E21169F170004CC7F /* LoginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F669858D21169F170004CC7F /* LoginUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +68,6 @@
 		F669857C2103FE2D0004CC7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F66985862116697A0004CC7F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F6698588211682430004CC7F /* LoginVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCTests.swift; sourceTree = "<group>"; };
-		F669858D21169F170004CC7F /* LoginUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,7 +183,6 @@
 			children = (
 				F669857A2103FE2D0004CC7F /* teachMeUITests.swift */,
 				F669857C2103FE2D0004CC7F /* Info.plist */,
-				F669858D21169F170004CC7F /* LoginUITests.swift */,
 			);
 			path = teachMeUITests;
 			sourceTree = "<group>";
@@ -491,7 +488,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F669857B2103FE2D0004CC7F /* teachMeUITests.swift in Sources */,
-				F669858E21169F170004CC7F /* LoginUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
