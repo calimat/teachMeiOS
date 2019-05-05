@@ -16,16 +16,28 @@ class LoginVCTests: XCTestCase {
     override func setUp() {
         super.setUp()
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-        sut = mainStoryBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+        sut = mainStoryBoard.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC
         sut.loadView() // This line is the key
         sut.viewDidLoad()
 
     }
     
-    func testHasPasswordTextField() {
+    func testLoginVC_HasUserNameTextField() {
+        guard let usernameTextField = sut.usernameTxtField else { XCTFail(); return}
+        XCTAssertNotNil(usernameTextField)
+    }
+    
+    func testLoginVC_HasPasswordTextField() {
         guard let passwordTextField = sut.passwordTxtField else { XCTFail(); return }
         XCTAssert(passwordTextField.isSecureTextEntry, "Not secured")
     }
+    
+    func testLoginVC_HasloginBtn() {
+        guard let loginBtn = sut.loginBtn else { XCTFail(); return }
+        XCTAssertNotNil(loginBtn)
+    }
+    
+    
     
 }
 
