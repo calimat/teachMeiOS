@@ -41,7 +41,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="idI-cc-RNg">
                                 <rect key="frame" x="82" y="296" width="250" height="86"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NQk-TI-hVb">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NQk-TI-hVb" customClass="ChalkBoardTextField" customModule="teachMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="26"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="dfh-RD-aG4"/>
@@ -57,7 +57,7 @@
                                             <constraint firstAttribute="height" constant="2" id="lpf-ju-41N"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="16s-UW-HUc">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="16s-UW-HUc" customClass="ChalkBoardTextField" customModule="teachMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="48" width="250" height="26"/>
                                         <color key="textColor" red="1" green="0.99607843139999996" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
@@ -72,10 +72,18 @@
                                     </view>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mg0-TB-Wzn">
+                                <rect key="frame" x="23.5" y="412" width="367" height="38"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                                <state key="normal" title="Don't Have an Account? Tap Here">
+                                    <color key="titleColor" red="1" green="0.99607843139999996" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.050980392156862744" green="0.22352941176470587" blue="0.039215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="LDZ-XV-Tk5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="B4j-cz-yvW"/>
+                            <constraint firstItem="mg0-TB-Wzn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="D56-Eo-xRr"/>
                             <constraint firstItem="Hmk-Nf-Bgh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TFQ-if-Fh4"/>
                             <constraint firstItem="LDZ-XV-Tk5" firstAttribute="top" secondItem="Hmk-Nf-Bgh" secondAttribute="bottom" constant="20" id="Wna-OJ-yHG"/>
                             <constraint firstItem="idI-cc-RNg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zg1-gT-QI5"/>
@@ -83,11 +91,13 @@
                             <constraint firstItem="idI-cc-RNg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-109" id="cGT-pf-DXl"/>
                             <constraint firstItem="Hmk-Nf-Bgh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="eeg-rd-gHG"/>
                             <constraint firstItem="6ri-ZJ-Wmp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="piQ-zv-xf8"/>
+                            <constraint firstItem="mg0-TB-Wzn" firstAttribute="top" secondItem="idI-cc-RNg" secondAttribute="bottom" constant="30" id="uUm-Cl-Pas"/>
                             <constraint firstItem="6ri-ZJ-Wmp" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="xLZ-ms-KuJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="createAccountBtn" destination="mg0-TB-Wzn" id="MdO-fX-hc7"/>
                         <outlet property="loginBtn" destination="6ri-ZJ-Wmp" id="vdU-Fw-QtK"/>
                         <outlet property="passwordTxtField" destination="16s-UW-HUc" id="GXB-Os-l8z"/>
                         <outlet property="usernameTxtField" destination="NQk-TI-hVb" id="e9e-zH-qKZ"/>
