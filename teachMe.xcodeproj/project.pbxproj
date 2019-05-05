@@ -475,6 +475,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_TEAM = AMLYNCKP6M;
+				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = teachMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

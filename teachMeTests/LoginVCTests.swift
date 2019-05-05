@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import teachMe 
+@testable import teachMe
 
 class LoginVCTests: XCTestCase {
     
