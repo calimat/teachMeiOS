@@ -17,9 +17,6 @@ target 'teachMe' do
     pod 'Firebase/Auth'
   end
 
-  target 'teachMeUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+ 
 
 end

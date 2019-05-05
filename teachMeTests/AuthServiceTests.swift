@@ -16,6 +16,7 @@ class AuthServiceTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
+        FirebaseApp.configure()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
