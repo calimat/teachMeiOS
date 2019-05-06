@@ -21,6 +21,7 @@
 		F66985872116697A0004CC7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F66985862116697A0004CC7F /* GoogleService-Info.plist */; };
 		F6698589211682430004CC7F /* LoginVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6698588211682430004CC7F /* LoginVCTests.swift */; };
 		F693BDB7227EBE1400B83944 /* ChalkBoardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693BDB6227EBE1400B83944 /* ChalkBoardTextField.swift */; };
+		F693BDB9227FA7F200B83944 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693BDB8227FA7F200B83944 /* CreateAccountVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		F66985862116697A0004CC7F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F6698588211682430004CC7F /* LoginVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCTests.swift; sourceTree = "<group>"; };
 		F693BDB6227EBE1400B83944 /* ChalkBoardTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChalkBoardTextField.swift; sourceTree = "<group>"; };
+		F693BDB8227FA7F200B83944 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				F6392F2220B1D98A00973418 /* LoginVC.swift */,
+				F693BDB8227FA7F200B83944 /* CreateAccountVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 			files = (
 				F6392F2320B1D98A00973418 /* LoginVC.swift in Sources */,
 				F6392F2920B1D98A00973418 /* teachMe.xcdatamodeld in Sources */,
+				F693BDB9227FA7F200B83944 /* CreateAccountVC.swift in Sources */,
 				F6392F2120B1D98A00973418 /* AppDelegate.swift in Sources */,
 				F61E5F542117D33F004D66FF /* AuthService.swift in Sources */,
 				F693BDB7227EBE1400B83944 /* ChalkBoardTextField.swift in Sources */,

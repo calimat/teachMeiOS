@@ -22,6 +22,10 @@ class LoginVCTests: XCTestCase {
 
     }
     
+    override func tearDown() {
+        sut = nil
+    }
+    
     func test_HasUserNameTextField() {
         guard let usernameTextField = sut.usernameTxtField else { XCTFail(); return}
         XCTAssertNotNil(usernameTextField)
