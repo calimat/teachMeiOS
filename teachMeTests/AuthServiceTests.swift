@@ -26,7 +26,7 @@ class AuthServiceTests: XCTestCase {
         AuthService.instance.login(withEmail: "rherrera@test.com", andPassword: "password") { (status, error) in
             exp.fulfill()
             let currentError = error! as NSError
-            XCTAssert(currentError.code == 17006, "\(currentError.debugDescription)")
+            XCTAssert(currentError.code == 17011, "\(currentError.debugDescription)")
             
         }
 
