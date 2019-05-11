@@ -17,7 +17,6 @@ class LoginVC: UIViewController {
     @IBOutlet weak var passwordTxtField: ChalkBoardTextField!
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var createAccountBtn: UIButton!
-    
     @IBOutlet weak var errorLbl: UILabel!
     
     override func viewDidLoad() {

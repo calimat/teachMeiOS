@@ -27,8 +27,8 @@ class LoginVCTests: XCTestCase {
     }
     
     func test_HasUserNameTextField() {
-        guard let usernameTextField = sut.emailTextField else { XCTFail(); return}
-        XCTAssertNotNil(usernameTextField)
+        guard let emailTextField = sut.emailTextField else { XCTFail(); return}
+        XCTAssertNotNil(emailTextField)
     }
     
     func test_HasPasswordTextField() {
