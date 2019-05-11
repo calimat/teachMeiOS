@@ -29,7 +29,7 @@
                                     <color key="titleColor" red="1" green="0.99607843139999996" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginBtnWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FAJ-Rw-P55"/>
+                                    <action selector="loginBtn_Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d3l-z3-Kx4"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEACH ME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hmk-Nf-Bgh">
@@ -118,10 +118,10 @@
                     </view>
                     <connections>
                         <outlet property="createAccountBtn" destination="mg0-TB-Wzn" id="MdO-fX-hc7"/>
-                        <outlet property="errorLbl" destination="C8J-2i-y2l" id="2Y6-jB-yIJ"/>
+                        <outlet property="emailTextField" destination="NQk-TI-hVb" id="e9e-zH-qKZ"/>
+                        <outlet property="errorLbl" destination="C8J-2i-y2l" id="tKw-Y2-7jx"/>
                         <outlet property="loginBtn" destination="6ri-ZJ-Wmp" id="vdU-Fw-QtK"/>
                         <outlet property="passwordTxtField" destination="16s-UW-HUc" id="GXB-Os-l8z"/>
-                        <outlet property="usernameTxtField" destination="NQk-TI-hVb" id="e9e-zH-qKZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

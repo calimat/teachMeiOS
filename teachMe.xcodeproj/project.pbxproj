@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		6B6311698DB8AAFC42C9E88E /* Pods_teachMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18EA3650C2A24850044A2BF /* Pods_teachMe.framework */; };
 		EAD0C9D2FBBCE3374DC6577A /* Pods_teachMeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 387D2509110F790BFD6DA9B0 /* Pods_teachMeTests.framework */; };
-		F61E5F512117D2F4004D66FF /* AuthServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E5F502117D2F4004D66FF /* AuthServiceTests.swift */; };
-		F61E5F542117D33F004D66FF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E5F532117D33F004D66FF /* AuthService.swift */; };
-		F61E5F552117E258004D66FF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E5F532117D33F004D66FF /* AuthService.swift */; };
 		F6392F2120B1D98A00973418 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6392F2020B1D98A00973418 /* AppDelegate.swift */; };
 		F6392F2320B1D98A00973418 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6392F2220B1D98A00973418 /* LoginVC.swift */; };
 		F6392F2620B1D98A00973418 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6392F2420B1D98A00973418 /* Main.storyboard */; };
@@ -20,6 +17,7 @@
 		F6392F2E20B1D98C00973418 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6392F2C20B1D98C00973418 /* LaunchScreen.storyboard */; };
 		F650262722868FE2007D0B17 /* AuthenticationErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F650262622868FE2007D0B17 /* AuthenticationErrorTests.swift */; };
 		F650262B2286901A007D0B17 /* AuthenticationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F650262A2286901A007D0B17 /* AuthenticationError.swift */; };
+		F650263222874C1B007D0B17 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F650263122874C1B007D0B17 /* Constants.swift */; };
 		F66985872116697A0004CC7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F66985862116697A0004CC7F /* GoogleService-Info.plist */; };
 		F6698589211682430004CC7F /* LoginVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6698588211682430004CC7F /* LoginVCTests.swift */; };
 		F693BDB7227EBE1400B83944 /* ChalkBoardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693BDB6227EBE1400B83944 /* ChalkBoardTextField.swift */; };
@@ -54,8 +52,6 @@
 		B18EA3650C2A24850044A2BF /* Pods_teachMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teachMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4AADF1A5FDEB09FCBCB8B45 /* Pods-teachMeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teachMeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-teachMeUITests/Pods-teachMeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E477D0688042F05CB832AB61 /* Pods-teachMeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teachMeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-teachMeTests/Pods-teachMeTests.release.xcconfig"; sourceTree = "<group>"; };
-		F61E5F502117D2F4004D66FF /* AuthServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceTests.swift; sourceTree = "<group>"; };
-		F61E5F532117D33F004D66FF /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		F6392F1D20B1D98A00973418 /* teachMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teachMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6392F2020B1D98A00973418 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6392F2220B1D98A00973418 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -66,6 +62,7 @@
 		F6392F2F20B1D98C00973418 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F650262622868FE2007D0B17 /* AuthenticationErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationErrorTests.swift; sourceTree = "<group>"; };
 		F650262A2286901A007D0B17 /* AuthenticationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationError.swift; sourceTree = "<group>"; };
+		F650263122874C1B007D0B17 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F669856A2103FE1B0004CC7F /* teachMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = teachMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F669856E2103FE1B0004CC7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F66985862116697A0004CC7F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -130,7 +127,6 @@
 		F61E5F522117D32A004D66FF /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				F61E5F532117D33F004D66FF /* AuthService.swift */,
 			);
 			name = Services;
 			path = "New Group";
@@ -170,6 +166,7 @@
 		F6392F1F20B1D98A00973418 /* teachMe */ = {
 			isa = PBXGroup;
 			children = (
+				F650263022874C0E007D0B17 /* Constants */,
 				F650262822869009007D0B17 /* Authentications */,
 				F693BDB1227EB9D300B83944 /* View */,
 				F62424A7227E5D660022ECD0 /* Controller */,
@@ -201,12 +198,19 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
+		F650263022874C0E007D0B17 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				F650263122874C1B007D0B17 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		F669856B2103FE1B0004CC7F /* teachMeTests */ = {
 			isa = PBXGroup;
 			children = (
 				F669856E2103FE1B0004CC7F /* Info.plist */,
 				F6698588211682430004CC7F /* LoginVCTests.swift */,
-				F61E5F502117D2F4004D66FF /* AuthServiceTests.swift */,
 				F650262622868FE2007D0B17 /* AuthenticationErrorTests.swift */,
 			);
 			path = teachMeTests;
@@ -464,8 +468,8 @@
 				F6392F2920B1D98A00973418 /* teachMe.xcdatamodeld in Sources */,
 				F650262B2286901A007D0B17 /* AuthenticationError.swift in Sources */,
 				F693BDB9227FA7F200B83944 /* CreateAccountVC.swift in Sources */,
+				F650263222874C1B007D0B17 /* Constants.swift in Sources */,
 				F6392F2120B1D98A00973418 /* AppDelegate.swift in Sources */,
-				F61E5F542117D33F004D66FF /* AuthService.swift in Sources */,
 				F693BDB7227EBE1400B83944 /* ChalkBoardTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -474,10 +478,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F61E5F552117E258004D66FF /* AuthService.swift in Sources */,
 				F6698589211682430004CC7F /* LoginVCTests.swift in Sources */,
 				F650262722868FE2007D0B17 /* AuthenticationErrorTests.swift in Sources */,
-				F61E5F512117D2F4004D66FF /* AuthServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

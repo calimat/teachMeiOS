@@ -27,7 +27,7 @@ class LoginVCTests: XCTestCase {
     }
     
     func test_HasUserNameTextField() {
-        guard let usernameTextField = sut.usernameTxtField else { XCTFail(); return}
+        guard let usernameTextField = sut.emailTextField else { XCTFail(); return}
         XCTAssertNotNil(usernameTextField)
     }
     
@@ -47,13 +47,13 @@ class LoginVCTests: XCTestCase {
     }
     
     func test_userNameTextFieldPlaceHolderTextColor_ShouldBeWhiteChalkColor() {
-         guard let usernameTextField = sut.usernameTxtField else { XCTFail(); return}
+         guard let usernameTextField = sut.emailTextField else { XCTFail(); return}
         guard let placeHolderColor = usernameTextField.attributedPlaceholder?.attribute(NSAttributedStringKey.foregroundColor, at: 0, effectiveRange: nil) as? UIColor else { XCTFail(); return }
         XCTAssertEqual(placeHolderColor,  #colorLiteral(red: 1, green: 0.9960784314, blue: 0.9764705882, alpha: 1))
     }
     
     func testUserNameTextFieldPlaceHolder_ShouldsayEmail() {
-         guard let usernameTextField = sut.usernameTxtField else { XCTFail(); return}
+         guard let usernameTextField = sut.emailTextField else { XCTFail(); return}
         XCTAssertEqual(usernameTextField.placeholder, "email")
     }
     
@@ -68,5 +68,32 @@ class LoginVCTests: XCTestCase {
         XCTAssertEqual(placeHolderColor,  #colorLiteral(red: 1, green: 0.9960784314, blue: 0.9764705882, alpha: 1))
     }
     
+    
+    func test_emailIsEmptyShouldDisplayEmptyEmailErrorMessage() {
+        sut.emailTextField.text = ""
+        sut.passwordTxtField.text = "password"
+        sut.loginBtn.sendActions(for: .touchUpInside)
+        guard let errorLbl = sut.errorLbl else { XCTFail(); return }
+        XCTAssertFalse(errorLbl.isHidden)
+        XCTAssertEqual(errorLbl.text, EMAIL_EMPTY_MESSAGE)
+    }
+    
+    func test_passwordIsEmptyShouldDisplayEmptyPasswordErrorMessage() {
+        sut.emailTextField.text = "rherrera@test.com"
+        sut.passwordTxtField.text = ""
+        sut.loginBtn.sendActions(for: .touchUpInside)
+        guard let errorLbl = sut.errorLbl else { XCTFail(); return }
+        XCTAssertFalse(errorLbl.isHidden)
+        XCTAssertEqual(errorLbl.text, PASSWORD_EMPTY_MESSAGE)
+    }
+    
+    func test_emailAndPasswordAreNotEmptyErrorLabelShouldbeHidden() {
+        sut.emailTextField.text = "rherrera@test.com"
+        sut.passwordTxtField.text = "password"
+        sut.loginBtn.sendActions(for: .touchUpInside)
+        guard let errorLbl = sut.errorLbl else { XCTFail(); return }
+        XCTAssertTrue(errorLbl.isHidden)
+        XCTAssertEqual(errorLbl.text, "")
+    }
 }
 

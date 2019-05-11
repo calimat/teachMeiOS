@@ -8,10 +8,12 @@
 
 import UIKit
 
+
 class LoginVC: UIViewController {
 
+   
     
-    @IBOutlet weak var usernameTxtField: ChalkBoardTextField!
+    @IBOutlet weak var emailTextField: ChalkBoardTextField!
     @IBOutlet weak var passwordTxtField: ChalkBoardTextField!
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var createAccountBtn: UIButton!
@@ -22,22 +24,35 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginVC.dismissKeyboard))
         view.addGestureRecognizer(tap)
+        
     }
     
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
     
-    @IBAction func loginBtnWasPressed(_ sender: Any) {
-        guard let username = usernameTxtField.text, let password = passwordTxtField.text else { return }
-        AuthService.instance.login(withEmail: username, andPassword: password) { (success, serviceError) in
-            if serviceError != nil {
-                self.errorLbl.isHidden = false
-                self.errorLbl.text = serviceError?.localizedDescription
-            }
-        }
+    @IBAction func loginBtn_Pressed(_ sender: Any) {
+        errorLbl.isHidden = false
+        validadeInputs()
+        
     }
     
+    func validadeInputs() {
+        guard let email = emailTextField.text, let password = passwordTxtField.text  else { return }
+        
+        if !email.isEmpty && !password.isEmpty {
+            errorLbl.isHidden = true
+            errorLbl.text = ""
+        }
+        
+        if email.isEmpty {
+            errorLbl.text = EMAIL_EMPTY_MESSAGE
+        }
+        
+        if password.isEmpty {
+            errorLbl.text = PASSWORD_EMPTY_MESSAGE
+        }
+    }
     
 }
 
