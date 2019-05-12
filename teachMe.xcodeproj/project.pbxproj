@@ -18,6 +18,11 @@
 		F650262722868FE2007D0B17 /* AuthenticationErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F650262622868FE2007D0B17 /* AuthenticationErrorTests.swift */; };
 		F650262B2286901A007D0B17 /* AuthenticationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F650262A2286901A007D0B17 /* AuthenticationError.swift */; };
 		F650263222874C1B007D0B17 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F650263122874C1B007D0B17 /* Constants.swift */; };
+		F650263F22878D06007D0B17 /* RegisterUserUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F650263E22878D06007D0B17 /* RegisterUserUseCaseTests.swift */; };
+		F650264222878D7F007D0B17 /* RegisterUserUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F650264122878D7F007D0B17 /* RegisterUserUsecase.swift */; };
+		F650264522879155007D0B17 /* AuthenticationGatewayStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F650264422879155007D0B17 /* AuthenticationGatewayStub.swift */; };
+		F6502648228795D3007D0B17 /* AuthenticationGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6502647228795D3007D0B17 /* AuthenticationGateway.swift */; };
+		F650264A22879612007D0B17 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F650264922879612007D0B17 /* UserEntity.swift */; };
 		F66985872116697A0004CC7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F66985862116697A0004CC7F /* GoogleService-Info.plist */; };
 		F6698589211682430004CC7F /* LoginVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6698588211682430004CC7F /* LoginVCTests.swift */; };
 		F693BDB7227EBE1400B83944 /* ChalkBoardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693BDB6227EBE1400B83944 /* ChalkBoardTextField.swift */; };
@@ -63,6 +68,11 @@
 		F650262622868FE2007D0B17 /* AuthenticationErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationErrorTests.swift; sourceTree = "<group>"; };
 		F650262A2286901A007D0B17 /* AuthenticationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationError.swift; sourceTree = "<group>"; };
 		F650263122874C1B007D0B17 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F650263E22878D06007D0B17 /* RegisterUserUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserUseCaseTests.swift; sourceTree = "<group>"; };
+		F650264122878D7F007D0B17 /* RegisterUserUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserUsecase.swift; sourceTree = "<group>"; };
+		F650264422879155007D0B17 /* AuthenticationGatewayStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationGatewayStub.swift; sourceTree = "<group>"; };
+		F6502647228795D3007D0B17 /* AuthenticationGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationGateway.swift; sourceTree = "<group>"; };
+		F650264922879612007D0B17 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		F669856A2103FE1B0004CC7F /* teachMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = teachMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F669856E2103FE1B0004CC7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F66985862116697A0004CC7F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -185,6 +195,8 @@
 		F650262822869009007D0B17 /* Authentications */ = {
 			isa = PBXGroup;
 			children = (
+				F6502646228795C4007D0B17 /* Gateways */,
+				F650264022878D54007D0B17 /* Usecases */,
 				F65026292286900F007D0B17 /* Entities */,
 			);
 			path = Authentications;
@@ -194,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				F650262A2286901A007D0B17 /* AuthenticationError.swift */,
+				F650264922879612007D0B17 /* UserEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -206,12 +219,38 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		F650264022878D54007D0B17 /* Usecases */ = {
+			isa = PBXGroup;
+			children = (
+				F650264122878D7F007D0B17 /* RegisterUserUsecase.swift */,
+			);
+			path = Usecases;
+			sourceTree = "<group>";
+		};
+		F65026432287913E007D0B17 /* Doubles */ = {
+			isa = PBXGroup;
+			children = (
+				F650264422879155007D0B17 /* AuthenticationGatewayStub.swift */,
+			);
+			path = Doubles;
+			sourceTree = "<group>";
+		};
+		F6502646228795C4007D0B17 /* Gateways */ = {
+			isa = PBXGroup;
+			children = (
+				F6502647228795D3007D0B17 /* AuthenticationGateway.swift */,
+			);
+			path = Gateways;
+			sourceTree = "<group>";
+		};
 		F669856B2103FE1B0004CC7F /* teachMeTests */ = {
 			isa = PBXGroup;
 			children = (
+				F65026432287913E007D0B17 /* Doubles */,
 				F669856E2103FE1B0004CC7F /* Info.plist */,
 				F6698588211682430004CC7F /* LoginVCTests.swift */,
 				F650262622868FE2007D0B17 /* AuthenticationErrorTests.swift */,
+				F650263E22878D06007D0B17 /* RegisterUserUseCaseTests.swift */,
 			);
 			path = teachMeTests;
 			sourceTree = "<group>";
@@ -465,11 +504,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6392F2320B1D98A00973418 /* LoginVC.swift in Sources */,
+				F650264222878D7F007D0B17 /* RegisterUserUsecase.swift in Sources */,
 				F6392F2920B1D98A00973418 /* teachMe.xcdatamodeld in Sources */,
+				F650264A22879612007D0B17 /* UserEntity.swift in Sources */,
 				F650262B2286901A007D0B17 /* AuthenticationError.swift in Sources */,
 				F693BDB9227FA7F200B83944 /* CreateAccountVC.swift in Sources */,
 				F650263222874C1B007D0B17 /* Constants.swift in Sources */,
 				F6392F2120B1D98A00973418 /* AppDelegate.swift in Sources */,
+				F6502648228795D3007D0B17 /* AuthenticationGateway.swift in Sources */,
 				F693BDB7227EBE1400B83944 /* ChalkBoardTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,7 +520,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F650263F22878D06007D0B17 /* RegisterUserUseCaseTests.swift in Sources */,
 				F6698589211682430004CC7F /* LoginVCTests.swift in Sources */,
+				F650264522879155007D0B17 /* AuthenticationGatewayStub.swift in Sources */,
 				F650262722868FE2007D0B17 /* AuthenticationErrorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
