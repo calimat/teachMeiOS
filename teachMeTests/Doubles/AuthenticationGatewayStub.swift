@@ -10,9 +10,14 @@ import Foundation
 @testable import teachMe
 
 class AuthenticationGatewayStub : AuthenticationGateway {
-
+    func register(email: String, password: String, accountType: AccountType) {
+        if email.isEmpty {
+            failure()
+        } else {
+            success()
+        }
+    }
     
-  
     var registeredUser : UserEntity? = nil
     
     func failure() {

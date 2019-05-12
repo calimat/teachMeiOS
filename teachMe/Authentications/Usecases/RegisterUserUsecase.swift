@@ -7,12 +7,8 @@ struct RegisterUserUsecase {
         self.gateway = gateway
     }
     
-    func register(email:String, password:String, accountType:String) {
-        if email.isEmpty {
-            gateway.failure()
-        } else {
-          gateway.success()
-        }
+    func register(email:String, password:String, accountType:AccountType) {
+       gateway.register(email: email, password: password, accountType: accountType)
     }
 }
 

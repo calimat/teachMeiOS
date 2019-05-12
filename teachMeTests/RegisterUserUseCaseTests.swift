@@ -10,25 +10,28 @@ import XCTest
 @testable import teachMe
 
 class RegisteruserUseCaseTests : XCTestCase {
+    
+    private var gateway:AuthenticationGatewayStub!
+    private var usecase:RegisterUserUsecase!
+    
+    override func setUp() {
+        gateway = AuthenticationGatewayStub()
+        usecase = RegisterUserUsecase(gateway: gateway)
+    }
+    
     func testRegisterAStudentUserWithEmptyEmail_ReturnsANilregisteredUser() {
-        let gateway = AuthenticationGatewayStub()
-        let usecase = RegisterUserUsecase(gateway: gateway)
-        usecase.register(email: "", password:"password", accountType:"Student")
+        usecase.register(email: "", password:"password", accountType:AccountType.Student)
         XCTAssertNil(gateway.registeredUser)
     }
     
     func testRegisterAStundentUserWithValidInput_RegisteredUserIsNotNil() {
-        let gateway = AuthenticationGatewayStub()
-        let usecase = RegisterUserUsecase(gateway: gateway)
-        usecase.register(email: "rherrera@test.com", password: "password", accountType: "Student")
+        usecase.register(email: "rherrera@test.com", password: "password", accountType: AccountType.Student)
         XCTAssertNotNil(gateway.registeredUser)
     }
     
     func testRegisterAStudentWithValidImput_RegisteredUserShouldBeTheSameAsAgteway() {
-        let gateway = AuthenticationGatewayStub()
-        let usecase = RegisterUserUsecase(gateway: gateway)
         let user = UserEntity(identifier:"dummyId", email: "rherrera@test.com", accountType: "Student")
-        usecase.register(email: "rherrera@test.com", password: "password", accountType: "Student")
+        usecase.register(email: "rherrera@test.com", password: "password", accountType: AccountType.Student)
         XCTAssertEqual(gateway.registeredUser!, user)
     }
 }
