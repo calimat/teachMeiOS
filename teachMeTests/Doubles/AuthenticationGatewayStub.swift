@@ -10,22 +10,30 @@ import Foundation
 @testable import teachMe
 
 class AuthenticationGatewayStub : AuthenticationGateway {
-    func register(email: String, password: String, accountType: AccountType) {
-        if email.isEmpty {
-            failure()
-        } else {
-            success()
-        }
-    }
+  
     
     var registeredUser : UserEntity? = nil
+    var registerResult: Result<UserEntity, AuthenticationError>?
+    
+
+    func register(email: String, password: String, accountType: AccountType, completion: @escaping (Result<UserEntity, AuthenticationError>) -> Void) {
+        guard let registerResult = registerResult else { return }
+        switch registerResult {
+        case .failure(_):
+            registeredUser = nil
+        case .success(_):
+            registeredUser = UserEntity(identifier: nil, email: email, accountType: accountType)
+        }
+        completion(registerResult)
+    }
+    
     
     func failure() {
         registeredUser = nil
     }
     
     func success() {
-        registeredUser = UserEntity(identifier: "dummyId", email: "rherrera@test.com", accountType: "Student")
+        registeredUser = UserEntity(identifier: "dummyId", email: "rherrera@test.com", accountType: AccountType.Student)
     }
     
 }

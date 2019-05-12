@@ -8,7 +8,16 @@ struct RegisterUserUsecase {
     }
     
     func register(email:String, password:String, accountType:AccountType) {
-       gateway.register(email: email, password: password, accountType: accountType)
+        gateway.register(email: email, password: password, accountType: accountType, completion: presentResult)
     }
+    
+    private func presentResult(result: Result<UserEntity, AuthenticationError>) {
+        switch result {
+        case .success: self.gateway.success()
+        case .failure: self.gateway.failure()
+        }
+    }
+
 }
+
 

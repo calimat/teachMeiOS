@@ -7,14 +7,18 @@ target 'teachMe' do
 
   # Pods for teachMe
 
-  pod 'Firebase/Core'  
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
   pod 'Firebase/Auth'
+  pod 'Firebase/Storage'
 
   target 'teachMeTests' do
     inherit! :search_paths
     # Pods for testing
-    pod 'Firebase/Core'  
+    pod 'Firebase/Core'
+    pod 'Firebase/Database'
     pod 'Firebase/Auth'
+    pod 'Firebase/Storage'
   end
 
  
