@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import Firebase
+
 
 class CreateAccountVC: UIViewController {
 
     var accountType:AccountType = .Student
+    var createdUserSuccessfully = false
+    var gateway = AuthenticationGatewayFirebase()
     
     @IBOutlet weak var createAccountBtn: UIButton!
     @IBOutlet weak var emailTxtField: UITextField!
@@ -22,6 +26,18 @@ class CreateAccountVC: UIViewController {
     
     @IBAction func backBtnPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+
     }
     
+    @IBAction func createAccountBtn_WasPressed(_ sender: Any) {
+        guard let email = emailTxtField.text , let password = passwordTxtField.text else { return }
+        gateway.register(email: email, password: password, accountType: accountType) { (registerResult) in
+            switch registerResult {
+            case .failure(_):
+                self.createdUserSuccessfully = false
+            case .success(_):
+                self.createdUserSuccessfully = true
+            }
+        }
+    }
 }

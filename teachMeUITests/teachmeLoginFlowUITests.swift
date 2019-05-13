@@ -38,10 +38,25 @@ class teachmeLoginFlowUITests : XCTestCase {
         application.buttons["backBtnToLoginVC"].tap()
         XCTAssertTrue(application.buttons["Don't Have an Account? Tap Here"].exists)
     }
+    
+//    func testCreateAccountBtnPressed_ShouldChangetoProfileVC() {
+//        navigateToCreateAccountVC()
+//        let originalCreateAccountBtn = application.buttons["createAccountBtnFromVC"]
+//        originalCreateAccountBtn.tap()
+//        let profileLbl = application.staticTexts["Profile"]
+//        
+//        let exists = NSPredicate(format: "exists == true")
+//        expectation(for: exists, evaluatedWith: profileLbl, handler: nil)
+//        XCTAssert(profileLbl.exists)
+//        waitForExpectations(timeout: 5, handler: nil)
+//
+//    }
+//
 
     func navigateToCreateAccountVC() {
         let createAccountBtn = application.buttons["Don't Have an Account? Tap Here"]
         createAccountBtn.tap()
-    }
+        
     
+}
 }
