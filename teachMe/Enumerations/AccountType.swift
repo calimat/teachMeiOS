@@ -1,3 +1,6 @@
-enum AccountType {
+import Foundation
+enum AccountType: String {
     case Student
 }
+
+

@@ -12,7 +12,7 @@ import Firebase
 
 class CreateAccountVC: UIViewController {
 
-    var accountType:AccountType = .Student
+    var accountType:String = AccountType.Student.rawValue
     var createdUserSuccessfully = false
     var gateway = AuthenticationGatewayFirebase()
     

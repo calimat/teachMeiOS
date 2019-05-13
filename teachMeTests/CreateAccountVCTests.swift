@@ -5,6 +5,9 @@ class CreateAccountVCTests : XCTestCase {
     var sut : CreateAccountVC!
     var gateway: AuthenticationGatewayFirebase!
     
+    private let userEmail = "fake@gmail.com"
+    private let accountType = AccountType.Student.rawValue
+    
     override func setUp() {
         super.setUp()
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -39,17 +42,34 @@ class CreateAccountVCTests : XCTestCase {
         XCTAssertNotNil(sut.gateway)
     }
     
-    func test_RegisterAStudentAccount() {
-        let longRunningExpectation = expectation(description: "RegisterUserWithAlreadyInUseEmail")
-        // ...
-        gateway.register(email: "rherrera1@test.com", password: "passsowrd", accountType: .Student) { (result) in
+    func testRegisterNewUserAtFirebaseReturnTheUserTroughtResultHandler() {
+        let longRunningExpectation = expectation(description: "RegisterNewUser")
+        var authenticationError: AuthenticationError?
+        var createdUser: UserEntity?
+        let email = "rherrera10@test.com"
+
+        gateway.register(email: "rherrera10@test.com", password: "password", accountType: AccountType.Student.rawValue) { result in
+            switch result {
+            case let .success(user): createdUser = user
+            case let .failure(error): authenticationError = error
+            }
             longRunningExpectation.fulfill()
         }
-        waitForExpectations(timeout: 10) { expectationError in
-            // Expect the error for wainting is nil
+       
+
+        waitForExpectations(timeout: 20) { expectationError in
             XCTAssertNil(expectationError, expectationError!.localizedDescription)
-            // ...
+            XCTAssertNil(authenticationError)
+            XCTAssertNotNil(createdUser)
+            XCTAssertEqual(email, createdUser?.email)
+            XCTAssertEqual(self.accountType, createdUser?.accountType)
         }
+
+        }
+    
+    
+        
+  
     }
     
 //    func test_RegisterAStudentAccount() {
@@ -58,4 +78,4 @@ class CreateAccountVCTests : XCTestCase {
 //        XCTAssertTrue(sut.createdUserSuccessfully)
 //    }
    
-}
+

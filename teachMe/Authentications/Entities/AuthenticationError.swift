@@ -17,6 +17,7 @@ enum AuthenticationError : Error {
     case credentialAlreadyInUse
     case invalidPassword
     case accountExistsWithDifferentCredential
+    case invalidName
     
     init(rawvalue: Int) {
         switch rawvalue {
@@ -29,6 +30,7 @@ enum AuthenticationError : Error {
         case 17020: self = .networkError
         case 17025: self = .credentialAlreadyInUse
         case 17026: self = .invalidPassword
+            
         default: self = .unknown
         
     }
