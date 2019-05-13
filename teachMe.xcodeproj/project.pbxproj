@@ -25,6 +25,7 @@
 		F650264A22879612007D0B17 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F650264922879612007D0B17 /* UserEntity.swift */; };
 		F650264D228875BF007D0B17 /* AccountType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F650264C228875BF007D0B17 /* AccountType.swift */; };
 		F650264F228880FE007D0B17 /* AuthenticationGatewayFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F650264E228880FE007D0B17 /* AuthenticationGatewayFirebase.swift */; };
+		F650265122888CC4007D0B17 /* CreateAccountVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F650265022888CC4007D0B17 /* CreateAccountVCTests.swift */; };
 		F66985872116697A0004CC7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F66985862116697A0004CC7F /* GoogleService-Info.plist */; };
 		F6698589211682430004CC7F /* LoginVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6698588211682430004CC7F /* LoginVCTests.swift */; };
 		F693BDB7227EBE1400B83944 /* ChalkBoardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693BDB6227EBE1400B83944 /* ChalkBoardTextField.swift */; };
@@ -77,6 +78,7 @@
 		F650264922879612007D0B17 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		F650264C228875BF007D0B17 /* AccountType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountType.swift; sourceTree = "<group>"; };
 		F650264E228880FE007D0B17 /* AuthenticationGatewayFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationGatewayFirebase.swift; sourceTree = "<group>"; };
+		F650265022888CC4007D0B17 /* CreateAccountVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVCTests.swift; sourceTree = "<group>"; };
 		F669856A2103FE1B0004CC7F /* teachMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = teachMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F669856E2103FE1B0004CC7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F66985862116697A0004CC7F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				F6698588211682430004CC7F /* LoginVCTests.swift */,
 				F650262622868FE2007D0B17 /* AuthenticationErrorTests.swift */,
 				F650263E22878D06007D0B17 /* RegisterUserUseCaseTests.swift */,
+				F650265022888CC4007D0B17 /* CreateAccountVCTests.swift */,
 			);
 			path = teachMeTests;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				F650263F22878D06007D0B17 /* RegisterUserUseCaseTests.swift in Sources */,
 				F6698589211682430004CC7F /* LoginVCTests.swift in Sources */,
 				F650264522879155007D0B17 /* AuthenticationGatewayStub.swift in Sources */,
+				F650265122888CC4007D0B17 /* CreateAccountVCTests.swift in Sources */,
 				F650262722868FE2007D0B17 /* AuthenticationErrorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

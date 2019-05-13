@@ -131,7 +131,7 @@
         <!--Create AccountVC-->
         <scene sceneID="pBu-Xs-At4">
             <objects>
-                <viewController id="uxb-4I-XrM" customClass="CreateAccountVC" customModule="teachMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateAccountVC" id="uxb-4I-XrM" customClass="CreateAccountVC" customModule="teachMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iy7-wV-PmT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -263,6 +263,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4RS-DA-NMB"/>
                     </view>
+                    <connections>
+                        <outlet property="createAccountBtn" destination="St4-fs-81P" id="SD0-yd-lvS"/>
+                        <outlet property="emailTxtField" destination="mvV-53-CgK" id="iIs-qm-tvm"/>
+                        <outlet property="passwordTxtField" destination="ejc-1f-PYD" id="YEf-jG-JmT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pe8-48-h9d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

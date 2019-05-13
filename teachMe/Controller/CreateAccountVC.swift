@@ -10,6 +10,12 @@ import UIKit
 
 class CreateAccountVC: UIViewController {
 
+    var accountType:AccountType = .Student
+    
+    @IBOutlet weak var createAccountBtn: UIButton!
+    @IBOutlet weak var emailTxtField: UITextField!
+    @IBOutlet weak var passwordTxtField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
