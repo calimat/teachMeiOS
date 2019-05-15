@@ -6,21 +6,16 @@ target 'teachMe' do
   use_frameworks!
 
   # Pods for teachMe
-
-  pod 'Firebase/Core'
-  pod 'Firebase/Database'
   pod 'Firebase/Auth'
-  pod 'Firebase/Storage'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Core'
 
   target 'teachMeTests' do
     inherit! :search_paths
     # Pods for testing
-    pod 'Firebase/Core'
-    pod 'Firebase/Database'
     pod 'Firebase/Auth'
-    pod 'Firebase/Storage'
     pod 'Firebase/Firestore'
+    pod 'Firebase/Core'
   end
 
  

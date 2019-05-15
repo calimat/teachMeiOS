@@ -38,18 +38,7 @@ class CreateAccountVCTests : XCTestCase {
         XCTAssertNotNil(sut.accountType)
     }
     
-//    func test_HasGateway() {
-//        XCTAssertNotNil(sut.gateway)
-//    }
     
-   
-  
-    }
-    
-//    func test_RegisterAStudentAccount() {
-//        sut.emailTxtField.text = "rherrera1@test.com"
-//        sut.passwordTxtField.text = "password"
-//        XCTAssertTrue(sut.createdUserSuccessfully)
-//    }
    
 
+}
