@@ -3,7 +3,7 @@ import XCTest
 
 class CreateAccountVCTests : XCTestCase {
     var sut : CreateAccountVC!
-    var gateway: AuthenticationGatewayFirebase!
+   // var gateway: AuthenticationGatewayFirebase!
     
     private let userEmail = "fake@gmail.com"
     private let accountType = AccountType.Student.rawValue
@@ -14,7 +14,7 @@ class CreateAccountVCTests : XCTestCase {
         sut = mainStoryBoard.instantiateViewController(withIdentifier: "CreateAccountVC") as? CreateAccountVC
         sut.loadView() // This line is the key
         sut.viewDidLoad()
-        self.gateway = AuthenticationGatewayFirebase()
+       // self.gateway = AuthenticationGatewayFirebase(firAuth: <#T##Auth#>)
         
     }
     
@@ -38,37 +38,11 @@ class CreateAccountVCTests : XCTestCase {
         XCTAssertNotNil(sut.accountType)
     }
     
-    func test_HasGateway() {
-        XCTAssertNotNil(sut.gateway)
-    }
+//    func test_HasGateway() {
+//        XCTAssertNotNil(sut.gateway)
+//    }
     
-    func testRegisterNewUserAtFirebaseReturnTheUserTroughtResultHandler() {
-        let longRunningExpectation = expectation(description: "RegisterNewUser")
-        var authenticationError: AuthenticationError?
-        var createdUser: UserEntity?
-        let email = "rherrera10@test.com"
-
-        gateway.register(email: "rherrera10@test.com", password: "password", accountType: AccountType.Student.rawValue) { result in
-            switch result {
-            case let .success(user): createdUser = user
-            case let .failure(error): authenticationError = error
-            }
-            longRunningExpectation.fulfill()
-        }
-       
-
-        waitForExpectations(timeout: 20) { expectationError in
-            XCTAssertNil(expectationError, expectationError!.localizedDescription)
-            XCTAssertNil(authenticationError)
-            XCTAssertNotNil(createdUser)
-            XCTAssertEqual(email, createdUser?.email)
-            XCTAssertEqual(self.accountType, createdUser?.accountType)
-        }
-
-        }
-    
-    
-        
+   
   
     }
     

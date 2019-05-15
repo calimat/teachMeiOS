@@ -10,14 +10,10 @@ import Foundation
 @testable import teachMe
 
 class AuthenticationGatewayStub : AuthenticationGateway {
-   
-    
-  
     
     var registeredUser : UserEntity? = nil
     var registerResult: Result<UserEntity, AuthenticationError>?
     
-
     func register(email: String, password: String, accountType: String, completion: @escaping (Result<UserEntity, AuthenticationError>) -> Void) {
         guard let registerResult = registerResult else { return }
         switch registerResult {

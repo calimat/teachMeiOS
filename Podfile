@@ -11,6 +11,7 @@ target 'teachMe' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
+  pod 'Firebase/Firestore'
 
   target 'teachMeTests' do
     inherit! :search_paths
@@ -19,6 +20,7 @@ target 'teachMe' do
     pod 'Firebase/Database'
     pod 'Firebase/Auth'
     pod 'Firebase/Storage'
+    pod 'Firebase/Firestore'
   end
 
  

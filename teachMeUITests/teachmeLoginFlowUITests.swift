@@ -41,6 +41,15 @@ class teachmeLoginFlowUITests : XCTestCase {
     
 //    func testCreateAccountBtnPressed_ShouldChangetoProfileVC() {
 //        navigateToCreateAccountVC()
+//        let emailTextField = application.textFields["email2"]
+//        emailTextField.tap()
+//        var count = arc4random()
+//        emailTextField.typeText("rherrera12@test.com")
+//        let passwordTextField = application.secureTextFields["password2"]
+//        passwordTextField.tap()
+//        passwordTextField.typeText("password")
+//        let teachMeLbl = application.staticTexts["teachme2"]
+//        teachMeLbl.tap()
 //        let originalCreateAccountBtn = application.buttons["createAccountBtnFromVC"]
 //        originalCreateAccountBtn.tap()
 //        let profileLbl = application.staticTexts["Profile"]
@@ -51,7 +60,7 @@ class teachmeLoginFlowUITests : XCTestCase {
 //        waitForExpectations(timeout: 5, handler: nil)
 //
 //    }
-//
+
 
     func navigateToCreateAccountVC() {
         let createAccountBtn = application.buttons["Don't Have an Account? Tap Here"]

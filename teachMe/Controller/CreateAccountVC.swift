@@ -14,7 +14,7 @@ class CreateAccountVC: UIViewController {
 
     var accountType:String = AccountType.Student.rawValue
     var createdUserSuccessfully = false
-    var gateway = AuthenticationGatewayFirebase()
+   // var gateway = AuthenticationGatewayFirebase(firAuth: <#T##Auth#>)
     
     @IBOutlet weak var createAccountBtn: UIButton!
     @IBOutlet weak var emailTxtField: UITextField!
@@ -31,13 +31,14 @@ class CreateAccountVC: UIViewController {
     
     @IBAction func createAccountBtn_WasPressed(_ sender: Any) {
         guard let email = emailTxtField.text , let password = passwordTxtField.text else { return }
-        gateway.register(email: email, password: password, accountType: accountType) { (registerResult) in
-            switch registerResult {
-            case .failure(_):
-                self.createdUserSuccessfully = false
-            case .success(_):
-                self.createdUserSuccessfully = true
-            }
-        }
+//        gateway.register(email: email, password: password, accountType: accountType) { (registerResult) in
+//            switch registerResult {
+//            case .failure(_):
+//                self.createdUserSuccessfully = false
+//            case .success(_):
+//                self.createdUserSuccessfully = true
+//
+//            }
+//        }
     }
 }

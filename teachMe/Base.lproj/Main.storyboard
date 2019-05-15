@@ -149,6 +149,7 @@
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEACH ME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2F-Eg-YEc">
                                         <rect key="frame" x="36" y="0.0" width="230.5" height="51"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="teachme2"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="40"/>
                                         <color key="textColor" red="1" green="0.99607843139999996" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -160,6 +161,7 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mvV-53-CgK" customClass="ChalkBoardTextField" customModule="teachMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="26"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="email2"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="350" id="b9K-uH-Wcr"/>
                                         </constraints>
@@ -176,6 +178,7 @@
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ejc-1f-PYD" customClass="ChalkBoardTextField" customModule="teachMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="48" width="350" height="26"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="password2"/>
                                         <color key="textColor" red="1" green="0.99607843139999996" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -277,10 +280,10 @@
             </objects>
             <point key="canvasLocation" x="708.69565217391312" y="30.803571428571427"/>
         </scene>
-        <!--View Controller-->
+        <!--Item-->
         <scene sceneID="p2i-2Y-BMc">
             <objects>
-                <viewController storyboardIdentifier="ProfileVC" id="zpx-oI-TDT" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileVC" id="zpx-oI-TDT" customClass="ProfileVC" customModule="teachMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ydg-4H-KWk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -300,10 +303,28 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="U1x-ZL-1rB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e1T-Io-HsC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1411.5942028985507" y="30.803571428571427"/>
+            <point key="canvasLocation" x="2320.289855072464" y="30.803571428571427"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="ahU-AE-mbA">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="l46-DO-oOq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0qH-hY-GdC">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="zpx-oI-TDT" kind="relationship" relationship="viewControllers" id="9gj-LU-r2W"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g1l-4I-um5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1410.144927536232" y="30.803571428571427"/>
         </scene>
     </scenes>
     <resources>
