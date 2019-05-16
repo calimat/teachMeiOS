@@ -29,7 +29,7 @@ class FirebaseIntegrationTests: XCTestCase {
         
     }
     
-    func testRegisterNewUserAtFirebaseReturnTheUserTroughtResultHandler() {
+    func disabletestRegisterNewUserAtFirebaseReturnTheUserTroughtResultHandler() {
         let longRunningExpectation = expectation(description: "RegisterNewUser")
         var authenticationError: AuthenticationError?
         var createdUser: UserEntity?
@@ -47,7 +47,7 @@ class FirebaseIntegrationTests: XCTestCase {
                     
                     longRunningExpectation.fulfill()
                 } else {
-                    debugPrint(error?.localizedDescription)
+                    debugPrint(error?.localizedDescription ?? "<#default value#>")
                 }
             })
         }
