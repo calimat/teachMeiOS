@@ -11,7 +11,7 @@ class FirebaseIntegrationTests: XCTestCase {
         return Auth.auth()
     }()
     private var fireStore: Firestore = {
-        if FirebaseApp.app() == nil { FirebaseApp.configure() }
+       // if FirebaseApp.app() == nil { FirebaseApp.configure() }
         return Firestore.firestore()
     }()
     
@@ -29,7 +29,7 @@ class FirebaseIntegrationTests: XCTestCase {
         
     }
     
-    func disabletestRegisterNewUserAtFirebaseReturnTheUserTroughtResultHandler() {
+    func testRegisterNewUserAtFirebaseReturnTheUserTroughtResultHandler() {
         let longRunningExpectation = expectation(description: "RegisterNewUser")
         var authenticationError: AuthenticationError?
         var createdUser: UserEntity?
