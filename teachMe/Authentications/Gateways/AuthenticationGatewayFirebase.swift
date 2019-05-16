@@ -7,7 +7,7 @@ struct AuthenticationGatewayFirebase : AuthenticationGateway {
     private let fireStore: Firestore
     
     init(firAuth: Auth, fireStore: Firestore) {
-        FirebaseApp.configure()
+       // FirebaseApp.configure()
         self.firAuth = firAuth
         self.fireStore = fireStore
     }
