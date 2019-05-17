@@ -1,5 +1,5 @@
 app_identifier("petitcoding.com.teachMe") # The bundle identifier of your app
-apple_id("rherrerapetit@hotmail.com") # Your Apple email address
+apple_id("cardinat32@gmail.com") # Your Apple email address
 
 itc_team_id("119110548") # iTunes Connect Team ID
 team_id("AMLYNCKP6M") # Developer Portal Team ID
