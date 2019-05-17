@@ -8,4 +8,4 @@ before_install:
 - pod install
 script:
 - fastlane scan --workspace "teachMe.xcworkspace" --scheme "teachMe" --device "iPhone X" --clean
-- fastlane beta
+- fastlane pilot upload
