@@ -18,9 +18,6 @@ default_platform(:ios)
 
 
 platform :ios do
-  before_all do
-    ENV["FASTLANE_PASSWORD"] = "HeladosMagicos123"
-  end
   desc "Push a new beta build to TestFlight"
   lane :beta do
     sync_code_signing(type: "appstore")
