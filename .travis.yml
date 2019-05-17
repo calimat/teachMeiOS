@@ -10,6 +10,6 @@ before_install:
 script:
 - fastlane scan --workspace "teachMe.xcworkspace" --scheme "teachMe" --device "iPhone X" --clean
 - fastlane beta
-- fastlane gym --workspace "teachMe.xcworkspace" --scheme "teachMe" --clean
+#- fastlane gym --workspace "teachMe.xcworkspace" --scheme "teachMe" --clean
 after_success:
 - fastlane pilot upload
