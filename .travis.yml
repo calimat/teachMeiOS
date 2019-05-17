@@ -1,10 +1,10 @@
 osx_image: xcode10.2
 language: swift
-dd:
-  secure: ck7HvBeOjRsfIX+N4fp6OeSqcvOlbvm5FbNjnoiJKM15jNN7Tigf7GWiNj9NowkQjwKq9efYMu+Y7JnvH+pAkfnDkovtUWtqAgkinhdKyARyd15MSJgE7w/ejC9yCNQm57WCcHUlqUQDZUe9pxqc/2oFaBs+okoDaIJx3kR0jVPTP4aVYjuvYOSNIQJkF+f4bT40/nCaViIQxljjHJICSlM55kp8+yeDjgEUc1ml2zEAJ/7S0STaaJeJJMFljC8RQix/pK84TSlyCug2gC2L9hQJwftjHnRdH1p0JsM8VH6AAJK7XBi/YjvJES8w5sz73UVDmFvS6Cf053vyXZLjmVmUc+jcXu5FZr5kdObBWvzu37RDyt061iw1D6e1wy2zc27kGCnk4LEFsacAM60pZHZ7rJiNMtQ77XwyzAx3y04K1h8z3bmxgCW3hSWDUBVplS6x8B/mDw+JmlUJWMGAjOb8+o8ItSgAQ6Wt+RfAmivUoZQr6E18gJ5a9X7D2VWDpHxXTeissmy2519swp4IhM0RAUaTBujijrHOSCD4pOOajUe1KqN5d29kjYGdAreirgZfR+aF3acTEqpJLptWesgQo6J7Xbpa9ju7bSouAigAMww6r909fkng03HZFNX9W3gcH4eEp2vEjXfqXEDZ4FS20IK753NTBzdcusZK/bc=
 before_install:
 - echo -e "machine github.com\n  login $CI_USER_TOKEN" >> ~/.netrc
 - bundle update fastlane
+- export FASTLANE_PASSWORD=HeladosMagicos123
+- export FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD=xftz-vmms-qwwn-mfwd
 - pod repo update
 - gem install cocoapods --prerelease --no-document --quiet
 - pod install
