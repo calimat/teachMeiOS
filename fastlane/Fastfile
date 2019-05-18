@@ -19,7 +19,7 @@ platform :ios do
   desc "Build App to testflight"
   lane :beta do
   setup_travis
-  xcversion(version: "10.2")
+  #xcversion(version: "10.2")
   increment_build_number(
     build_number: latest_testflight_build_number + 1
   )
