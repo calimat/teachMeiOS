@@ -1,4 +1,4 @@
-git_url("https://d323004a64abe467cdedf57e64df64f30de282abggithub.com:calimat/teachMeCertificates.git")
+git_url("https://d323004a64abe467cdedf57e64df64f30de282ab@github.com:calimat/teachMeCertificates.git")
 
 storage_mode("git")
 
