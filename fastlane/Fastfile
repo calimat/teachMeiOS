@@ -54,15 +54,18 @@ platform :ios do
           )
 
           disable_automatic_code_signing(code_sign_identity: 'iPhone Distribution')
-          sync_code_signing
+          sync_code_signing(type: "appstore")
           update_project_provisioning(profile: ENV['sigh_petitcoding.com.teachMe_appstore_profile-path'])
-
+          enable_automatic_code_signing
       # Build the application using the
       # specified scheme.
       build_app(scheme: "teachMe")
 
       # Upload the application to Testflight
-      upload_to_testflight
+      upload_to_testflight(
+        skip_waiting_for_build_processing: true
+      )
+
 
     # Remove the temporary keychain leaving
     # no trace.
