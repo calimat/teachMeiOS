@@ -11,7 +11,7 @@
 #
 
 # Uncomment the line if you want fastlane to automatically update itself
-# update_fastlane
+# update_fastlanes
 
 default_platform(:ios)
 
@@ -22,9 +22,11 @@ platform :ios do
     build_number: latest_testflight_build_number + 1
   )
   setup_travis
-  match(type: "appstore", readonly: true)
+#  match(type: "appstore", readonly: true)
   # Build and deploy to TestFlight
-  build_app(export_method: "app-store")
+  #build_app(export_method: "app-store")
+  build_app(export_method: "app-store",
+            export_xcargs: "-allowProvisioningUpdates")
   upload_to_testflight
   end
 end
