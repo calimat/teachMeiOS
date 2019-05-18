@@ -1,7 +1,8 @@
 git_url("https://github.com/calimat/teachMeCertificates.git")
 
 storage_mode("git")
-#https://d323004a64abe467cdedf57e64df64f30de282ab@github.com:calimat/teachMeCertificates.git
+#https://d323004a64abe467cdedf57e64df64f30de282ab@github.com/teachMeCertificates.git
+
 type("development") # The default type, can be: appstore, adhoc, enterprise or development
 
 # app_identifier(["tools.fastlane.app", "tools.fastlane.app2"])
