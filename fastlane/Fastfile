@@ -11,7 +11,7 @@
 #
 
 # Uncomment the line if you want fastlane to automatically update itself
-# update_fastlanes
+ update_fastlanes
 
 default_platform(:ios)
 
