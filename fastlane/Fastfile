@@ -72,6 +72,6 @@ platform :ios do
     delete_keychain(
       name: keychain_name
     )
-    
+
   end
 end
