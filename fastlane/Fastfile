@@ -24,7 +24,12 @@ platform :ios do
     build_number: latest_testflight_build_number + 1
   )
 
-  match(type: "appstore", readonly: true)
+#  match(type: "appstore", readonly: true)
+  sync_code_signing
+  disable_automatic_code_signing(path: "teachMe.xcworkspace")
+  build_app
+#  enable_automatic_code_signing(path: "my_project.xcodeproj")
+  upload_to_testflight
   # Build and deploy to TestFlight
   #build_app(export_method: "app-store")
 #  build_app(export_method: "app-store")
