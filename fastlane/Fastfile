@@ -55,7 +55,7 @@ platform :ios do
 
           disable_automatic_code_signing(code_sign_identity: 'iPhone Distribution')
           sync_code_signing
-        #  update_project_provisioning(profile: ENV['sigh_com.companyname.appname_appstore_profile-path'])
+          update_project_provisioning(profile: ENV['sigh_petitcoding.com.teachMe_appstore_profile-path'])
 
       # Build the application using the
       # specified scheme.
@@ -64,7 +64,7 @@ platform :ios do
       # Upload the application to Testflight
       upload_to_testflight
 
-      # Remove the temporary keychain leaving
+    # Remove the temporary keychain leaving
     # no trace.
     delete_keychain(
       name: keychain_name
