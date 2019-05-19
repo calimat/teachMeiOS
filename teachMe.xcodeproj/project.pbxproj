@@ -34,6 +34,7 @@
 		F693BDB9227FA7F200B83944 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693BDB8227FA7F200B83944 /* CreateAccountVC.swift */; };
 		F693BDD5227FB2F400B83944 /* teachmeLoginFlowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693BDD4227FB2F400B83944 /* teachmeLoginFlowUITests.swift */; };
 		F6D65945228A67F400CF6ABE /* IntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D65944228A67F400CF6ABE /* IntegrationTests.swift */; };
+		F6D659492290DDC800CF6ABE /* MainTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D659482290DDC800CF6ABE /* MainTabBarVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		F693BDCF227FB2DB00B83944 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F693BDD4227FB2F400B83944 /* teachmeLoginFlowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = teachmeLoginFlowUITests.swift; sourceTree = "<group>"; };
 		F6D65944228A67F400CF6ABE /* IntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationTests.swift; sourceTree = "<group>"; };
+		F6D659482290DDC800CF6ABE /* MainTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				F6392F2220B1D98A00973418 /* LoginVC.swift */,
 				F693BDB8227FA7F200B83944 /* CreateAccountVC.swift */,
 				F650265422892770007D0B17 /* ProfileVC.swift */,
+				F6D659482290DDC800CF6ABE /* MainTabBarVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -564,6 +567,7 @@
 				F650265522892770007D0B17 /* ProfileVC.swift in Sources */,
 				F6502648228795D3007D0B17 /* AuthenticationGateway.swift in Sources */,
 				F650264F228880FE007D0B17 /* AuthenticationGatewayFirebase.swift in Sources */,
+				F6D659492290DDC800CF6ABE /* MainTabBarVC.swift in Sources */,
 				F693BDB7227EBE1400B83944 /* ChalkBoardTextField.swift in Sources */,
 				F650264D228875BF007D0B17 /* AccountType.swift in Sources */,
 			);

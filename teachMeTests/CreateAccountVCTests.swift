@@ -38,7 +38,6 @@ class CreateAccountVCTests : XCTestCase {
         XCTAssertNotNil(sut.accountType)
     }
     
-    
    
 
 }

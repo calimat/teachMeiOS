@@ -47,7 +47,7 @@ class FirebaseIntegrationTests: XCTestCase {
                     
                     longRunningExpectation.fulfill()
                 } else {
-                    debugPrint(error?.localizedDescription ?? "<#default value#>")
+                    debugPrint(error?.localizedDescription ?? "Unkown Error")
                 }
             })
         }
