@@ -38,7 +38,10 @@ class CreateAccountVCTests : XCTestCase {
         XCTAssertNotNil(sut.accountType)
     }
     
+    func test_HasErrorLbl() {
+        XCTAssertNotNil(sut.errorLbl)
+        XCTAssertTrue(sut.errorLbl.isHidden)
+    }
     
    
-
 }

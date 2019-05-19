@@ -253,6 +253,13 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHe-Kl-UBq">
+                                <rect key="frame" x="20" y="403" width="374" height="30.5"/>
+                                <accessibility key="accessibilityConfiguration" label="createAccountErrorLbl"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="24"/>
+                                <color key="textColor" red="0.90980392160000001" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.050980392156862744" green="0.22352941176470587" blue="0.039215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -261,18 +268,22 @@
                             <constraint firstItem="St4-fs-81P" firstAttribute="leading" secondItem="4RS-DA-NMB" secondAttribute="leading" id="Xnf-dF-RHJ"/>
                             <constraint firstItem="4RS-DA-NMB" firstAttribute="bottom" secondItem="St4-fs-81P" secondAttribute="bottom" id="ZN7-ol-TG5"/>
                             <constraint firstItem="65D-10-oAi" firstAttribute="centerX" secondItem="iy7-wV-PmT" secondAttribute="centerX" id="ZtL-IF-nmw"/>
+                            <constraint firstItem="IHe-Kl-UBq" firstAttribute="leading" secondItem="4RS-DA-NMB" secondAttribute="leading" constant="20" id="ahg-GL-dOS"/>
                             <constraint firstItem="fC1-uG-86x" firstAttribute="centerX" secondItem="iy7-wV-PmT" secondAttribute="centerX" id="bou-Zh-a6U"/>
+                            <constraint firstItem="IHe-Kl-UBq" firstAttribute="top" secondItem="K25-Is-QQI" secondAttribute="bottom" constant="20" id="d1i-Ra-q17"/>
                             <constraint firstItem="K25-Is-QQI" firstAttribute="centerX" secondItem="iy7-wV-PmT" secondAttribute="centerX" id="f7x-7D-W4J"/>
                             <constraint firstItem="O46-uo-Qv9" firstAttribute="centerX" secondItem="iy7-wV-PmT" secondAttribute="centerX" constant="-20.25" id="irv-3X-8gi"/>
                             <constraint firstItem="K25-Is-QQI" firstAttribute="top" secondItem="fC1-uG-86x" secondAttribute="bottom" constant="40" id="jO2-7Q-8eC"/>
                             <constraint firstItem="O46-uo-Qv9" firstAttribute="top" secondItem="4RS-DA-NMB" secondAttribute="top" constant="21" id="jrZ-lL-zeU"/>
                             <constraint firstItem="fC1-uG-86x" firstAttribute="top" secondItem="65D-10-oAi" secondAttribute="bottom" constant="20" id="orE-Pa-TYR"/>
+                            <constraint firstItem="4RS-DA-NMB" firstAttribute="trailing" secondItem="IHe-Kl-UBq" secondAttribute="trailing" constant="20" id="wkz-lM-Xzn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4RS-DA-NMB"/>
                     </view>
                     <connections>
                         <outlet property="createAccountBtn" destination="St4-fs-81P" id="SD0-yd-lvS"/>
                         <outlet property="emailTxtField" destination="mvV-53-CgK" id="iIs-qm-tvm"/>
+                        <outlet property="errorLbl" destination="IHe-Kl-UBq" id="Kr9-rh-LfZ"/>
                         <outlet property="passwordTxtField" destination="ejc-1f-PYD" id="YEf-jG-JmT"/>
                     </connections>
                 </viewController>
@@ -309,12 +320,13 @@
             </objects>
             <point key="canvasLocation" x="2320.289855072464" y="30.803571428571427"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab BarVC-->
         <scene sceneID="ahU-AE-mbA">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="l46-DO-oOq" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBarVC" automaticallyAdjustsScrollViewInsets="NO" id="l46-DO-oOq" customClass="MainTabBarVC" customModule="teachMe" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0qH-hY-GdC">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
