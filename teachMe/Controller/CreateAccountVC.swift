@@ -20,6 +20,7 @@ class CreateAccountVC: UIViewController {
     @IBOutlet weak var createAccountBtn: UIButton!
     @IBOutlet weak var emailTxtField: UITextField!
     @IBOutlet weak var passwordTxtField: UITextField!
+    @IBOutlet weak var errorLbl:UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +41,8 @@ class CreateAccountVC: UIViewController {
                 self.present(profileVC, animated: true, completion: nil)
                 break
             case .failure(let error): authenticationError = error
+            self.errorLbl.isHidden = false
+            self.errorLbl.text = String(describing:error)
                 break
             }
         }
