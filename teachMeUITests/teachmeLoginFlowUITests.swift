@@ -39,7 +39,7 @@ class teachmeLoginFlowUITests : XCTestCase {
         XCTAssertTrue(application.buttons["Don't Have an Account? Tap Here"].exists)
     }
     
-    func testCreateAccountBtnPressed_ShouldChangetoProfileVC() {
+    func testCreateAccountBtnPressedWithSameUser_ShouldDisplayErrorLabel() {
         navigateToCreateAccountVC()
         let emailTextField = application.textFields["email2"]
         emailTextField.tap()
@@ -47,6 +47,7 @@ class teachmeLoginFlowUITests : XCTestCase {
         let passwordTextField = application.secureTextFields["password2"]
         passwordTextField.tap()
         passwordTextField.typeText("testing")
+        
         let teachMeLbl = application.staticTexts["teachme2"]
         teachMeLbl.tap()
         let originalCreateAccountBtn = application.buttons["createAccountBtnFromVC"]
