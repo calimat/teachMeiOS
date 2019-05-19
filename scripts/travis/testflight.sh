@@ -7,5 +7,4 @@ if [[ "$TRAVIS_BRANCH" != "development" ]]; then
 echo "Testing on a branch other than development. No deployment will be done."
 exit 0
 fi
-echo "Should run"
-#fastlane beta
+fastlane beta
