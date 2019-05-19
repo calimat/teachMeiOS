@@ -11,7 +11,7 @@ script:
 - fastlane scan --workspace "teachMe.xcworkspace" --scheme "teachMe" --device "iPhone
   X" --clean
 after_success:
-- fastlane beta
+- ./scripts/travis/testflight.sh
 notifications:
   slack:
     secure: fMLZNdOEPluW7+8clA5Qro4fIxEYLl7ovX9/mvrW5niSJeq9jSMDKIuSYWB6EBFD76VbI3iNKQfOP/fICq5S+fAzUkKhEV3djPCyPPTtD23YsQTDQ0SZmo7x8P7XUMz3kPMRttqKBmbgZ0QxKR/1KNH5QNW99LOfDtJNVy2EEraU+af+eAWVN6G5eHCPVoeaJhsU4LDYhRAw0EhUgJ75c7cmhW7Iy4xtX8/1uNilsZldnTbwVPuXenoJvoH7WQny6ycoN1jg6YIu4FhE38BxIcdWyDNt5NsK6meIT8WIB8tbhjxzPoTescWrj8d8MlKlmalhpPunMMJJJtP+Ud/vwMBAPDovV4acOEsJRhyCLbbgAmg+W9CKbqkBiqdFatcfhOn3sndpCjSXTQJzFgVFhhyF3P1fFTcJURj0qU4c2d0YfAUfQa0JzGgxe0LiQlvsMPnYk1D7LdM3NM05U3C6XjD8ta/Atzizk+Bkj6P7nxuzWJVaQAyyV3pniaJoUlZIYgFWpRQn0ESTLJe5ywoHtkmqczeMOJzzOqXi4bY+6NCSbJfmIesx1vmIOFMnZmARG9VQuMePlez2b69lgIkbTYVxUQQas0elQCMV/ShoDT9cfJkmZyFDQq+r/eIFF8/UVzSnhk7fftrzPdy5JIM405kSVjV4qoJlEehIAOigZr4=
