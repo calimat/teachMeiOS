@@ -1,5 +1,10 @@
 #!/bin/sh
 if [[ "$TRAVIS_PULL_REQUEST" != "false" AND "$TRAVIS_BRANCH" == "development" ]]; then
-echo "Pull request on a development branch. Uploading to testflight"
-fastlane beta
+echo "This is a pull request. No deployment will be done."
+exit 0
 fi
+if [[ "$TRAVIS_BRANCH" != "master" ]]; then
+echo "Testing on a branch other than master. No deployment will be done."
+exit 0
+fi
+fastlane beta
