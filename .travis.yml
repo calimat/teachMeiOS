@@ -10,6 +10,7 @@ before_install:
 script:
 - fastlane scan --workspace "teachMe.xcworkspace" --scheme "teachMe" --device "iPhone
   X" --clean
+after_success:
 - ./scripts/travis/testflight.sh
 notifications:
   slack:
