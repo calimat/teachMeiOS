@@ -25,6 +25,9 @@ class AuthenticationGatewayStub : AuthenticationGateway {
         completion(registerResult)
     }
 
+    func login(email: String, password: String, completion: @escaping (Bool, AuthenticationError?) -> Void) {
+        //Optional
+    }
     
     func failure(error: AuthenticationError) {
         registeredUser = nil

@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import Firebase
 
 
 class LoginVC: UIViewController {
 
-   
+     var gateway = AuthenticationGatewayFirebase(firAuth: Auth.auth(), fireStore: Firestore.firestore())
     
     @IBOutlet weak var emailTextField: ChalkBoardTextField!
     @IBOutlet weak var passwordTxtField: ChalkBoardTextField!
@@ -21,19 +22,22 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginVC.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-        
+        self.hideKeyboardWhenTappedAround()
     }
     
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
     
     @IBAction func loginBtn_Pressed(_ sender: Any) {
         errorLbl.isHidden = false
         validadeInputs()
-        
+        gateway.login(email: emailTextField.text!, password: passwordTxtField.text!) { (success, error) in
+            if let authError = error {
+                //ui test for this
+            } else {
+                if let mainTabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarVC") as? MainTabBarVC {
+                    self.present(mainTabBarVC, animated: true, completion: nil)
+                }
+            }
+        }
     }
     
     func validadeInputs() {

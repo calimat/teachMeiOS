@@ -21,6 +21,7 @@ class teachmeLoginFlowUITests : XCTestCase {
     }
     
     override func tearDown() {
+        
         application = nil
     }
     
@@ -58,6 +59,33 @@ class teachmeLoginFlowUITests : XCTestCase {
         expectation(for: exists, evaluatedWith: errorLbl, handler: nil)
         waitForExpectations(timeout: 5, handler: nil)
          XCTAssert(errorLbl.exists)
+    }
+    
+    func test_LoginWithValidCredentials_ShouldDisplaySecondScreen() {
+        let emailTextField = application.textFields["email"]
+        emailTextField.tap()
+        emailTextField.typeText("studentmaster@test.com")
+        let passwordTextField = application.secureTextFields["password"]
+        passwordTextField.tap()
+        passwordTextField.typeText("testing")
+        
+        let teachMeLbl = application.staticTexts["teachMe"]
+        teachMeLbl.tap()
+        
+        let loginButton = application.buttons["loginBtn"]
+        loginButton.tap()
+        
+        let profileLbl = application.staticTexts["profileLbl"]
+        
+        let exists = NSPredicate(format: "exists == true")
+        expectation(for: exists, evaluatedWith: profileLbl, handler: nil)
+        waitForExpectations(timeout: 5) { _ in
+            XCTAssert(profileLbl.exists)
+            //click logoutbutton
+          let logoutBtn = self.application.buttons["logoutBtn"]
+           logoutBtn.tap()
+        }
+        
     }
 
 
