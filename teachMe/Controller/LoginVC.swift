@@ -21,14 +21,9 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginVC.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-        
+        self.hideKeyboardWhenTappedAround()
     }
     
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
     
     @IBAction func loginBtn_Pressed(_ sender: Any) {
         errorLbl.isHidden = false

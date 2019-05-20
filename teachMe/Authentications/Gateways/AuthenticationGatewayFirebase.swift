@@ -30,16 +30,27 @@ struct AuthenticationGatewayFirebase : AuthenticationGateway {
         }
     }
     
-
-    func login(email:String, password: String, completion: @escaping (_ success:Bool)->()) {
-       firAuth.signIn(withEmail: email, password: password) { (authData, error) in
-            if error == nil {
-                completion(true)
+    func login(email: String, password: String, completion: @escaping (Bool, AuthenticationError?) -> Void) {
+        firAuth.signIn(withEmail: email, password: password) { (authResult, error) in
+            if let authError = error {
+                completion(false,AuthenticationError(rawvalue: authError._code))
             } else {
-                completion(false)
+                debugPrint(authResult)
+                debugPrint(error)
+                completion(true,nil)
             }
         }
     }
+    
+//    func login(email:String, password: String, completion: @escaping (_ success:Bool)->()) {
+//       firAuth.signIn(withEmail: email, password: password) { (authData, error) in
+//            if error == nil {
+//                completion(true)
+//            } else {
+//                completion(false)
+//            }
+//        }
+//    }
     
     private func createUser(authData: AuthDataResult?, email: String, accountType:String,
                             completion: @escaping ((Result<UserEntity, AuthenticationError>) -> Void)) {

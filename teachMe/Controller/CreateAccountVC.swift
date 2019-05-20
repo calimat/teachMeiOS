@@ -24,14 +24,8 @@ class CreateAccountVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CreateAccountVC.dismissKeyboard))
-        view.addGestureRecognizer(tap)
+        self.hideKeyboardWhenTappedAround()
     }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
-
     
     @IBAction func backBtnPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -39,15 +33,22 @@ class CreateAccountVC: UIViewController {
     }
     
     @IBAction func createAccountBtn_WasPressed(_ sender: Any) {
-        var authenticationError: AuthenticationError?
         guard let email = emailTxtField.text , let password = passwordTxtField.text else { return }
+        
         self.gateway.register(email: email, password: password, accountType: accountType) { (result) in
             switch result {
             case .success(_) :
-                guard let profileVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarVC") as? MainTabBarVC else { return }
-                self.present(profileVC, animated: true, completion: nil)
+                self.gateway.login(email: email, password: password, completion: { (success, error) in
+                    if let authError = error {
+                        self.errorLbl.isHidden = false
+                        self.errorLbl.text = String(describing: authError)
+                    } else {
+                        guard let profileVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarVC") as? MainTabBarVC else { return }
+                        self.present(profileVC, animated: true, completion: nil)
+                    }
+                })
                 break
-            case .failure(let error): authenticationError = error
+            case .failure(let error):
             self.errorLbl.isHidden = false
             self.errorLbl.text = String(describing:error)
                 break

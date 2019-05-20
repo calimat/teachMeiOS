@@ -35,6 +35,7 @@
 		F693BDD5227FB2F400B83944 /* teachmeLoginFlowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693BDD4227FB2F400B83944 /* teachmeLoginFlowUITests.swift */; };
 		F6D65945228A67F400CF6ABE /* IntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D65944228A67F400CF6ABE /* IntegrationTests.swift */; };
 		F6D659492290DDC800CF6ABE /* MainTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D659482290DDC800CF6ABE /* MainTabBarVC.swift */; };
+		F6D6594B2291BBD900CF6ABE /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D6594A2291BBD900CF6ABE /* UIViewControllerExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		F693BDD4227FB2F400B83944 /* teachmeLoginFlowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = teachmeLoginFlowUITests.swift; sourceTree = "<group>"; };
 		F6D65944228A67F400CF6ABE /* IntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationTests.swift; sourceTree = "<group>"; };
 		F6D659482290DDC800CF6ABE /* MainTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVC.swift; sourceTree = "<group>"; };
+		F6D6594A2291BBD900CF6ABE /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 		F6392F1F20B1D98A00973418 /* teachMe */ = {
 			isa = PBXGroup;
 			children = (
+				F6D6594C2291BBE800CF6ABE /* Extensions */,
 				F650264B228875AD007D0B17 /* Enumerations */,
 				F650263022874C0E007D0B17 /* Constants */,
 				F650262822869009007D0B17 /* Authentications */,
@@ -315,6 +318,14 @@
 				F6D65944228A67F400CF6ABE /* IntegrationTests.swift */,
 			);
 			path = Firebase;
+			sourceTree = "<group>";
+		};
+		F6D6594C2291BBE800CF6ABE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F6D6594A2291BBD900CF6ABE /* UIViewControllerExt.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -561,6 +572,7 @@
 				F6392F2920B1D98A00973418 /* teachMe.xcdatamodeld in Sources */,
 				F650264A22879612007D0B17 /* UserEntity.swift in Sources */,
 				F650262B2286901A007D0B17 /* AuthenticationError.swift in Sources */,
+				F6D6594B2291BBD900CF6ABE /* UIViewControllerExt.swift in Sources */,
 				F693BDB9227FA7F200B83944 /* CreateAccountVC.swift in Sources */,
 				F650263222874C1B007D0B17 /* Constants.swift in Sources */,
 				F6392F2120B1D98A00973418 /* AppDelegate.swift in Sources */,
