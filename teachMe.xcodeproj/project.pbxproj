@@ -36,6 +36,7 @@
 		F6D65945228A67F400CF6ABE /* IntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D65944228A67F400CF6ABE /* IntegrationTests.swift */; };
 		F6D659492290DDC800CF6ABE /* MainTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D659482290DDC800CF6ABE /* MainTabBarVC.swift */; };
 		F6D6594B2291BBD900CF6ABE /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D6594A2291BBD900CF6ABE /* UIViewControllerExt.swift */; };
+		F6D6594E22925E1000CF6ABE /* ProfileVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D6594D22925E1000CF6ABE /* ProfileVCTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		F6D65944228A67F400CF6ABE /* IntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationTests.swift; sourceTree = "<group>"; };
 		F6D659482290DDC800CF6ABE /* MainTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVC.swift; sourceTree = "<group>"; };
 		F6D6594A2291BBD900CF6ABE /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
+		F6D6594D22925E1000CF6ABE /* ProfileVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVCTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +281,7 @@
 				F6D65942228A67D500CF6ABE /* IntegrationTests */,
 				F65026432287913E007D0B17 /* Doubles */,
 				F669856E2103FE1B0004CC7F /* Info.plist */,
+				F6D6594D22925E1000CF6ABE /* ProfileVCTests.swift */,
 				F6698588211682430004CC7F /* LoginVCTests.swift */,
 				F650262622868FE2007D0B17 /* AuthenticationErrorTests.swift */,
 				F650263E22878D06007D0B17 /* RegisterUserUseCaseTests.swift */,
@@ -593,6 +596,7 @@
 				F650263F22878D06007D0B17 /* RegisterUserUseCaseTests.swift in Sources */,
 				F6698589211682430004CC7F /* LoginVCTests.swift in Sources */,
 				F650264522879155007D0B17 /* AuthenticationGatewayStub.swift in Sources */,
+				F6D6594E22925E1000CF6ABE /* ProfileVCTests.swift in Sources */,
 				F650265122888CC4007D0B17 /* CreateAccountVCTests.swift in Sources */,
 				F65026532289223D007D0B17 /* RegisterUserPresenterStub.swift in Sources */,
 				F650262722868FE2007D0B17 /* AuthenticationErrorTests.swift in Sources */,
