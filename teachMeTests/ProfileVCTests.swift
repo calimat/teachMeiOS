@@ -26,6 +26,10 @@ class ProfileVCTests: XCTestCase {
         XCTAssertNotNil(sut.logoutBtn)
     }
 
+    func test_LogoutBtn_ShouldSayLogout() {
+        XCTAssertEqual(sut.logoutBtn.titleLabel?.text,
+                       "Logout")
+    }
    
 
 }
