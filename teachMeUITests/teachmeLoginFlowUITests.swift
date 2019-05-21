@@ -42,17 +42,8 @@ class teachmeLoginFlowUITests : XCTestCase {
     
     func testCreateAccountBtnPressedWithSameUser_ShouldDisplayErrorLabel() {
         navigateToCreateAccountVC()
-        let emailTextField = application.textFields["email2"]
-        emailTextField.tap()
-        emailTextField.typeText("studentmaster@test.com")
-        let passwordTextField = application.secureTextFields["password2"]
-        passwordTextField.tap()
-        passwordTextField.typeText("testing")
+        completeFieldsForRegistration(for:"createAccountBtnFromVC" )
         
-        let teachMeLbl = application.staticTexts["teachme2"]
-        teachMeLbl.tap()
-        let originalCreateAccountBtn = application.buttons["createAccountBtnFromVC"]
-        originalCreateAccountBtn.tap()
         let errorLbl = application.staticTexts["createAccountErrorLbl"]
         
         let exists = NSPredicate(format: "exists == true")
@@ -62,18 +53,7 @@ class teachmeLoginFlowUITests : XCTestCase {
     }
     
     func test_LoginWithValidCredentials_ShouldDisplaySecondScreen() {
-        let emailTextField = application.textFields["email"]
-        emailTextField.tap()
-        emailTextField.typeText("studentmaster@test.com")
-        let passwordTextField = application.secureTextFields["password"]
-        passwordTextField.tap()
-        passwordTextField.typeText("testing")
-        
-        let teachMeLbl = application.staticTexts["teachMe"]
-        teachMeLbl.tap()
-        
-        let loginButton = application.buttons["loginBtn"]
-        loginButton.tap()
+       completeFieldsForRegistration(for: "loginBtn")
         
         let profileLbl = application.staticTexts["profileLbl"]
         
@@ -89,6 +69,20 @@ class teachmeLoginFlowUITests : XCTestCase {
     }
 
 
+    func completeFieldsForRegistration(for buttonId: String) {
+        let emailTextField = application.textFields["email"]
+        emailTextField.tap()
+        emailTextField.typeText("studentmaster@test.com")
+        let passwordTextField = application.secureTextFields["password"]
+        passwordTextField.tap()
+        passwordTextField.typeText("testing")
+        
+        let teachMeLbl = application.staticTexts["teachme"]
+        teachMeLbl.tap()
+        let actionButton = application.buttons[buttonId]
+        actionButton.tap()
+    }
+    
     func navigateToCreateAccountVC() {
         let createAccountBtn = application.buttons["Don't Have an Account? Tap Here"]
         createAccountBtn.tap()

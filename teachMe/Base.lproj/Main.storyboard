@@ -35,7 +35,7 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEACH ME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hmk-Nf-Bgh">
                                 <rect key="frame" x="92" y="64" width="230.5" height="51"/>
-                                <accessibility key="accessibilityConfiguration" label="teachMe"/>
+                                <accessibility key="accessibilityConfiguration" label="teachme"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="40"/>
                                 <color key="textColor" red="1" green="0.99607843139999996" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -151,7 +151,7 @@
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEACH ME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2F-Eg-YEc">
                                         <rect key="frame" x="36" y="0.0" width="230.5" height="51"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="teachme2"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="teachme"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="40"/>
                                         <color key="textColor" red="1" green="0.99607843139999996" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -163,7 +163,7 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mvV-53-CgK" customClass="ChalkBoardTextField" customModule="teachMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="26"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="email2"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="email"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="350" id="b9K-uH-Wcr"/>
                                         </constraints>
@@ -180,7 +180,7 @@
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ejc-1f-PYD" customClass="ChalkBoardTextField" customModule="teachMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="48" width="350" height="26"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="password2"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="password"/>
                                         <color key="textColor" red="1" green="0.99607843139999996" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
