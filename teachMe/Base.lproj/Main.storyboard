@@ -35,7 +35,7 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEACH ME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hmk-Nf-Bgh">
                                 <rect key="frame" x="92" y="64" width="230.5" height="51"/>
-                                <accessibility key="accessibilityConfiguration" label="teachMe"/>
+                                <accessibility key="accessibilityConfiguration" label="teachme"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="40"/>
                                 <color key="textColor" red="1" green="0.99607843139999996" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -139,10 +139,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="O46-uo-Qv9">
-                                <rect key="frame" x="53.5" y="65" width="266.5" height="51"/>
+                                <rect key="frame" x="40" y="65" width="293.5" height="51"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wOJ-2Z-JVv">
-                                        <rect key="frame" x="0.0" y="0.0" width="16" height="51"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="43" height="51"/>
                                         <accessibility key="accessibilityConfiguration" identifier="backBtnToLoginVC"/>
                                         <state key="normal" image="backArrow"/>
                                         <connections>
@@ -150,8 +150,8 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEACH ME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2F-Eg-YEc">
-                                        <rect key="frame" x="36" y="0.0" width="230.5" height="51"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="teachme2"/>
+                                        <rect key="frame" x="63" y="0.0" width="230.5" height="51"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="teachme"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="40"/>
                                         <color key="textColor" red="1" green="0.99607843139999996" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -163,7 +163,7 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mvV-53-CgK" customClass="ChalkBoardTextField" customModule="teachMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="26"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="email2"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="email"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="350" id="b9K-uH-Wcr"/>
                                         </constraints>
@@ -180,7 +180,7 @@
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ejc-1f-PYD" customClass="ChalkBoardTextField" customModule="teachMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="48" width="350" height="26"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="password2"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="password"/>
                                         <color key="textColor" red="1" green="0.99607843139999996" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -219,44 +219,50 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="K25-Is-QQI">
-                                <rect key="frame" x="124" y="333" width="166" height="50"/>
+                                <rect key="frame" x="23" y="333" width="368" height="130.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0Z8-Zi-12Z">
-                                        <rect key="frame" x="0.0" y="0.0" width="73" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="174" height="130.5"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="createAccountStudentIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Fnx-gH-yhh">
-                                                <rect key="frame" x="28.5" y="0.0" width="16" height="16"/>
-                                                <color key="tintColor" red="1" green="0.99607843139999996" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gK-c5-TdD">
-                                                <rect key="frame" x="0.0" y="16" width="73" height="34"/>
+                                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gK-c5-TdD" customClass="CenteredButton" customModule="teachMe" customModuleProvider="target">
+                                                <rect key="frame" x="9.5" y="0.0" width="155" height="130.5"/>
                                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
-                                                <state key="normal" title="Student">
-                                                    <color key="titleColor" red="1" green="0.99607843139999996" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Student" image="createAccountStudentIconOff">
+                                                    <color key="titleColor" red="0.078431372549019607" green="0.30196078431372547" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <state key="selected" image="createAccountStudentIcon">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="studentBtn_WasPressed:" destination="uxb-4I-XrM" eventType="touchUpInside" id="O88-x8-ZzO"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bv4-xk-taN">
-                                        <rect key="frame" x="93" y="0.0" width="73" height="50"/>
+                                        <rect key="frame" x="194" y="0.0" width="174" height="130.5"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="createAccountTutorImage" translatesAutoresizingMaskIntoConstraints="NO" id="c1o-4o-c3c">
-                                                <rect key="frame" x="0.0" y="0.0" width="73" height="16"/>
-                                                <color key="tintColor" red="0.078431372549019607" green="0.30196078431372547" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="te2-It-1tK">
-                                                <rect key="frame" x="0.0" y="16" width="73" height="34"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="te2-It-1tK" customClass="CenteredButton" customModule="teachMe" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="174" height="130.5"/>
                                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
-                                                <state key="normal" title="Tutor">
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Tutor" image="createAccountTutorImageOff">
                                                     <color key="titleColor" red="0.078431372549019607" green="0.30196078431372547" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <state key="selected" image="createAccountTutorImage">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="tutorBtn_WasPressed:" destination="uxb-4I-XrM" eventType="touchUpInside" id="x40-M0-iO8"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                             </stackView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHe-Kl-UBq">
-                                <rect key="frame" x="20" y="403" width="374" height="30.5"/>
+                                <rect key="frame" x="20" y="483.5" width="374" height="30.5"/>
                                 <accessibility key="accessibilityConfiguration" label="createAccountErrorLbl"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="24"/>
                                 <color key="textColor" red="0.90980392160000001" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -287,6 +293,8 @@
                         <outlet property="emailTxtField" destination="mvV-53-CgK" id="iIs-qm-tvm"/>
                         <outlet property="errorLbl" destination="IHe-Kl-UBq" id="Kr9-rh-LfZ"/>
                         <outlet property="passwordTxtField" destination="ejc-1f-PYD" id="YEf-jG-JmT"/>
+                        <outlet property="studentBtn" destination="0gK-c5-TdD" id="Sza-5i-4is"/>
+                        <outlet property="tutorBtn" destination="te2-It-1tK" id="BrX-qR-b1a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pe8-48-h9d" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -312,10 +320,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1v-X5-WK8">
-                                <rect key="frame" x="198" y="450" width="46" height="30"/>
+                                <rect key="frame" x="197" y="450" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration" label="logoutBtn"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Logout"/>
                                 <connections>
                                     <action selector="logoutBtn_WasPressed:" destination="zpx-oI-TDT" eventType="touchUpInside" id="Pzc-Gv-gx7"/>
                                 </connections>
@@ -358,7 +366,9 @@
     <resources>
         <image name="backArrow" width="43" height="33"/>
         <image name="createAccountStudentIcon" width="82" height="104"/>
-        <image name="createAccountTutorImage" width="122" height="103"/>
+        <image name="createAccountStudentIconOff" width="82" height="104"/>
+        <image name="createAccountTutorImage" width="122" height="104"/>
+        <image name="createAccountTutorImageOff" width="122" height="104"/>
         <image name="teachmeLogo" width="109" height="99"/>
     </resources>
 </document>

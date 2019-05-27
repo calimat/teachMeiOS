@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "createAccountTutorImage.png",
+      "filename" : "createAccountStudentIconOff.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "createAccountTutorImage@2x.png",
+      "filename" : "createAccountStudentIconOff@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "createAccountTutorImage@3x.png",
+      "filename" : "createAccountStudentIconOff@3x.png",
       "scale" : "3x"
     }
   ],

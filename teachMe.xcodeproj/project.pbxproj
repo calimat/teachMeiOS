@@ -28,6 +28,7 @@
 		F650265122888CC4007D0B17 /* CreateAccountVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F650265022888CC4007D0B17 /* CreateAccountVCTests.swift */; };
 		F65026532289223D007D0B17 /* RegisterUserPresenterStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65026522289223D007D0B17 /* RegisterUserPresenterStub.swift */; };
 		F650265522892770007D0B17 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F650265422892770007D0B17 /* ProfileVC.swift */; };
+		F65EF52D229B7E3600434688 /* CenteredButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65EF52C229B7E3600434688 /* CenteredButton.swift */; };
 		F66985872116697A0004CC7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F66985862116697A0004CC7F /* GoogleService-Info.plist */; };
 		F6698589211682430004CC7F /* LoginVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6698588211682430004CC7F /* LoginVCTests.swift */; };
 		F693BDB7227EBE1400B83944 /* ChalkBoardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693BDB6227EBE1400B83944 /* ChalkBoardTextField.swift */; };
@@ -87,6 +88,7 @@
 		F650265022888CC4007D0B17 /* CreateAccountVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVCTests.swift; sourceTree = "<group>"; };
 		F65026522289223D007D0B17 /* RegisterUserPresenterStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserPresenterStub.swift; sourceTree = "<group>"; };
 		F650265422892770007D0B17 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		F65EF52C229B7E3600434688 /* CenteredButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredButton.swift; sourceTree = "<group>"; };
 		F669856A2103FE1B0004CC7F /* teachMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = teachMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F669856E2103FE1B0004CC7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F66985862116697A0004CC7F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -152,14 +154,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F61E5F522117D32A004D66FF /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Services;
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		F62424A7227E5D660022ECD0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,7 +196,6 @@
 				F650262822869009007D0B17 /* Authentications */,
 				F693BDB1227EB9D300B83944 /* View */,
 				F62424A7227E5D660022ECD0 /* Controller */,
-				F61E5F522117D32A004D66FF /* Services */,
 				F6392F2020B1D98A00973418 /* AppDelegate.swift */,
 				F6392F2420B1D98A00973418 /* Main.storyboard */,
 				F6392F2A20B1D98C00973418 /* Assets.xcassets */,
@@ -294,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				F693BDB6227EBE1400B83944 /* ChalkBoardTextField.swift */,
+				F65EF52C229B7E3600434688 /* CenteredButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -575,6 +569,7 @@
 				F6392F2920B1D98A00973418 /* teachMe.xcdatamodeld in Sources */,
 				F650264A22879612007D0B17 /* UserEntity.swift in Sources */,
 				F650262B2286901A007D0B17 /* AuthenticationError.swift in Sources */,
+				F65EF52D229B7E3600434688 /* CenteredButton.swift in Sources */,
 				F6D6594B2291BBD900CF6ABE /* UIViewControllerExt.swift in Sources */,
 				F693BDB9227FA7F200B83944 /* CreateAccountVC.swift in Sources */,
 				F650263222874C1B007D0B17 /* Constants.swift in Sources */,

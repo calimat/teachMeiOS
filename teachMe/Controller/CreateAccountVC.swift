@@ -13,7 +13,6 @@ import Firebase
 class CreateAccountVC: UIViewController {
 
     var accountType:String = AccountType.Student.rawValue
-    var createdUserSuccessfully = false
     
     var gateway = AuthenticationGatewayFirebase(firAuth: Auth.auth(), fireStore: Firestore.firestore())
     
@@ -21,6 +20,8 @@ class CreateAccountVC: UIViewController {
     @IBOutlet weak var emailTxtField: UITextField!
     @IBOutlet weak var passwordTxtField: UITextField!
     @IBOutlet weak var errorLbl:UILabel!
+    @IBOutlet weak var studentBtn: UIButton!
+    @IBOutlet weak var tutorBtn:UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,28 @@ class CreateAccountVC: UIViewController {
         self.dismiss(animated: true, completion: nil)
 
     }
+    @IBAction func studentBtn_WasPressed(_ sender: Any) {
+        accountType = AccountType.Student.rawValue
+        studentBtn.isSelected = true
+        tutorBtn.isSelected = false
+        
+    }
+    
+    @IBAction func tutorBtn_WasPressed(_ sender: Any) {
+        accountType = AccountType.Tutor.rawValue
+        studentBtn.isSelected = false
+        tutorBtn.isSelected = true
+    }
+    
+    fileprivate func displayMessage(for error: (AuthenticationError)) {
+        self.errorLbl.isHidden = false
+        self.errorLbl.text = String(describing:error)
+    }
+    
+    func presentMainTabBarVC() {
+        guard let mainTabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarVC") as? MainTabBarVC else { return }
+        self.present(mainTabBarVC, animated: true, completion: nil)
+    }
     
     @IBAction func createAccountBtn_WasPressed(_ sender: Any) {
         guard let email = emailTxtField.text , let password = passwordTxtField.text else { return }
@@ -40,17 +63,13 @@ class CreateAccountVC: UIViewController {
             case .success(_) :
                 self.gateway.login(email: email, password: password, completion: { (success, error) in
                     if let authError = error {
-                        self.errorLbl.isHidden = false
-                        self.errorLbl.text = String(describing: authError)
+                        self.displayMessage(for: authError)
                     } else {
-                        guard let profileVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarVC") as? MainTabBarVC else { return }
-                        self.present(profileVC, animated: true, completion: nil)
-                    }
+                        self.presentMainTabBarVC()                    }
                 })
                 break
             case .failure(let error):
-            self.errorLbl.isHidden = false
-            self.errorLbl.text = String(describing:error)
+                self.displayMessage(for: error)
                 break
             }
         }
