@@ -43,5 +43,34 @@ class CreateAccountVCTests : XCTestCase {
         XCTAssertTrue(sut.errorLbl.isHidden)
     }
     
+    func test_HasAStudentButton() {
+        XCTAssertNotNil(sut.studentBtn)
+        XCTAssertTrue(sut.studentBtn.isSelected)
+    }
+    
+    func test_hasATutorButton() {
+        XCTAssertNotNil(sut.tutorBtn)
+        XCTAssertFalse(sut.tutorBtn.isSelected)
+    }
+    
+    func test_tapsOnTutorBtn_AccountTypeChangesToTutor() {
+        guard let tutorBtn = sut.tutorBtn else { XCTFail(); return }
+        guard let studentBtn = sut.studentBtn else { XCTFail(); return }
+        studentBtn.sendActions(for: .touchUpInside)
+        tutorBtn.sendActions(for: .touchUpInside)
+        XCTAssertEqual(sut.accountType, AccountType.Tutor.rawValue)
+        XCTAssertFalse(sut.studentBtn.isSelected)
+        XCTAssertTrue(sut.tutorBtn.isSelected)
+    }
+    
+    func tests_tapsOnStudentBtn_AccountTypeChangesToStudent() {
+        guard let studentBtn = sut.studentBtn else { XCTFail(); return }
+        guard let tutorBtn = sut.tutorBtn else { XCTFail(); return }
+        tutorBtn.sendActions(for: .touchUpInside)
+        studentBtn.sendActions(for: .touchUpInside)
+        XCTAssertEqual(sut.accountType, AccountType.Student.rawValue)
+        XCTAssertFalse(sut.tutorBtn.isSelected)
+        XCTAssertTrue(sut.studentBtn.isSelected)
+    }
    
 }

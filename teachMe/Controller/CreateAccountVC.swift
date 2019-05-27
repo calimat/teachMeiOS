@@ -21,6 +21,8 @@ class CreateAccountVC: UIViewController {
     @IBOutlet weak var emailTxtField: UITextField!
     @IBOutlet weak var passwordTxtField: UITextField!
     @IBOutlet weak var errorLbl:UILabel!
+    @IBOutlet weak var studentBtn: UIButton!
+    @IBOutlet weak var tutorBtn:UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,18 @@ class CreateAccountVC: UIViewController {
     @IBAction func backBtnPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
 
+    }
+    @IBAction func studentBtn_WasPressed(_ sender: Any) {
+        accountType = AccountType.Student.rawValue
+        studentBtn.isSelected = true
+        tutorBtn.isSelected = false
+        
+    }
+    
+    @IBAction func tutorBtn_WasPressed(_ sender: Any) {
+        accountType = AccountType.Tutor.rawValue
+        studentBtn.isSelected = false
+        tutorBtn.isSelected = true
     }
     
     @IBAction func createAccountBtn_WasPressed(_ sender: Any) {

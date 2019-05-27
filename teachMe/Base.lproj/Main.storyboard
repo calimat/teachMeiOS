@@ -234,6 +234,9 @@
                                                 <state key="selected" image="createAccountStudentIcon">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="studentBtn_WasPressed:" destination="uxb-4I-XrM" eventType="touchUpInside" id="O88-x8-ZzO"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -250,6 +253,9 @@
                                                 <state key="selected" image="createAccountTutorImage">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="tutorBtn_WasPressed:" destination="uxb-4I-XrM" eventType="touchUpInside" id="x40-M0-iO8"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -287,6 +293,8 @@
                         <outlet property="emailTxtField" destination="mvV-53-CgK" id="iIs-qm-tvm"/>
                         <outlet property="errorLbl" destination="IHe-Kl-UBq" id="Kr9-rh-LfZ"/>
                         <outlet property="passwordTxtField" destination="ejc-1f-PYD" id="YEf-jG-JmT"/>
+                        <outlet property="studentBtn" destination="0gK-c5-TdD" id="Sza-5i-4is"/>
+                        <outlet property="tutorBtn" destination="te2-It-1tK" id="BrX-qR-b1a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pe8-48-h9d" userLabel="First Responder" sceneMemberID="firstResponder"/>
