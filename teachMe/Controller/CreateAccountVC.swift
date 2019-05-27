@@ -45,6 +45,16 @@ class CreateAccountVC: UIViewController {
         tutorBtn.isSelected = true
     }
     
+    fileprivate func displayMessage(for error: (AuthenticationError)) {
+        self.errorLbl.isHidden = false
+        self.errorLbl.text = String(describing:error)
+    }
+    
+    func presentMainTabBarVC() {
+        guard let mainTabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarVC") as? MainTabBarVC else { return }
+        self.present(mainTabBarVC, animated: true, completion: nil)
+    }
+    
     @IBAction func createAccountBtn_WasPressed(_ sender: Any) {
         guard let email = emailTxtField.text , let password = passwordTxtField.text else { return }
         
@@ -53,17 +63,13 @@ class CreateAccountVC: UIViewController {
             case .success(_) :
                 self.gateway.login(email: email, password: password, completion: { (success, error) in
                     if let authError = error {
-                        self.errorLbl.isHidden = false
-                        self.errorLbl.text = String(describing: authError)
+                        self.displayMessage(for: authError)
                     } else {
-                        guard let profileVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarVC") as? MainTabBarVC else { return }
-                        self.present(profileVC, animated: true, completion: nil)
-                    }
+                        self.presentMainTabBarVC()                    }
                 })
                 break
             case .failure(let error):
-            self.errorLbl.isHidden = false
-            self.errorLbl.text = String(describing:error)
+                self.displayMessage(for: error)
                 break
             }
         }
