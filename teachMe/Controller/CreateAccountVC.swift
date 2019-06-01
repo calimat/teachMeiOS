@@ -56,10 +56,6 @@ class CreateAccountVC: UIViewController {
         self.errorLbl.text = String(describing:error)
     }
     
-    func presentMainTabBarVC() {
-        guard let mainTabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarVC") as? MainTabBarVC else { return }
-        self.present(mainTabBarVC, animated: true, completion: nil)
-    }
     
     @IBAction func createAccountBtn_WasPressed(_ sender: Any) {
         guard let email = emailTxtField.text , let password = passwordTxtField.text else { return }
@@ -71,7 +67,7 @@ class CreateAccountVC: UIViewController {
                     if let authError = error {
                         self.displayMessage(for: authError)
                     } else {
-                        self.presentMainTabBarVC()                    }
+                        self.presentMainTabBarController()               }
                 })
                 break
             case .failure(let error):

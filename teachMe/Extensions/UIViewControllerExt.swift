@@ -10,4 +10,9 @@ extension UIViewController {
     @objc func hideKeyboard() {
         view.endEditing(true)
     }
+    
+    func presentMainTabBarController() {
+        let mainTabBarVC = MainTabBarVC()
+        self.present(mainTabBarVC, animated: true, completion: nil)
+    }
 }

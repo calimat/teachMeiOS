@@ -42,15 +42,13 @@ struct AuthenticationGatewayFirebase : AuthenticationGateway {
         }
     }
     
-//    func login(email:String, password: String, completion: @escaping (_ success:Bool)->()) {
-//       firAuth.signIn(withEmail: email, password: password) { (authData, error) in
-//            if error == nil {
-//                completion(true)
-//            } else {
-//                completion(false)
-//            }
-//        }
-//    }
+    func logout() {
+        do {
+          try  firAuth.signOut()
+        } catch  {
+            debugPrint(error.localizedDescription)
+        }
+    }
     
     private func createUser(authData: AuthDataResult?, email: String, accountType:String,
                             completion: @escaping ((Result<UserEntity, AuthenticationError>) -> Void)) {

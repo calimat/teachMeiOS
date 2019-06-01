@@ -12,14 +12,22 @@ import Firebase
 class MainTabBarVC: UITabBarController {
 
     var handle : AuthStateDidChangeListenerHandle?
+    var gateway: AuthenticationGateway!
+    
+    convenience init(gateway:AuthenticationGateway) {
+        self.init()
+        self.gateway = gateway
+        let profileVC = ProfileVC(gateway: gateway)
+        profileVC.tabBarItem = UITabBarItem(title: "Profile", image: nil, selectedImage: nil)
+        self.viewControllers = [profileVC]
+    }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
             if user == nil {
-                if let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC {
+             let loginVC = LoginVC(gateway: self.gateway)
                     self.present(loginVC, animated: true, completion: nil)
-                }
+                
                 
             }
         })
@@ -27,7 +35,8 @@ class MainTabBarVC: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        let profileVC = ProfileVC()
+//        profileVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
         // Do any additional setup after loading the view.
     }
     

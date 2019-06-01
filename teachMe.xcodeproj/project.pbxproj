@@ -41,6 +41,10 @@
 		F6DCD36322A0C092004301E3 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6DCD36222A0C092004301E3 /* LoginVC.xib */; };
 		F6DCD36722A0CEEF004301E3 /* CreateAccountVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6DCD36622A0CEEF004301E3 /* CreateAccountVC.xib */; };
 		F6DCD36A22A21A5F004301E3 /* CreateAccountVCMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCD36922A21A5F004301E3 /* CreateAccountVCMock.swift */; };
+		F6DCD36F22A22350004301E3 /* MockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCD36E22A22350004301E3 /* MockViewController.swift */; };
+		F6DCD37122A2272C004301E3 /* UIViewControllerExtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCD37022A2272C004301E3 /* UIViewControllerExtTests.swift */; };
+		F6DCD37422A22E30004301E3 /* MainTabBarVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCD37322A22E30004301E3 /* MainTabBarVCTests.swift */; };
+		F6DCD37622A234A1004301E3 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6DCD37522A234A1004301E3 /* ProfileVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +112,10 @@
 		F6DCD36222A0C092004301E3 /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
 		F6DCD36622A0CEEF004301E3 /* CreateAccountVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateAccountVC.xib; sourceTree = "<group>"; };
 		F6DCD36922A21A5F004301E3 /* CreateAccountVCMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVCMock.swift; sourceTree = "<group>"; };
+		F6DCD36E22A22350004301E3 /* MockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockViewController.swift; sourceTree = "<group>"; };
+		F6DCD37022A2272C004301E3 /* UIViewControllerExtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtTests.swift; sourceTree = "<group>"; };
+		F6DCD37322A22E30004301E3 /* MainTabBarVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVCTests.swift; sourceTree = "<group>"; };
+		F6DCD37522A234A1004301E3 /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +294,8 @@
 				F650262622868FE2007D0B17 /* AuthenticationErrorTests.swift */,
 				F650263E22878D06007D0B17 /* RegisterUserUseCaseTests.swift */,
 				F650265022888CC4007D0B17 /* CreateAccountVCTests.swift */,
+				F6DCD37022A2272C004301E3 /* UIViewControllerExtTests.swift */,
+				F6DCD37322A22E30004301E3 /* MainTabBarVCTests.swift */,
 			);
 			path = teachMeTests;
 			sourceTree = "<group>";
@@ -337,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				F6DCD36922A21A5F004301E3 /* CreateAccountVCMock.swift */,
+				F6DCD36E22A22350004301E3 /* MockViewController.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -346,6 +357,7 @@
 			children = (
 				F6DCD36222A0C092004301E3 /* LoginVC.xib */,
 				F6DCD36622A0CEEF004301E3 /* CreateAccountVC.xib */,
+				F6DCD37522A234A1004301E3 /* ProfileVC.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -462,6 +474,7 @@
 				F6DCD36322A0C092004301E3 /* LoginVC.xib in Resources */,
 				F6392F2E20B1D98C00973418 /* LaunchScreen.storyboard in Resources */,
 				F66985872116697A0004CC7F /* GoogleService-Info.plist in Resources */,
+				F6DCD37622A234A1004301E3 /* ProfileVC.xib in Resources */,
 				F6392F2B20B1D98C00973418 /* Assets.xcassets in Resources */,
 				F6392F2620B1D98A00973418 /* Main.storyboard in Resources */,
 			);
@@ -614,8 +627,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6DCD36F22A22350004301E3 /* MockViewController.swift in Sources */,
 				F6D65945228A67F400CF6ABE /* IntegrationTests.swift in Sources */,
 				F650263F22878D06007D0B17 /* RegisterUserUseCaseTests.swift in Sources */,
+				F6DCD37422A22E30004301E3 /* MainTabBarVCTests.swift in Sources */,
+				F6DCD37122A2272C004301E3 /* UIViewControllerExtTests.swift in Sources */,
 				F6698589211682430004CC7F /* LoginVCTests.swift in Sources */,
 				F650264522879155007D0B17 /* AuthenticationGatewayStub.swift in Sources */,
 				F6DCD36A22A21A5F004301E3 /* CreateAccountVCMock.swift in Sources */,

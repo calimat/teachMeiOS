@@ -7,19 +7,31 @@
 //
 
 import XCTest
+import Firebase
 @testable import teachMe
 
 class ProfileVCTests: XCTestCase {
 
     var sut : ProfileVC!
+    var window: UIWindow?
+    private var firAuth: Auth = {
+        if FirebaseApp.app() == nil { FirebaseApp.configure() }
+        return Auth.auth()
+    }()
+    private var fireStore: Firestore = {
+        if FirebaseApp.app() == nil { FirebaseApp.configure() }
+        return Firestore.firestore()
+    }()
+
     
     override func setUp() {
         super.setUp()
-        let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-        sut = mainStoryBoard.instantiateViewController(withIdentifier: "ProfileVC") as? ProfileVC
-        sut.loadView() // This line is the key
-        sut.viewDidLoad()
-        
+        sut = ProfileVC(gateway: AuthenticationGatewayFirebase(firAuth: firAuth, fireStore: fireStore))
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        self.window = window
+        window.rootViewController = sut
+        window.makeKeyAndVisible()
+        _ = sut.view
     }
     
     func test_HaslogoutBtn() {
@@ -30,6 +42,16 @@ class ProfileVCTests: XCTestCase {
         XCTAssertEqual(sut.logoutBtn.titleLabel?.text,
                        "Logout")
     }
-   
+    
+    func test_GatewayShouldNoTBeNil() {
+        XCTAssertNotNil(sut.gateway)
+    }
+    
+//    func test_LogoutBtnPressed_ShouldDisplayLoginVC() {
+//        guard let logoutBtn = sut.logoutBtn else { XCTFail(); return}
+//        logoutBtn.sendActions(for: .touchUpInside)
+//        XCTAssertNotNil(sut.presentedViewController)
+//        
+//    }
 
 }

@@ -42,9 +42,7 @@ class LoginVC: UIViewController {
             if let authError = error {
                 //ui test for this
             } else {
-                if let mainTabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarVC") as? MainTabBarVC {
-                    self.present(mainTabBarVC, animated: true, completion: nil)
-                }
+                self.presentMainTabBarController()
             }
         }
     }

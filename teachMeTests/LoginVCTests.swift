@@ -23,13 +23,17 @@ class LoginVCTests: XCTestCase {
         return Firestore.firestore()
     }()
     
-    override func setUp() {
-        super.setUp()
-        sut = LoginVC(gateway: AuthenticationGatewayFirebase(firAuth: self.firAuth, fireStore: self.fireStore))
+    fileprivate func extractedFunc() {
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
         window.rootViewController = sut
         window.makeKeyAndVisible()
+    }
+    
+    override func setUp() {
+        super.setUp()
+        sut = LoginVC(gateway: AuthenticationGatewayFirebase(firAuth: self.firAuth, fireStore: self.fireStore))
+        extractedFunc()
         _ = sut.view
      
     }
