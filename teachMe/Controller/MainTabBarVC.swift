@@ -17,12 +17,16 @@ class MainTabBarVC: UITabBarController {
     convenience init(gateway:AuthenticationGateway) {
         self.init()
         self.gateway = gateway
-        let profileVC = ProfileVC(gateway: gateway)
-        profileVC.tabBarItem = UITabBarItem(title: "Profile", image: nil, selectedImage: nil)
-        self.viewControllers = [profileVC]
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        if gateway == nil {
+            self.gateway = AuthenticationGatewayFirebase(firAuth: Auth.auth(), fireStore: Firestore.firestore())
+        }
+        let profileVC = ProfileVC(gateway: gateway)
+        profileVC.tabBarItem = UITabBarItem(title: "Profile", image: nil, selectedImage: nil)
+        self.viewControllers = [profileVC]
         handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
             if user == nil {
              let loginVC = LoginVC(gateway: self.gateway)
