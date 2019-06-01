@@ -11,7 +11,7 @@ import Firebase
 
 
 class CreateAccountVC: UIViewController {
-
+    
     var accountType:String = AccountType.Student.rawValue
     
     var gateway: AuthenticationGateway!
@@ -36,7 +36,7 @@ class CreateAccountVC: UIViewController {
     
     @IBAction func backBtnPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-
+        
     }
     @IBAction func studentBtn_WasPressed(_ sender: Any) {
         accountType = AccountType.Student.rawValue
@@ -67,7 +67,8 @@ class CreateAccountVC: UIViewController {
                     if let authError = error {
                         self.displayMessage(for: authError)
                     } else {
-                        self.presentMainTabBarController()               }
+                        self.presentMainTabBarController()
+                    }
                 })
                 break
             case .failure(let error):
