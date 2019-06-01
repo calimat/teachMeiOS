@@ -1,11 +1,3 @@
-//
-//  ProfileVCTests.swift
-//  teachMeTests
-//
-//  Created by Ricardo Herrera Petit on 5/19/19.
-//  Copyright © 2019 Ricardo Herrera Petit. All rights reserved.
-//
-
 import XCTest
 import Firebase
 @testable import teachMe
@@ -37,12 +29,5 @@ class ProfileVCTests: XCTestCase {
     func test_GatewayShouldNoTBeNil() {
         XCTAssertNotNil(sut.gateway)
     }
-    
-//    func test_LogoutBtnPressed_ShouldDisplayLoginVC() {
-//        guard let logoutBtn = sut.logoutBtn else { XCTFail(); return}
-//        logoutBtn.sendActions(for: .touchUpInside)
-//        XCTAssertNotNil(sut.presentedViewController)
-//        
-//    }
 
 }

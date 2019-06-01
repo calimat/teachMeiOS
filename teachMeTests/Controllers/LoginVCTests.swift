@@ -1,11 +1,3 @@
-//
-//  LoginVCTests.swift
-//  teachMeTests
-//
-//  Created by Ricardo Herrera Petit on 8/4/18.
-//  Copyright © 2018 Ricardo Herrera Petit. All rights reserved.
-//
-
 import XCTest
 import Firebase
 @testable import teachMe
@@ -15,19 +7,15 @@ class LoginVCTests: XCTestCase {
     var sut : LoginVC!
     var window: UIWindow?
     
-    fileprivate func extractedFunc() {
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        self.window = window
-        window.rootViewController = sut
-        window.makeKeyAndVisible()
-    }
     
     override func setUp() {
         super.setUp()
         sut = LoginVC(gateway:firebaseGateWay)
-        extractedFunc()
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        self.window = window
+        window.rootViewController = sut
+        window.makeKeyAndVisible()
         _ = sut.view
-     
     }
     
     override func tearDown() {

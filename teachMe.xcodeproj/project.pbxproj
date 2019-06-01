@@ -11,7 +11,6 @@
 		EAD0C9D2FBBCE3374DC6577A /* Pods_teachMeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 387D2509110F790BFD6DA9B0 /* Pods_teachMeTests.framework */; };
 		F6392F2120B1D98A00973418 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6392F2020B1D98A00973418 /* AppDelegate.swift */; };
 		F6392F2320B1D98A00973418 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6392F2220B1D98A00973418 /* LoginVC.swift */; };
-		F6392F2920B1D98A00973418 /* teachMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F6392F2720B1D98A00973418 /* teachMe.xcdatamodeld */; };
 		F6392F2B20B1D98C00973418 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6392F2A20B1D98C00973418 /* Assets.xcassets */; };
 		F6392F2E20B1D98C00973418 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6392F2C20B1D98C00973418 /* LaunchScreen.storyboard */; };
 		F650262722868FE2007D0B17 /* AuthenticationErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F650262622868FE2007D0B17 /* AuthenticationErrorTests.swift */; };
@@ -77,7 +76,6 @@
 		F6392F1D20B1D98A00973418 /* teachMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teachMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6392F2020B1D98A00973418 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6392F2220B1D98A00973418 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
-		F6392F2820B1D98A00973418 /* teachMe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = teachMe.xcdatamodel; sourceTree = "<group>"; };
 		F6392F2A20B1D98C00973418 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6392F2D20B1D98C00973418 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F6392F2F20B1D98C00973418 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -214,7 +212,6 @@
 				F6392F2A20B1D98C00973418 /* Assets.xcassets */,
 				F6392F2C20B1D98C00973418 /* LaunchScreen.storyboard */,
 				F6392F2F20B1D98C00973418 /* Info.plist */,
-				F6392F2720B1D98A00973418 /* teachMe.xcdatamodeld */,
 				F66985862116697A0004CC7F /* GoogleService-Info.plist */,
 			);
 			path = teachMe;
@@ -637,7 +634,6 @@
 			files = (
 				F6392F2320B1D98A00973418 /* LoginVC.swift in Sources */,
 				F650264222878D7F007D0B17 /* RegisterUserUsecase.swift in Sources */,
-				F6392F2920B1D98A00973418 /* teachMe.xcdatamodeld in Sources */,
 				F650264A22879612007D0B17 /* UserEntity.swift in Sources */,
 				F650262B2286901A007D0B17 /* AuthenticationError.swift in Sources */,
 				F65EF52D229B7E3600434688 /* CenteredButton.swift in Sources */,
@@ -869,19 +865,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		F6392F2720B1D98A00973418 /* teachMe.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				F6392F2820B1D98A00973418 /* teachMe.xcdatamodel */,
-			);
-			currentVersion = F6392F2820B1D98A00973418 /* teachMe.xcdatamodel */;
-			path = teachMe.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = F6392F1520B1D98A00973418 /* Project object */;
 }
