@@ -12,7 +12,7 @@ import Firebase
 
 class LoginVC: UIViewController {
 
-     var gateway = AuthenticationGatewayFirebase(firAuth: Auth.auth(), fireStore: Firestore.firestore())
+    var gateway:AuthenticationGateway!
     
     @IBOutlet weak var emailTextField: ChalkBoardTextField!
     @IBOutlet weak var passwordTxtField: ChalkBoardTextField!
@@ -25,6 +25,15 @@ class LoginVC: UIViewController {
         self.hideKeyboardWhenTappedAround()
     }
     
+    convenience init(gateway:AuthenticationGateway) {
+        self.init()
+        self.gateway = gateway
+    }
+    
+    @IBAction func createAccountBtn_Pressed(_ sender: Any) {
+        let accountVC = CreateAccountVC(gateway: gateway)
+        self.present(accountVC, animated: true, completion: nil)
+    }
     
     @IBAction func loginBtn_Pressed(_ sender: Any) {
         errorLbl.isHidden = false

@@ -1,20 +1,32 @@
 import XCTest
+import Firebase
 @testable import teachMe
+
 
 class CreateAccountVCTests : XCTestCase {
     var sut : CreateAccountVC!
-   // var gateway: AuthenticationGatewayFirebase!
+    var window: UIWindow?
+    private var firAuth: Auth = {
+        if FirebaseApp.app() == nil { FirebaseApp.configure() }
+        return Auth.auth()
+    }()
+    private var fireStore: Firestore = {
+        if FirebaseApp.app() == nil { FirebaseApp.configure() }
+        return Firestore.firestore()
+    }()
     
     private let userEmail = "fake@gmail.com"
     private let accountType = AccountType.Student.rawValue
     
     override func setUp() {
         super.setUp()
-        let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-        sut = mainStoryBoard.instantiateViewController(withIdentifier: "CreateAccountVC") as? CreateAccountVC
-        sut.loadView() // This line is the key
-        sut.viewDidLoad()
-       // self.gateway = AuthenticationGatewayFirebase(firAuth: <#T##Auth#>)
+        sut = CreateAccountVC(gateway: AuthenticationGatewayFirebase(firAuth: self.firAuth, fireStore: self.fireStore))
+         _ = sut.view // This line is the key
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        self.window = window
+        window.rootViewController = sut
+        window.makeKeyAndVisible()
+        _ = sut.view
         
     }
     
@@ -73,4 +85,17 @@ class CreateAccountVCTests : XCTestCase {
         XCTAssertTrue(sut.studentBtn.isSelected)
     }
    
+    func test_GateWayShouldNotBeNotNill() {
+        XCTAssertNotNil(sut.gateway)
+    }
+    
+    func test_HasBackButton() {
+        XCTAssertNotNil(sut.backBtn)
+    }
+    
+    func test_ShouldCloseItself() {
+        let vc = CreateAccountVCMock()
+        vc.backBtnPressed(self)
+        XCTAssertTrue(vc.dismissCalled)
+    }
 }

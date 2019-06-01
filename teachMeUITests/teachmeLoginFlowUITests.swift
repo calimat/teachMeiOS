@@ -29,17 +29,6 @@ class teachmeLoginFlowUITests : XCTestCase {
        XCTAssertTrue(application.textFields["email"].exists)
     }
     
-    func test_CreateAccountButton_ShouldShowCreateAccountVC() {
-       navigateToCreateAccountVC()
-        XCTAssertTrue(application.staticTexts["Would you like to create an acocunt for:"].exists)
-    }
-    
-    func testCreateAccountBackBtn_ShouldReturntoLoginVC() {
-        navigateToCreateAccountVC()
-        application.buttons["backBtnToLoginVC"].tap()
-        XCTAssertTrue(application.buttons["Don't Have an Account? Tap Here"].exists)
-    }
-    
     func testCreateAccountBtnPressedWithSameUser_ShouldDisplayErrorLabel() {
         navigateToCreateAccountVC()
         completeFieldsForRegistration(for:"createAccountBtnFromVC" )

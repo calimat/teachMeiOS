@@ -7,24 +7,37 @@
 //
 
 import XCTest
+import Firebase
 @testable import teachMe
 
 class LoginVCTests: XCTestCase {
     
     var sut : LoginVC!
+    var window: UIWindow?
+    private var firAuth: Auth = {
+        if FirebaseApp.app() == nil { FirebaseApp.configure() }
+        return Auth.auth()
+    }()
+    private var fireStore: Firestore = {
+        if FirebaseApp.app() == nil { FirebaseApp.configure() }
+        return Firestore.firestore()
+    }()
     
     override func setUp() {
         super.setUp()
-        let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-        sut = mainStoryBoard.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC
-        sut.loadView() // This line is the key
-        sut.viewDidLoad()
-
+        sut = LoginVC(gateway: AuthenticationGatewayFirebase(firAuth: self.firAuth, fireStore: self.fireStore))
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        self.window = window
+        window.rootViewController = sut
+        window.makeKeyAndVisible()
+        _ = sut.view
+     
     }
     
     override func tearDown() {
         sut = nil
-    }
+    }   
+
     
     func test_HasUserNameTextField() {
         guard let emailTextField = sut.emailTextField else { XCTFail(); return}
@@ -94,6 +107,25 @@ class LoginVCTests: XCTestCase {
         guard let errorLbl = sut.errorLbl else { XCTFail(); return }
         XCTAssertTrue(errorLbl.isHidden)
         XCTAssertEqual(errorLbl.text, "")
+    }
+    
+    func test_gatewayshouldNotBeNil() {
+        XCTAssertNotNil(sut.gateway)
+    }
+    
+    
+    func test_tappinOnCreateNewAccount_PresentsCreateAccountVC() {
+        guard let createAccountBtn = sut.createAccountBtn else {XCTFail(); return}
+        createAccountBtn.sendActions(for: .touchUpInside)
+        XCTAssertNotNil(sut.presentedViewController)
+        XCTAssertTrue(sut.presentedViewController is CreateAccountVC)
+    }
+    
+    func test_presentedCreateAccountVC_ShouldnotHaveNilGateway() {
+        guard let createAccountBtn = sut.createAccountBtn else {XCTFail(); return}
+        createAccountBtn.sendActions(for: .touchUpInside)
+        guard let createAccountVC = sut.presentedViewController as? CreateAccountVC else { XCTFail(); return}
+        XCTAssertNotNil(createAccountVC.gateway)
     }
 }
 

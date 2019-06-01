@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateAccountVC" customModule="teachMe" customModuleProvider="target">
+            <connections>
+                <outlet property="backBtn" destination="OBV-8o-HFz" id="PrR-Lz-Dzx"/>
+                <outlet property="createAccountBtn" destination="pro-OL-G5F" id="QeC-9R-xdY"/>
+                <outlet property="emailTxtField" destination="hRG-n8-cPW" id="Khs-ee-uIn"/>
+                <outlet property="errorLbl" destination="gjw-HC-PK9" id="006-2f-3u7"/>
+                <outlet property="passwordTxtField" destination="STd-Bn-hhk" id="n2i-FW-G3j"/>
+                <outlet property="studentBtn" destination="J9X-YY-Nmp" id="Y1w-9g-Lhp"/>
+                <outlet property="tutorBtn" destination="Ake-R0-Rw1" id="p9m-L0-f4j"/>
+                <outlet property="view" destination="ifa-GL-wx4" id="ou6-rO-y08"/>
+            </connections>
+        </placeholder>
+        <view contentMode="scaleToFill" id="ifa-GL-wx4">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="VMY-ev-iZD">
+                    <rect key="frame" x="40" y="65" width="293.5" height="51"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OBV-8o-HFz">
+                            <rect key="frame" x="0.0" y="0.0" width="43" height="51"/>
+                            <accessibility key="accessibilityConfiguration" identifier="backBtnToLoginVC"/>
+                            <state key="normal" image="backArrow"/>
+                            <connections>
+                                <action selector="backBtnPressed:" destination="-1" eventType="touchUpInside" id="8X0-Vv-VSt"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEACH ME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8bn-j7-xFw">
+                            <rect key="frame" x="63" y="0.0" width="230.5" height="51"/>
+                            <accessibility key="accessibilityConfiguration" identifier="teachme"/>
+                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="40"/>
+                            <color key="textColor" red="1" green="0.99607843139999996" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vcN-QZ-W4G">
+                    <rect key="frame" x="32" y="136" width="350" height="86"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hRG-n8-cPW" customClass="ChalkBoardTextField" customModule="teachMe" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="350" height="26"/>
+                            <accessibility key="accessibilityConfiguration" identifier="email"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="350" id="N6m-Ua-Gb1"/>
+                            </constraints>
+                            <color key="textColor" red="1" green="0.99607843139999996" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yMm-HQ-i0a">
+                            <rect key="frame" x="0.0" y="36" width="350" height="2"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="2" id="RPJ-or-02X"/>
+                            </constraints>
+                        </view>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="STd-Bn-hhk" customClass="ChalkBoardTextField" customModule="teachMe" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="48" width="350" height="26"/>
+                            <accessibility key="accessibilityConfiguration" identifier="password"/>
+                            <color key="textColor" red="1" green="0.99607843139999996" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                        </textField>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gLa-fc-TTx">
+                            <rect key="frame" x="0.0" y="84" width="350" height="2"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="2" id="80G-Fe-YIa"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Would you like to create an acocunt for:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oEI-oz-6TR">
+                    <rect key="frame" x="57" y="242" width="300" height="51"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="300" id="JfR-jb-dj3"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                    <color key="textColor" red="1" green="0.99607843139999996" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pro-OL-G5F">
+                    <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                    <color key="backgroundColor" red="0.2156862745" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <accessibility key="accessibilityConfiguration" identifier="createAccountBtnFromVC"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Ig9-R7-ObF"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                    <state key="normal" title="CREATE ACCOUNT">
+                        <color key="titleColor" red="1" green="0.99607843139999996" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="createAccountBtn_WasPressed:" destination="-1" eventType="touchUpInside" id="fUQ-N7-Qpr"/>
+                    </connections>
+                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="DPn-ln-4v2">
+                    <rect key="frame" x="23" y="333" width="368" height="130.5"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jZU-hF-NDr">
+                            <rect key="frame" x="0.0" y="0.0" width="174" height="130.5"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9X-YY-Nmp" customClass="CenteredButton" customModule="teachMe" customModuleProvider="target">
+                                    <rect key="frame" x="9.5" y="0.0" width="155" height="130.5"/>
+                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal" title="Student" image="createAccountStudentIconOff">
+                                        <color key="titleColor" red="0.078431372550000003" green="0.30196078430000001" blue="0.062745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <state key="selected" image="createAccountStudentIcon">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="studentBtn_WasPressed:" destination="-1" eventType="touchUpInside" id="IDZ-S8-hcy"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pkL-ct-tKB">
+                            <rect key="frame" x="194" y="0.0" width="174" height="130.5"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ake-R0-Rw1" customClass="CenteredButton" customModule="teachMe" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="174" height="130.5"/>
+                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal" title="Tutor" image="createAccountTutorImageOff">
+                                        <color key="titleColor" red="0.078431372550000003" green="0.30196078430000001" blue="0.062745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <state key="selected" image="createAccountTutorImage">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="tutorBtn_WasPressed:" destination="-1" eventType="touchUpInside" id="mgp-fA-7iR"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjw-HC-PK9">
+                    <rect key="frame" x="20" y="483.5" width="374" height="30.5"/>
+                    <accessibility key="accessibilityConfiguration" label="createAccountErrorLbl"/>
+                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="24"/>
+                    <color key="textColor" red="0.90980392160000001" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.050980392159999999" green="0.22352941179999999" blue="0.039215686270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="VMY-ev-iZD" firstAttribute="top" secondItem="HA4-R6-vmr" secondAttribute="top" constant="21" id="1HR-yT-grP"/>
+                <constraint firstItem="VMY-ev-iZD" firstAttribute="centerX" secondItem="ifa-GL-wx4" secondAttribute="centerX" constant="-20.25" id="5ra-i9-WeY"/>
+                <constraint firstItem="HA4-R6-vmr" firstAttribute="trailing" secondItem="gjw-HC-PK9" secondAttribute="trailing" constant="20" id="MhX-tO-XBa"/>
+                <constraint firstItem="pro-OL-G5F" firstAttribute="trailing" secondItem="HA4-R6-vmr" secondAttribute="trailing" id="P2G-Pf-55x"/>
+                <constraint firstItem="DPn-ln-4v2" firstAttribute="centerX" secondItem="ifa-GL-wx4" secondAttribute="centerX" id="Qml-sq-HKY"/>
+                <constraint firstItem="pro-OL-G5F" firstAttribute="leading" secondItem="HA4-R6-vmr" secondAttribute="leading" id="Ujh-iC-MpO"/>
+                <constraint firstItem="oEI-oz-6TR" firstAttribute="centerX" secondItem="ifa-GL-wx4" secondAttribute="centerX" id="VO6-Kb-0Cl"/>
+                <constraint firstItem="HA4-R6-vmr" firstAttribute="bottom" secondItem="pro-OL-G5F" secondAttribute="bottom" id="dai-fd-HOc"/>
+                <constraint firstItem="vcN-QZ-W4G" firstAttribute="centerX" secondItem="ifa-GL-wx4" secondAttribute="centerX" id="lxl-cM-9I1"/>
+                <constraint firstItem="gjw-HC-PK9" firstAttribute="top" secondItem="DPn-ln-4v2" secondAttribute="bottom" constant="20" id="rAx-kY-JzU"/>
+                <constraint firstItem="DPn-ln-4v2" firstAttribute="top" secondItem="oEI-oz-6TR" secondAttribute="bottom" constant="40" id="x0B-wd-mb2"/>
+                <constraint firstItem="oEI-oz-6TR" firstAttribute="top" secondItem="vcN-QZ-W4G" secondAttribute="bottom" constant="20" id="zH3-7A-dFF"/>
+                <constraint firstItem="vcN-QZ-W4G" firstAttribute="top" secondItem="VMY-ev-iZD" secondAttribute="bottom" constant="20" id="zR5-c7-8fF"/>
+                <constraint firstItem="gjw-HC-PK9" firstAttribute="leading" secondItem="HA4-R6-vmr" secondAttribute="leading" constant="20" id="zjd-tT-yaU"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="HA4-R6-vmr"/>
+        </view>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+    </objects>
+    <resources>
+        <image name="backArrow" width="43" height="33"/>
+        <image name="createAccountStudentIcon" width="82" height="104"/>
+        <image name="createAccountStudentIconOff" width="82" height="104"/>
+        <image name="createAccountTutorImage" width="122" height="104"/>
+        <image name="createAccountTutorImageOff" width="122" height="104"/>
+    </resources>
+</document>

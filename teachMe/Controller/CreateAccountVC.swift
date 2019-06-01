@@ -14,7 +14,7 @@ class CreateAccountVC: UIViewController {
 
     var accountType:String = AccountType.Student.rawValue
     
-    var gateway = AuthenticationGatewayFirebase(firAuth: Auth.auth(), fireStore: Firestore.firestore())
+    var gateway: AuthenticationGateway!
     
     @IBOutlet weak var createAccountBtn: UIButton!
     @IBOutlet weak var emailTxtField: UITextField!
@@ -22,10 +22,16 @@ class CreateAccountVC: UIViewController {
     @IBOutlet weak var errorLbl:UILabel!
     @IBOutlet weak var studentBtn: UIButton!
     @IBOutlet weak var tutorBtn:UIButton!
+    @IBOutlet weak var backBtn:UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+    }
+    
+    convenience init(gateway: AuthenticationGateway) {
+        self.init()
+        self.gateway = gateway
     }
     
     @IBAction func backBtnPressed(_ sender: Any) {

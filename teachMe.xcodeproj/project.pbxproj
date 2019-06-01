@@ -38,6 +38,9 @@
 		F6D659492290DDC800CF6ABE /* MainTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D659482290DDC800CF6ABE /* MainTabBarVC.swift */; };
 		F6D6594B2291BBD900CF6ABE /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D6594A2291BBD900CF6ABE /* UIViewControllerExt.swift */; };
 		F6D6594E22925E1000CF6ABE /* ProfileVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D6594D22925E1000CF6ABE /* ProfileVCTests.swift */; };
+		F6DCD36322A0C092004301E3 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6DCD36222A0C092004301E3 /* LoginVC.xib */; };
+		F6DCD36722A0CEEF004301E3 /* CreateAccountVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6DCD36622A0CEEF004301E3 /* CreateAccountVC.xib */; };
+		F6DCD36A22A21A5F004301E3 /* CreateAccountVCMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCD36922A21A5F004301E3 /* CreateAccountVCMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +105,9 @@
 		F6D659482290DDC800CF6ABE /* MainTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVC.swift; sourceTree = "<group>"; };
 		F6D6594A2291BBD900CF6ABE /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		F6D6594D22925E1000CF6ABE /* ProfileVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVCTests.swift; sourceTree = "<group>"; };
+		F6DCD36222A0C092004301E3 /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
+		F6DCD36622A0CEEF004301E3 /* CreateAccountVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateAccountVC.xib; sourceTree = "<group>"; };
+		F6DCD36922A21A5F004301E3 /* CreateAccountVCMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVCMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +277,7 @@
 		F669856B2103FE1B0004CC7F /* teachMeTests */ = {
 			isa = PBXGroup;
 			children = (
+				F6DCD36822A21A4C004301E3 /* Mocks */,
 				F6D65942228A67D500CF6ABE /* IntegrationTests */,
 				F65026432287913E007D0B17 /* Doubles */,
 				F669856E2103FE1B0004CC7F /* Info.plist */,
@@ -286,6 +293,7 @@
 		F693BDB1227EB9D300B83944 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F6DCD36B22A21B6C004301E3 /* Xibs */,
 				F693BDB6227EBE1400B83944 /* ChalkBoardTextField.swift */,
 				F65EF52C229B7E3600434688 /* CenteredButton.swift */,
 			);
@@ -323,6 +331,23 @@
 				F6D6594A2291BBD900CF6ABE /* UIViewControllerExt.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F6DCD36822A21A4C004301E3 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				F6DCD36922A21A5F004301E3 /* CreateAccountVCMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		F6DCD36B22A21B6C004301E3 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				F6DCD36222A0C092004301E3 /* LoginVC.xib */,
+				F6DCD36622A0CEEF004301E3 /* CreateAccountVC.xib */,
+			);
+			path = Xibs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -433,6 +458,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6DCD36722A0CEEF004301E3 /* CreateAccountVC.xib in Resources */,
+				F6DCD36322A0C092004301E3 /* LoginVC.xib in Resources */,
 				F6392F2E20B1D98C00973418 /* LaunchScreen.storyboard in Resources */,
 				F66985872116697A0004CC7F /* GoogleService-Info.plist in Resources */,
 				F6392F2B20B1D98C00973418 /* Assets.xcassets in Resources */,
@@ -591,6 +618,7 @@
 				F650263F22878D06007D0B17 /* RegisterUserUseCaseTests.swift in Sources */,
 				F6698589211682430004CC7F /* LoginVCTests.swift in Sources */,
 				F650264522879155007D0B17 /* AuthenticationGatewayStub.swift in Sources */,
+				F6DCD36A22A21A5F004301E3 /* CreateAccountVCMock.swift in Sources */,
 				F6D6594E22925E1000CF6ABE /* ProfileVCTests.swift in Sources */,
 				F650265122888CC4007D0B17 /* CreateAccountVCTests.swift in Sources */,
 				F65026532289223D007D0B17 /* RegisterUserPresenterStub.swift in Sources */,
