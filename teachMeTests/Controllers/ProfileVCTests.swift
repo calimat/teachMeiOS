@@ -14,19 +14,10 @@ class ProfileVCTests: XCTestCase {
 
     var sut : ProfileVC!
     var window: UIWindow?
-    private var firAuth: Auth = {
-        if FirebaseApp.app() == nil { FirebaseApp.configure() }
-        return Auth.auth()
-    }()
-    private var fireStore: Firestore = {
-        if FirebaseApp.app() == nil { FirebaseApp.configure() }
-        return Firestore.firestore()
-    }()
-
     
     override func setUp() {
         super.setUp()
-        sut = ProfileVC(gateway: AuthenticationGatewayFirebase(firAuth: firAuth, fireStore: fireStore))
+        sut = ProfileVC(gateway:firebaseGateWay)
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
         window.rootViewController = sut

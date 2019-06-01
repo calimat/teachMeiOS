@@ -14,14 +14,6 @@ class LoginVCTests: XCTestCase {
     
     var sut : LoginVC!
     var window: UIWindow?
-    private var firAuth: Auth = {
-        if FirebaseApp.app() == nil { FirebaseApp.configure() }
-        return Auth.auth()
-    }()
-    private var fireStore: Firestore = {
-        if FirebaseApp.app() == nil { FirebaseApp.configure() }
-        return Firestore.firestore()
-    }()
     
     fileprivate func extractedFunc() {
         let window = UIWindow(frame: UIScreen.main.bounds)
@@ -32,7 +24,7 @@ class LoginVCTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        sut = LoginVC(gateway: AuthenticationGatewayFirebase(firAuth: self.firAuth, fireStore: self.fireStore))
+        sut = LoginVC(gateway:firebaseGateWay)
         extractedFunc()
         _ = sut.view
      

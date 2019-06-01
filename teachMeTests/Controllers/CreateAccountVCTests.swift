@@ -6,22 +6,14 @@ import Firebase
 class CreateAccountVCTests : XCTestCase {
     var sut : CreateAccountVC!
     var window: UIWindow?
-    private var firAuth: Auth = {
-        if FirebaseApp.app() == nil { FirebaseApp.configure() }
-        return Auth.auth()
-    }()
-    private var fireStore: Firestore = {
-        if FirebaseApp.app() == nil { FirebaseApp.configure() }
-        return Firestore.firestore()
-    }()
+  
     
     private let userEmail = "fake@gmail.com"
     private let accountType = AccountType.Student.rawValue
     
     override func setUp() {
         super.setUp()
-        sut = CreateAccountVC(gateway: AuthenticationGatewayFirebase(firAuth: self.firAuth, fireStore: self.fireStore))
-         _ = sut.view // This line is the key
+        sut = CreateAccountVC(gateway: firebaseGateWay)
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
         window.rootViewController = sut

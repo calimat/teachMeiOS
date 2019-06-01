@@ -44,6 +44,7 @@
 		F6DCD37122A2272C004301E3 /* UIViewControllerExtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCD37022A2272C004301E3 /* UIViewControllerExtTests.swift */; };
 		F6DCD37422A22E30004301E3 /* MainTabBarVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCD37322A22E30004301E3 /* MainTabBarVCTests.swift */; };
 		F6DCD37622A234A1004301E3 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6DCD37522A234A1004301E3 /* ProfileVC.xib */; };
+		F6DCD37F22A300C6004301E3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCD37E22A300C6004301E3 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,7 @@
 		F6DCD37022A2272C004301E3 /* UIViewControllerExtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtTests.swift; sourceTree = "<group>"; };
 		F6DCD37322A22E30004301E3 /* MainTabBarVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVCTests.swift; sourceTree = "<group>"; };
 		F6DCD37522A234A1004301E3 /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
+		F6DCD37E22A300C6004301E3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +284,7 @@
 		F669856B2103FE1B0004CC7F /* teachMeTests */ = {
 			isa = PBXGroup;
 			children = (
+				F6DCD37D22A300B1004301E3 /* Constants */,
 				F6DCD37C22A2FD0C004301E3 /* Authentication */,
 				F6DCD37B22A2FCF9004301E3 /* Extensions */,
 				F6DCD37A22A2FCBE004301E3 /* Controllers */,
@@ -381,6 +384,14 @@
 				F650263E22878D06007D0B17 /* RegisterUserUseCaseTests.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		F6DCD37D22A300B1004301E3 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				F6DCD37E22A300C6004301E3 /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -654,6 +665,7 @@
 				F6DCD37122A2272C004301E3 /* UIViewControllerExtTests.swift in Sources */,
 				F6698589211682430004CC7F /* LoginVCTests.swift in Sources */,
 				F650264522879155007D0B17 /* AuthenticationGatewayStub.swift in Sources */,
+				F6DCD37F22A300C6004301E3 /* Constants.swift in Sources */,
 				F6DCD36A22A21A5F004301E3 /* CreateAccountVCMock.swift in Sources */,
 				F6D6594E22925E1000CF6ABE /* ProfileVCTests.swift in Sources */,
 				F650265122888CC4007D0B17 /* CreateAccountVCTests.swift in Sources */,

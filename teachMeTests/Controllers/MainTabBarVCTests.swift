@@ -6,17 +6,9 @@ class MainTabBarVCTests: XCTestCase {
 
     var sut : MainTabBarVC!
     var window: UIWindow?
-    private var firAuth: Auth = {
-        if FirebaseApp.app() == nil { FirebaseApp.configure() }
-        return Auth.auth()
-    }()
-    private var fireStore: Firestore = {
-        if FirebaseApp.app() == nil { FirebaseApp.configure() }
-        return Firestore.firestore()
-    }()
     
     override func setUp() {
-        sut = MainTabBarVC(gateway: AuthenticationGatewayFirebase(firAuth: firAuth, fireStore: fireStore))
+        sut = MainTabBarVC(gateway:firebaseGateWay)
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
         window.rootViewController = sut
