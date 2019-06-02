@@ -94,4 +94,10 @@ class CreateAccountVCTests : XCTestCase {
     func test_ShouldHavePresnter() {
         XCTAssertNotNil(sut.presenter)
     }
+    
+    func test_HasASpinner() {
+        XCTAssertNotNil(sut.spinner)
+        XCTAssertTrue(sut.spinner.isHidden)
+        XCTAssertFalse(sut.spinner.isAnimating)
+    }
 }

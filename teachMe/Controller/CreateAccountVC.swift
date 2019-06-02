@@ -16,10 +16,13 @@ class CreateAccountVC: UIViewController {
     @IBOutlet weak var studentBtn: UIButton!
     @IBOutlet weak var tutorBtn:UIButton!
     @IBOutlet weak var backBtn:UIButton!
+    @IBOutlet weak var spinner:UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        spinner.isHidden = true
+        spinner.hidesWhenStopped = true 
     }
     
     convenience init(gateway: AuthenticationGateway, presenter: Presenter) {
@@ -53,11 +56,13 @@ class CreateAccountVC: UIViewController {
     
     @IBAction func createAccountBtn_WasPressed(_ sender: Any) {
         guard let email = emailTxtField.text , let password = passwordTxtField.text else { return }
-        
+        self.spinner.isHidden = false
+        self.spinner.startAnimating()
         self.gateway.register(email: email, password: password, accountType: accountType) { (result) in
             switch result {
             case .success(_) :
                 self.gateway.login(email: email, password: password, completion: { (success, error) in
+                    self.spinner.stopAnimating()
                     if let authError = error {
                         self.displayError(authError)
                     } else {
