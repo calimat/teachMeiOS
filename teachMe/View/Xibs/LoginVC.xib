@@ -17,6 +17,7 @@
                 <outlet property="errorLbl" destination="9dn-yU-x3L" id="EgS-xU-Wyl"/>
                 <outlet property="loginBtn" destination="kfx-pz-z3S" id="GaS-J6-cC0"/>
                 <outlet property="passwordTxtField" destination="8Rb-oa-pu9" id="yJW-tM-1Rb"/>
+                <outlet property="spinner" destination="8fK-Ul-EaS" id="2vs-0f-aHL"/>
                 <outlet property="view" destination="X70-sv-Kaz" id="hUt-Bd-LiG"/>
             </connections>
         </placeholder>
@@ -106,6 +107,10 @@
                     <color key="textColor" red="0.90980392160000001" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="8fK-Ul-EaS">
+                    <rect key="frame" x="188.5" y="551" width="37" height="37"/>
+                    <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="0.050980392159999999" green="0.22352941179999999" blue="0.039215686270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -117,6 +122,8 @@
                 <constraint firstItem="0uz-15-Xgh" firstAttribute="top" secondItem="ZIz-Cr-7wp" secondAttribute="top" constant="20" id="8fI-dF-s3G"/>
                 <constraint firstItem="13q-AE-N07" firstAttribute="top" secondItem="PFY-c2-mwe" secondAttribute="bottom" constant="30" id="Dyb-lk-9t5"/>
                 <constraint firstItem="9dn-yU-x3L" firstAttribute="top" secondItem="13q-AE-N07" secondAttribute="bottom" constant="20" id="LNs-wO-Wwv"/>
+                <constraint firstItem="8fK-Ul-EaS" firstAttribute="top" secondItem="9dn-yU-x3L" secondAttribute="bottom" constant="20" id="OYY-um-vX9"/>
+                <constraint firstItem="8fK-Ul-EaS" firstAttribute="centerX" secondItem="X70-sv-Kaz" secondAttribute="centerX" id="XQc-BG-JcG"/>
                 <constraint firstItem="PFY-c2-mwe" firstAttribute="centerY" secondItem="X70-sv-Kaz" secondAttribute="centerY" constant="-109" id="YFH-cf-Rgq"/>
                 <constraint firstItem="kfx-pz-z3S" firstAttribute="trailing" secondItem="ZIz-Cr-7wp" secondAttribute="trailing" id="bY1-f0-UWk"/>
                 <constraint firstItem="0uz-15-Xgh" firstAttribute="centerX" secondItem="X70-sv-Kaz" secondAttribute="centerX" id="csx-as-48t"/>
