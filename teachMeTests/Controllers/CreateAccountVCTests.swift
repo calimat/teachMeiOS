@@ -13,7 +13,7 @@ class CreateAccountVCTests : XCTestCase {
     
     override func setUp() {
         super.setUp()
-        sut = CreateAccountVC(gateway: firebaseGateWay)
+        sut = CreateAccountVC(gateway: firebaseGateWay, presenter: ErrorPresenter(error: AuthenticationError(rawvalue: 999)))
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
         window.rootViewController = sut
@@ -85,9 +85,13 @@ class CreateAccountVCTests : XCTestCase {
         XCTAssertNotNil(sut.backBtn)
     }
     
-    func test_ShouldCloseItself() {
+    func test_ShouldCallDismiss_WhenTappedBtnIsPressed() {
         let vc = CreateAccountVCMock()
         vc.backBtnPressed(self)
         XCTAssertTrue(vc.dismissCalled)
+    }
+    
+    func test_ShouldHavePresnter() {
+        XCTAssertNotNil(sut.presenter)
     }
 }

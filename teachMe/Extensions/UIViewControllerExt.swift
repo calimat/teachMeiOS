@@ -1,4 +1,5 @@
 import UIKit
+import Firebase
 
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
@@ -12,7 +13,7 @@ extension UIViewController {
     }
     
     func presentMainTabBarController() {
-        let mainTabBarVC = MainTabBarVC()
+        let mainTabBarVC = MainTabBarVC(gateway: AuthenticationGatewayFirebase(firAuth: Auth.auth(), fireStore: Firestore.firestore()), presenter: ErrorPresenter(error: AuthenticationError(rawvalue: 999)))
         self.present(mainTabBarVC, animated: true, completion: nil)
     }
 }

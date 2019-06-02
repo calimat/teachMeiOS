@@ -13,6 +13,7 @@ import Firebase
 class LoginVC: UIViewController {
 
     var gateway:AuthenticationGateway!
+    var presenter: Presenter!
     
     @IBOutlet weak var emailTextField: ChalkBoardTextField!
     @IBOutlet weak var passwordTxtField: ChalkBoardTextField!
@@ -25,13 +26,15 @@ class LoginVC: UIViewController {
         self.hideKeyboardWhenTappedAround()
     }
     
-    convenience init(gateway:AuthenticationGateway) {
+    convenience init(gateway:AuthenticationGateway, presenter: Presenter) {
         self.init()
         self.gateway = gateway
+        self.presenter = presenter
+   
     }
     
     @IBAction func createAccountBtn_Pressed(_ sender: Any) {
-        let accountVC = CreateAccountVC(gateway: gateway)
+        let accountVC = CreateAccountVC(gateway: gateway, presenter: presenter)
         self.present(accountVC, animated: true, completion: nil)
     }
     
@@ -40,7 +43,8 @@ class LoginVC: UIViewController {
         validadeInputs()
         gateway.login(email: emailTextField.text!, password: passwordTxtField.text!) { (success, error) in
             if let authError = error {
-                //ui test for this
+                self.errorLbl.isHidden = false
+                self.errorLbl.text = self.presenter.displayMessage(for: authError)
             } else {
                 self.presentMainTabBarController()
             }

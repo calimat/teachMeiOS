@@ -15,6 +15,7 @@ class CreateAccountVC: UIViewController {
     var accountType:String = AccountType.Student.rawValue
     
     var gateway: AuthenticationGateway!
+    var presenter: Presenter!
     
     @IBOutlet weak var createAccountBtn: UIButton!
     @IBOutlet weak var emailTxtField: UITextField!
@@ -29,9 +30,11 @@ class CreateAccountVC: UIViewController {
         self.hideKeyboardWhenTappedAround()
     }
     
-    convenience init(gateway: AuthenticationGateway) {
+    convenience init(gateway: AuthenticationGateway, presenter: Presenter) {
         self.init()
         self.gateway = gateway
+        self.presenter = presenter
+        
     }
     
     @IBAction func backBtnPressed(_ sender: Any) {
@@ -51,11 +54,10 @@ class CreateAccountVC: UIViewController {
         tutorBtn.isSelected = true
     }
     
-    fileprivate func displayMessage(for error: (AuthenticationError)) {
+    fileprivate func displayError(_ authError: AuthenticationError) {
         self.errorLbl.isHidden = false
-        self.errorLbl.text = String(describing:error)
+        self.errorLbl.text = self.presenter.displayMessage(for: authError)
     }
-    
     
     @IBAction func createAccountBtn_WasPressed(_ sender: Any) {
         guard let email = emailTxtField.text , let password = passwordTxtField.text else { return }
@@ -65,14 +67,15 @@ class CreateAccountVC: UIViewController {
             case .success(_) :
                 self.gateway.login(email: email, password: password, completion: { (success, error) in
                     if let authError = error {
-                        self.displayMessage(for: authError)
+                        self.displayError(authError)
                     } else {
+                        
                         self.presentMainTabBarController()
                     }
                 })
                 break
             case .failure(let error):
-                self.displayMessage(for: error)
+                self.displayError(error)
                 break
             }
         }
