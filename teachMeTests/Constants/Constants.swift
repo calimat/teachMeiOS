@@ -12,3 +12,7 @@
  var firebaseGateWay: AuthenticationGatewayFirebase = {
     return AuthenticationGatewayFirebase(firAuth: firAuth, fireStore: fireStore)
  }()
+ 
+ var defaultErrorpresenter: ErrorPresenter = {
+    return ErrorPresenter(error: AuthenticationError(rawvalue: 999))
+ }()

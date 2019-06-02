@@ -17,7 +17,7 @@ class UIViewControllerExtTests: XCTestCase {
     }
     
     func test_ViewControllerShouldPresent_MainTabBarVC () {
-        sut.presentMainTabBarController()
+        sut.presentMainTabBarController(gateway: firebaseGateWay, presenter: defaultErrorpresenter)
         XCTAssertNotNil(sut.presentedViewController)
         XCTAssertTrue(sut.presentedViewController is MainTabBarVC)
     }

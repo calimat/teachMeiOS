@@ -1,11 +1,3 @@
-//
-//  CreateAccountVC.swift
-//  teachMe
-//
-//  Created by Ricardo Herrera Petit on 5/5/19.
-//  Copyright © 2019 Ricardo Herrera Petit. All rights reserved.
-//
-
 import UIKit
 import Firebase
 
@@ -69,8 +61,7 @@ class CreateAccountVC: UIViewController {
                     if let authError = error {
                         self.displayError(authError)
                     } else {
-                        
-                        self.presentMainTabBarController()
+                        self.presentMainTabBarController(gateway: self.gateway, presenter: self.presenter)
                     }
                 })
                 break

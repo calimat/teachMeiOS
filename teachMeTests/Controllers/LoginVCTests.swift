@@ -10,7 +10,7 @@ class LoginVCTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        sut = LoginVC(gateway:firebaseGateWay, presenter: ErrorPresenter(error: AuthenticationError(rawvalue: 999)))
+        sut = LoginVC(gateway:firebaseGateWay, presenter: defaultErrorpresenter)
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
         window.rootViewController = sut

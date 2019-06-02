@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  teachMe
-//
-//  Created by Ricardo Herrera Petit on 5/20/18.
-//  Copyright © 2018 Ricardo Herrera Petit. All rights reserved.
-//
-
 import UIKit
 import Firebase
 
@@ -46,7 +38,7 @@ class LoginVC: UIViewController {
                 self.errorLbl.isHidden = false
                 self.errorLbl.text = self.presenter.displayMessage(for: authError)
             } else {
-                self.presentMainTabBarController()
+                self.presentMainTabBarController(gateway: self.gateway, presenter: self.presenter)
             }
         }
     }
