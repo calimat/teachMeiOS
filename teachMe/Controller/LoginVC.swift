@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  teachMe
-//
-//  Created by Ricardo Herrera Petit on 5/20/18.
-//  Copyright © 2018 Ricardo Herrera Petit. All rights reserved.
-//
-
 import UIKit
 import Firebase
 

@@ -3,5 +3,3 @@ enum AccountType: String {
     case Student
     case Tutor
 }
-
-
