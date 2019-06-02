@@ -1,11 +1,3 @@
-//
-//  RegisterUserUseCaseTest.swift
-//  teachMeTests
-//
-//  Created by Ricardo Herrera Petit on 5/11/19.
-//  Copyright © 2019 Ricardo Herrera Petit. All rights reserved.
-//
-
 import XCTest
 @testable import teachMe
 

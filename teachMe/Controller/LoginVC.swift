@@ -12,7 +12,8 @@ import Firebase
 
 class LoginVC: UIViewController {
 
-     var gateway = AuthenticationGatewayFirebase(firAuth: Auth.auth(), fireStore: Firestore.firestore())
+    var gateway:AuthenticationGateway!
+    var presenter: Presenter!
     
     @IBOutlet weak var emailTextField: ChalkBoardTextField!
     @IBOutlet weak var passwordTxtField: ChalkBoardTextField!
@@ -25,17 +26,27 @@ class LoginVC: UIViewController {
         self.hideKeyboardWhenTappedAround()
     }
     
+    convenience init(gateway:AuthenticationGateway, presenter: Presenter) {
+        self.init()
+        self.gateway = gateway
+        self.presenter = presenter
+   
+    }
+    
+    @IBAction func createAccountBtn_Pressed(_ sender: Any) {
+        let accountVC = CreateAccountVC(gateway: gateway, presenter: presenter)
+        self.present(accountVC, animated: true, completion: nil)
+    }
     
     @IBAction func loginBtn_Pressed(_ sender: Any) {
         errorLbl.isHidden = false
         validadeInputs()
         gateway.login(email: emailTextField.text!, password: passwordTxtField.text!) { (success, error) in
             if let authError = error {
-                //ui test for this
+                self.errorLbl.isHidden = false
+                self.errorLbl.text = self.presenter.displayMessage(for: authError)
             } else {
-                if let mainTabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarVC") as? MainTabBarVC {
-                    self.present(mainTabBarVC, animated: true, completion: nil)
-                }
+                self.presentMainTabBarController()
             }
         }
     }

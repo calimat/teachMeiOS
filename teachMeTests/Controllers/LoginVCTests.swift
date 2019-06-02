@@ -1,30 +1,27 @@
-//
-//  LoginVCTests.swift
-//  teachMeTests
-//
-//  Created by Ricardo Herrera Petit on 8/4/18.
-//  Copyright © 2018 Ricardo Herrera Petit. All rights reserved.
-//
-
 import XCTest
+import Firebase
 @testable import teachMe
 
 class LoginVCTests: XCTestCase {
     
     var sut : LoginVC!
+    var window: UIWindow?
+    
     
     override func setUp() {
         super.setUp()
-        let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-        sut = mainStoryBoard.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC
-        sut.loadView() // This line is the key
-        sut.viewDidLoad()
-
+        sut = LoginVC(gateway:firebaseGateWay, presenter: ErrorPresenter(error: AuthenticationError(rawvalue: 999)))
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        self.window = window
+        window.rootViewController = sut
+        window.makeKeyAndVisible()
+        _ = sut.view
     }
     
     override func tearDown() {
         sut = nil
-    }
+    }   
+
     
     func test_HasUserNameTextField() {
         guard let emailTextField = sut.emailTextField else { XCTFail(); return}
@@ -95,5 +92,25 @@ class LoginVCTests: XCTestCase {
         XCTAssertTrue(errorLbl.isHidden)
         XCTAssertEqual(errorLbl.text, "")
     }
+    
+    func test_gatewayshouldNotBeNil() {
+        XCTAssertNotNil(sut.gateway)
+    }
+    
+    
+    func test_tappinOnCreateNewAccount_PresentsCreateAccountVC() {
+        guard let createAccountBtn = sut.createAccountBtn else {XCTFail(); return}
+        createAccountBtn.sendActions(for: .touchUpInside)
+        XCTAssertNotNil(sut.presentedViewController)
+        XCTAssertTrue(sut.presentedViewController is CreateAccountVC)
+    }
+    
+    func test_presentedCreateAccountVC_ShouldnotHaveNilGateway() {
+        guard let createAccountBtn = sut.createAccountBtn else {XCTFail(); return}
+        createAccountBtn.sendActions(for: .touchUpInside)
+        guard let createAccountVC = sut.presentedViewController as? CreateAccountVC else { XCTFail(); return}
+        XCTAssertNotNil(createAccountVC.gateway)
+    }
+    
 }
 

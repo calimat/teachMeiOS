@@ -1,20 +1,24 @@
 import XCTest
+import Firebase
 @testable import teachMe
+
 
 class CreateAccountVCTests : XCTestCase {
     var sut : CreateAccountVC!
-   // var gateway: AuthenticationGatewayFirebase!
+    var window: UIWindow?
+  
     
     private let userEmail = "fake@gmail.com"
     private let accountType = AccountType.Student.rawValue
     
     override func setUp() {
         super.setUp()
-        let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-        sut = mainStoryBoard.instantiateViewController(withIdentifier: "CreateAccountVC") as? CreateAccountVC
-        sut.loadView() // This line is the key
-        sut.viewDidLoad()
-       // self.gateway = AuthenticationGatewayFirebase(firAuth: <#T##Auth#>)
+        sut = CreateAccountVC(gateway: firebaseGateWay, presenter: ErrorPresenter(error: AuthenticationError(rawvalue: 999)))
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        self.window = window
+        window.rootViewController = sut
+        window.makeKeyAndVisible()
+        _ = sut.view
         
     }
     
@@ -73,4 +77,21 @@ class CreateAccountVCTests : XCTestCase {
         XCTAssertTrue(sut.studentBtn.isSelected)
     }
    
+    func test_GateWayShouldNotBeNotNill() {
+        XCTAssertNotNil(sut.gateway)
+    }
+    
+    func test_HasBackButton() {
+        XCTAssertNotNil(sut.backBtn)
+    }
+    
+    func test_ShouldCallDismiss_WhenTappedBtnIsPressed() {
+        let vc = CreateAccountVCMock()
+        vc.backBtnPressed(self)
+        XCTAssertTrue(vc.dismissCalled)
+    }
+    
+    func test_ShouldHavePresnter() {
+        XCTAssertNotNil(sut.presenter)
+    }
 }

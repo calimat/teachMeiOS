@@ -11,10 +11,11 @@ import Firebase
 
 
 class CreateAccountVC: UIViewController {
-
+    
     var accountType:String = AccountType.Student.rawValue
     
-    var gateway = AuthenticationGatewayFirebase(firAuth: Auth.auth(), fireStore: Firestore.firestore())
+    var gateway: AuthenticationGateway!
+    var presenter: Presenter!
     
     @IBOutlet weak var createAccountBtn: UIButton!
     @IBOutlet weak var emailTxtField: UITextField!
@@ -22,15 +23,23 @@ class CreateAccountVC: UIViewController {
     @IBOutlet weak var errorLbl:UILabel!
     @IBOutlet weak var studentBtn: UIButton!
     @IBOutlet weak var tutorBtn:UIButton!
+    @IBOutlet weak var backBtn:UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
     }
     
+    convenience init(gateway: AuthenticationGateway, presenter: Presenter) {
+        self.init()
+        self.gateway = gateway
+        self.presenter = presenter
+        
+    }
+    
     @IBAction func backBtnPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-
+        
     }
     @IBAction func studentBtn_WasPressed(_ sender: Any) {
         accountType = AccountType.Student.rawValue
@@ -45,14 +54,9 @@ class CreateAccountVC: UIViewController {
         tutorBtn.isSelected = true
     }
     
-    fileprivate func displayMessage(for error: (AuthenticationError)) {
+    fileprivate func displayError(_ authError: AuthenticationError) {
         self.errorLbl.isHidden = false
-        self.errorLbl.text = String(describing:error)
-    }
-    
-    func presentMainTabBarVC() {
-        guard let mainTabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarVC") as? MainTabBarVC else { return }
-        self.present(mainTabBarVC, animated: true, completion: nil)
+        self.errorLbl.text = self.presenter.displayMessage(for: authError)
     }
     
     @IBAction func createAccountBtn_WasPressed(_ sender: Any) {
@@ -63,13 +67,15 @@ class CreateAccountVC: UIViewController {
             case .success(_) :
                 self.gateway.login(email: email, password: password, completion: { (success, error) in
                     if let authError = error {
-                        self.displayMessage(for: authError)
+                        self.displayError(authError)
                     } else {
-                        self.presentMainTabBarVC()                    }
+                        
+                        self.presentMainTabBarController()
+                    }
                 })
                 break
             case .failure(let error):
-                self.displayMessage(for: error)
+                self.displayError(error)
                 break
             }
         }

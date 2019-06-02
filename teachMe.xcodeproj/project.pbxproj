@@ -11,8 +11,6 @@
 		EAD0C9D2FBBCE3374DC6577A /* Pods_teachMeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 387D2509110F790BFD6DA9B0 /* Pods_teachMeTests.framework */; };
 		F6392F2120B1D98A00973418 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6392F2020B1D98A00973418 /* AppDelegate.swift */; };
 		F6392F2320B1D98A00973418 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6392F2220B1D98A00973418 /* LoginVC.swift */; };
-		F6392F2620B1D98A00973418 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6392F2420B1D98A00973418 /* Main.storyboard */; };
-		F6392F2920B1D98A00973418 /* teachMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F6392F2720B1D98A00973418 /* teachMe.xcdatamodeld */; };
 		F6392F2B20B1D98C00973418 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6392F2A20B1D98C00973418 /* Assets.xcassets */; };
 		F6392F2E20B1D98C00973418 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6392F2C20B1D98C00973418 /* LaunchScreen.storyboard */; };
 		F650262722868FE2007D0B17 /* AuthenticationErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F650262622868FE2007D0B17 /* AuthenticationErrorTests.swift */; };
@@ -38,6 +36,17 @@
 		F6D659492290DDC800CF6ABE /* MainTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D659482290DDC800CF6ABE /* MainTabBarVC.swift */; };
 		F6D6594B2291BBD900CF6ABE /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D6594A2291BBD900CF6ABE /* UIViewControllerExt.swift */; };
 		F6D6594E22925E1000CF6ABE /* ProfileVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D6594D22925E1000CF6ABE /* ProfileVCTests.swift */; };
+		F6DCD36322A0C092004301E3 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6DCD36222A0C092004301E3 /* LoginVC.xib */; };
+		F6DCD36722A0CEEF004301E3 /* CreateAccountVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6DCD36622A0CEEF004301E3 /* CreateAccountVC.xib */; };
+		F6DCD36A22A21A5F004301E3 /* CreateAccountVCMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCD36922A21A5F004301E3 /* CreateAccountVCMock.swift */; };
+		F6DCD36F22A22350004301E3 /* MockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCD36E22A22350004301E3 /* MockViewController.swift */; };
+		F6DCD37122A2272C004301E3 /* UIViewControllerExtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCD37022A2272C004301E3 /* UIViewControllerExtTests.swift */; };
+		F6DCD37422A22E30004301E3 /* MainTabBarVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCD37322A22E30004301E3 /* MainTabBarVCTests.swift */; };
+		F6DCD37622A234A1004301E3 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6DCD37522A234A1004301E3 /* ProfileVC.xib */; };
+		F6DCD37F22A300C6004301E3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCD37E22A300C6004301E3 /* Constants.swift */; };
+		F6DCD38122A33750004301E3 /* ErrorPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCD38022A33750004301E3 /* ErrorPresenterTests.swift */; };
+		F6DCD38322A337A4004301E3 /* ErrorPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCD38222A337A4004301E3 /* ErrorPresenterImpl.swift */; };
+		F6DCD38722A34603004301E3 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCD38622A34603004301E3 /* Presenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,8 +79,6 @@
 		F6392F1D20B1D98A00973418 /* teachMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teachMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6392F2020B1D98A00973418 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6392F2220B1D98A00973418 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
-		F6392F2520B1D98A00973418 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F6392F2820B1D98A00973418 /* teachMe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = teachMe.xcdatamodel; sourceTree = "<group>"; };
 		F6392F2A20B1D98C00973418 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6392F2D20B1D98C00973418 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F6392F2F20B1D98C00973418 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,6 +109,17 @@
 		F6D659482290DDC800CF6ABE /* MainTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVC.swift; sourceTree = "<group>"; };
 		F6D6594A2291BBD900CF6ABE /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		F6D6594D22925E1000CF6ABE /* ProfileVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVCTests.swift; sourceTree = "<group>"; };
+		F6DCD36222A0C092004301E3 /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
+		F6DCD36622A0CEEF004301E3 /* CreateAccountVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateAccountVC.xib; sourceTree = "<group>"; };
+		F6DCD36922A21A5F004301E3 /* CreateAccountVCMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVCMock.swift; sourceTree = "<group>"; };
+		F6DCD36E22A22350004301E3 /* MockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockViewController.swift; sourceTree = "<group>"; };
+		F6DCD37022A2272C004301E3 /* UIViewControllerExtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtTests.swift; sourceTree = "<group>"; };
+		F6DCD37322A22E30004301E3 /* MainTabBarVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVCTests.swift; sourceTree = "<group>"; };
+		F6DCD37522A234A1004301E3 /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
+		F6DCD37E22A300C6004301E3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F6DCD38022A33750004301E3 /* ErrorPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenterTests.swift; sourceTree = "<group>"; };
+		F6DCD38222A337A4004301E3 /* ErrorPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenterImpl.swift; sourceTree = "<group>"; };
+		F6DCD38622A34603004301E3 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +208,7 @@
 		F6392F1F20B1D98A00973418 /* teachMe */ = {
 			isa = PBXGroup;
 			children = (
+				F6DCD38522A345A0004301E3 /* Presenter */,
 				F6D6594C2291BBE800CF6ABE /* Extensions */,
 				F650264B228875AD007D0B17 /* Enumerations */,
 				F650263022874C0E007D0B17 /* Constants */,
@@ -197,11 +216,9 @@
 				F693BDB1227EB9D300B83944 /* View */,
 				F62424A7227E5D660022ECD0 /* Controller */,
 				F6392F2020B1D98A00973418 /* AppDelegate.swift */,
-				F6392F2420B1D98A00973418 /* Main.storyboard */,
 				F6392F2A20B1D98C00973418 /* Assets.xcassets */,
 				F6392F2C20B1D98C00973418 /* LaunchScreen.storyboard */,
 				F6392F2F20B1D98C00973418 /* Info.plist */,
-				F6392F2720B1D98A00973418 /* teachMe.xcdatamodeld */,
 				F66985862116697A0004CC7F /* GoogleService-Info.plist */,
 			);
 			path = teachMe;
@@ -271,14 +288,15 @@
 		F669856B2103FE1B0004CC7F /* teachMeTests */ = {
 			isa = PBXGroup;
 			children = (
+				F6DCD38422A34589004301E3 /* Presenter */,
+				F6DCD37D22A300B1004301E3 /* Constants */,
+				F6DCD37C22A2FD0C004301E3 /* Authentication */,
+				F6DCD37B22A2FCF9004301E3 /* Extensions */,
+				F6DCD37A22A2FCBE004301E3 /* Controllers */,
+				F6DCD36822A21A4C004301E3 /* Mocks */,
 				F6D65942228A67D500CF6ABE /* IntegrationTests */,
 				F65026432287913E007D0B17 /* Doubles */,
 				F669856E2103FE1B0004CC7F /* Info.plist */,
-				F6D6594D22925E1000CF6ABE /* ProfileVCTests.swift */,
-				F6698588211682430004CC7F /* LoginVCTests.swift */,
-				F650262622868FE2007D0B17 /* AuthenticationErrorTests.swift */,
-				F650263E22878D06007D0B17 /* RegisterUserUseCaseTests.swift */,
-				F650265022888CC4007D0B17 /* CreateAccountVCTests.swift */,
 			);
 			path = teachMeTests;
 			sourceTree = "<group>";
@@ -286,6 +304,7 @@
 		F693BDB1227EB9D300B83944 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F6DCD36B22A21B6C004301E3 /* Xibs */,
 				F693BDB6227EBE1400B83944 /* ChalkBoardTextField.swift */,
 				F65EF52C229B7E3600434688 /* CenteredButton.swift */,
 			);
@@ -323,6 +342,78 @@
 				F6D6594A2291BBD900CF6ABE /* UIViewControllerExt.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F6DCD36822A21A4C004301E3 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				F6DCD36922A21A5F004301E3 /* CreateAccountVCMock.swift */,
+				F6DCD36E22A22350004301E3 /* MockViewController.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		F6DCD36B22A21B6C004301E3 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				F6DCD36222A0C092004301E3 /* LoginVC.xib */,
+				F6DCD36622A0CEEF004301E3 /* CreateAccountVC.xib */,
+				F6DCD37522A234A1004301E3 /* ProfileVC.xib */,
+			);
+			path = Xibs;
+			sourceTree = "<group>";
+		};
+		F6DCD37A22A2FCBE004301E3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F6D6594D22925E1000CF6ABE /* ProfileVCTests.swift */,
+				F6698588211682430004CC7F /* LoginVCTests.swift */,
+				F650265022888CC4007D0B17 /* CreateAccountVCTests.swift */,
+				F6DCD37322A22E30004301E3 /* MainTabBarVCTests.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F6DCD37B22A2FCF9004301E3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F6DCD37022A2272C004301E3 /* UIViewControllerExtTests.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F6DCD37C22A2FD0C004301E3 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				F650262622868FE2007D0B17 /* AuthenticationErrorTests.swift */,
+				F650263E22878D06007D0B17 /* RegisterUserUseCaseTests.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		F6DCD37D22A300B1004301E3 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				F6DCD37E22A300C6004301E3 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		F6DCD38422A34589004301E3 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F6DCD38022A33750004301E3 /* ErrorPresenterTests.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		F6DCD38522A345A0004301E3 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F6DCD38222A337A4004301E3 /* ErrorPresenterImpl.swift */,
+				F6DCD38622A34603004301E3 /* Presenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -433,10 +524,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6DCD36722A0CEEF004301E3 /* CreateAccountVC.xib in Resources */,
+				F6DCD36322A0C092004301E3 /* LoginVC.xib in Resources */,
 				F6392F2E20B1D98C00973418 /* LaunchScreen.storyboard in Resources */,
 				F66985872116697A0004CC7F /* GoogleService-Info.plist in Resources */,
+				F6DCD37622A234A1004301E3 /* ProfileVC.xib in Resources */,
 				F6392F2B20B1D98C00973418 /* Assets.xcassets in Resources */,
-				F6392F2620B1D98A00973418 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,14 +658,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6392F2320B1D98A00973418 /* LoginVC.swift in Sources */,
+				F6DCD38322A337A4004301E3 /* ErrorPresenterImpl.swift in Sources */,
 				F650264222878D7F007D0B17 /* RegisterUserUsecase.swift in Sources */,
-				F6392F2920B1D98A00973418 /* teachMe.xcdatamodeld in Sources */,
 				F650264A22879612007D0B17 /* UserEntity.swift in Sources */,
 				F650262B2286901A007D0B17 /* AuthenticationError.swift in Sources */,
 				F65EF52D229B7E3600434688 /* CenteredButton.swift in Sources */,
 				F6D6594B2291BBD900CF6ABE /* UIViewControllerExt.swift in Sources */,
 				F693BDB9227FA7F200B83944 /* CreateAccountVC.swift in Sources */,
 				F650263222874C1B007D0B17 /* Constants.swift in Sources */,
+				F6DCD38722A34603004301E3 /* Presenter.swift in Sources */,
 				F6392F2120B1D98A00973418 /* AppDelegate.swift in Sources */,
 				F650265522892770007D0B17 /* ProfileVC.swift in Sources */,
 				F6502648228795D3007D0B17 /* AuthenticationGateway.swift in Sources */,
@@ -587,14 +681,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6DCD36F22A22350004301E3 /* MockViewController.swift in Sources */,
 				F6D65945228A67F400CF6ABE /* IntegrationTests.swift in Sources */,
 				F650263F22878D06007D0B17 /* RegisterUserUseCaseTests.swift in Sources */,
+				F6DCD37422A22E30004301E3 /* MainTabBarVCTests.swift in Sources */,
+				F6DCD37122A2272C004301E3 /* UIViewControllerExtTests.swift in Sources */,
 				F6698589211682430004CC7F /* LoginVCTests.swift in Sources */,
 				F650264522879155007D0B17 /* AuthenticationGatewayStub.swift in Sources */,
+				F6DCD37F22A300C6004301E3 /* Constants.swift in Sources */,
+				F6DCD36A22A21A5F004301E3 /* CreateAccountVCMock.swift in Sources */,
 				F6D6594E22925E1000CF6ABE /* ProfileVCTests.swift in Sources */,
 				F650265122888CC4007D0B17 /* CreateAccountVCTests.swift in Sources */,
 				F65026532289223D007D0B17 /* RegisterUserPresenterStub.swift in Sources */,
 				F650262722868FE2007D0B17 /* AuthenticationErrorTests.swift in Sources */,
+				F6DCD38122A33750004301E3 /* ErrorPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,14 +722,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F6392F2420B1D98A00973418 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F6392F2520B1D98A00973418 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F6392F2C20B1D98C00973418 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -801,19 +893,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		F6392F2720B1D98A00973418 /* teachMe.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				F6392F2820B1D98A00973418 /* teachMe.xcdatamodel */,
-			);
-			currentVersion = F6392F2820B1D98A00973418 /* teachMe.xcdatamodel */;
-			path = teachMe.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = F6392F1520B1D98A00973418 /* Project object */;
 }

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginVC" customModule="teachMe" customModuleProvider="target">
+            <connections>
+                <outlet property="createAccountBtn" destination="13q-AE-N07" id="XUd-Fv-dXI"/>
+                <outlet property="emailTextField" destination="6XI-Ub-GsT" id="qzm-zx-oyB"/>
+                <outlet property="errorLbl" destination="9dn-yU-x3L" id="EgS-xU-Wyl"/>
+                <outlet property="loginBtn" destination="kfx-pz-z3S" id="GaS-J6-cC0"/>
+                <outlet property="passwordTxtField" destination="8Rb-oa-pu9" id="yJW-tM-1Rb"/>
+                <outlet property="view" destination="X70-sv-Kaz" id="hUt-Bd-LiG"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="X70-sv-Kaz">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kfx-pz-z3S">
+                    <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                    <color key="backgroundColor" red="0.2156862745" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <accessibility key="accessibilityConfiguration" label="loginBtn"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="V7x-vZ-lPW"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                    <state key="normal" title="LOGIN">
+                        <color key="titleColor" red="1" green="0.99607843139999996" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="loginBtn_Pressed:" destination="-1" eventType="touchUpInside" id="lLq-rd-7pR"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEACH ME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0uz-15-Xgh">
+                    <rect key="frame" x="92" y="64" width="230.5" height="51"/>
+                    <accessibility key="accessibilityConfiguration" label="teachme"/>
+                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="40"/>
+                    <color key="textColor" red="1" green="0.99607843139999996" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teachmeLogo" translatesAutoresizingMaskIntoConstraints="NO" id="lMp-yI-ovr">
+                    <rect key="frame" x="152.5" y="135" width="109" height="99"/>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PFY-c2-mwe">
+                    <rect key="frame" x="32" y="296" width="350" height="86"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6XI-Ub-GsT" customClass="ChalkBoardTextField" customModule="teachMe" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="350" height="26"/>
+                            <accessibility key="accessibilityConfiguration" identifier="email"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="350" id="Zbs-wJ-yL8"/>
+                            </constraints>
+                            <color key="textColor" red="1" green="0.99607843139999996" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xdm-Q4-Glc">
+                            <rect key="frame" x="0.0" y="36" width="350" height="2"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="2" id="BQT-t6-jeE"/>
+                            </constraints>
+                        </view>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Rb-oa-pu9" customClass="ChalkBoardTextField" customModule="teachMe" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="48" width="350" height="26"/>
+                            <accessibility key="accessibilityConfiguration" identifier="password"/>
+                            <color key="textColor" red="1" green="0.99607843139999996" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                        </textField>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0vn-LJ-Njx">
+                            <rect key="frame" x="0.0" y="84" width="350" height="2"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="2" id="Lbf-0h-BEZ"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13q-AE-N07">
+                    <rect key="frame" x="23.5" y="412" width="367" height="38"/>
+                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                    <state key="normal" title="Don't Have an Account? Tap Here">
+                        <color key="titleColor" red="1" green="0.99607843139999996" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="createAccountBtn_Pressed:" destination="-1" eventType="touchUpInside" id="CV4-Oc-auS"/>
+                    </connections>
+                </button>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invalid or the user does not exist" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dn-yU-x3L">
+                    <rect key="frame" x="32" y="470" width="350" height="61"/>
+                    <accessibility key="accessibilityConfiguration" identifier="error"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="350" id="1EJ-FE-thy"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="24"/>
+                    <color key="textColor" red="0.90980392160000001" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.050980392159999999" green="0.22352941179999999" blue="0.039215686270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="PFY-c2-mwe" firstAttribute="centerX" secondItem="X70-sv-Kaz" secondAttribute="centerX" id="0ql-ku-zcN"/>
+                <constraint firstItem="9dn-yU-x3L" firstAttribute="centerX" secondItem="X70-sv-Kaz" secondAttribute="centerX" id="2uL-kw-Hxu"/>
+                <constraint firstItem="lMp-yI-ovr" firstAttribute="centerX" secondItem="X70-sv-Kaz" secondAttribute="centerX" id="2yk-sN-XK3"/>
+                <constraint firstItem="lMp-yI-ovr" firstAttribute="top" secondItem="0uz-15-Xgh" secondAttribute="bottom" constant="20" id="7Qe-Nb-3Cl"/>
+                <constraint firstItem="13q-AE-N07" firstAttribute="centerX" secondItem="X70-sv-Kaz" secondAttribute="centerX" id="8dT-5m-bKi"/>
+                <constraint firstItem="0uz-15-Xgh" firstAttribute="top" secondItem="ZIz-Cr-7wp" secondAttribute="top" constant="20" id="8fI-dF-s3G"/>
+                <constraint firstItem="13q-AE-N07" firstAttribute="top" secondItem="PFY-c2-mwe" secondAttribute="bottom" constant="30" id="Dyb-lk-9t5"/>
+                <constraint firstItem="9dn-yU-x3L" firstAttribute="top" secondItem="13q-AE-N07" secondAttribute="bottom" constant="20" id="LNs-wO-Wwv"/>
+                <constraint firstItem="PFY-c2-mwe" firstAttribute="centerY" secondItem="X70-sv-Kaz" secondAttribute="centerY" constant="-109" id="YFH-cf-Rgq"/>
+                <constraint firstItem="kfx-pz-z3S" firstAttribute="trailing" secondItem="ZIz-Cr-7wp" secondAttribute="trailing" id="bY1-f0-UWk"/>
+                <constraint firstItem="0uz-15-Xgh" firstAttribute="centerX" secondItem="X70-sv-Kaz" secondAttribute="centerX" id="csx-as-48t"/>
+                <constraint firstItem="kfx-pz-z3S" firstAttribute="leading" secondItem="ZIz-Cr-7wp" secondAttribute="leading" id="jJQ-c6-Ff0"/>
+                <constraint firstItem="kfx-pz-z3S" firstAttribute="bottom" secondItem="ZIz-Cr-7wp" secondAttribute="bottom" id="uLD-n0-zlg"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZIz-Cr-7wp"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="teachmeLogo" width="109" height="99"/>
+    </resources>
+</document>
