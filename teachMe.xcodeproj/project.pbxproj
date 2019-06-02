@@ -44,6 +44,9 @@
 		F6DCD37422A22E30004301E3 /* MainTabBarVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCD37322A22E30004301E3 /* MainTabBarVCTests.swift */; };
 		F6DCD37622A234A1004301E3 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6DCD37522A234A1004301E3 /* ProfileVC.xib */; };
 		F6DCD37F22A300C6004301E3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCD37E22A300C6004301E3 /* Constants.swift */; };
+		F6DCD38122A33750004301E3 /* ErrorPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCD38022A33750004301E3 /* ErrorPresenterTests.swift */; };
+		F6DCD38322A337A4004301E3 /* ErrorPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCD38222A337A4004301E3 /* ErrorPresenterImpl.swift */; };
+		F6DCD38722A34603004301E3 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCD38622A34603004301E3 /* Presenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +117,9 @@
 		F6DCD37322A22E30004301E3 /* MainTabBarVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVCTests.swift; sourceTree = "<group>"; };
 		F6DCD37522A234A1004301E3 /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
 		F6DCD37E22A300C6004301E3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F6DCD38022A33750004301E3 /* ErrorPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenterTests.swift; sourceTree = "<group>"; };
+		F6DCD38222A337A4004301E3 /* ErrorPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenterImpl.swift; sourceTree = "<group>"; };
+		F6DCD38622A34603004301E3 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +208,7 @@
 		F6392F1F20B1D98A00973418 /* teachMe */ = {
 			isa = PBXGroup;
 			children = (
+				F6DCD38522A345A0004301E3 /* Presenter */,
 				F6D6594C2291BBE800CF6ABE /* Extensions */,
 				F650264B228875AD007D0B17 /* Enumerations */,
 				F650263022874C0E007D0B17 /* Constants */,
@@ -281,6 +288,7 @@
 		F669856B2103FE1B0004CC7F /* teachMeTests */ = {
 			isa = PBXGroup;
 			children = (
+				F6DCD38422A34589004301E3 /* Presenter */,
 				F6DCD37D22A300B1004301E3 /* Constants */,
 				F6DCD37C22A2FD0C004301E3 /* Authentication */,
 				F6DCD37B22A2FCF9004301E3 /* Extensions */,
@@ -389,6 +397,23 @@
 				F6DCD37E22A300C6004301E3 /* Constants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		F6DCD38422A34589004301E3 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F6DCD38022A33750004301E3 /* ErrorPresenterTests.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		F6DCD38522A345A0004301E3 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F6DCD38222A337A4004301E3 /* ErrorPresenterImpl.swift */,
+				F6DCD38622A34603004301E3 /* Presenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -633,6 +658,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6392F2320B1D98A00973418 /* LoginVC.swift in Sources */,
+				F6DCD38322A337A4004301E3 /* ErrorPresenterImpl.swift in Sources */,
 				F650264222878D7F007D0B17 /* RegisterUserUsecase.swift in Sources */,
 				F650264A22879612007D0B17 /* UserEntity.swift in Sources */,
 				F650262B2286901A007D0B17 /* AuthenticationError.swift in Sources */,
@@ -640,6 +666,7 @@
 				F6D6594B2291BBD900CF6ABE /* UIViewControllerExt.swift in Sources */,
 				F693BDB9227FA7F200B83944 /* CreateAccountVC.swift in Sources */,
 				F650263222874C1B007D0B17 /* Constants.swift in Sources */,
+				F6DCD38722A34603004301E3 /* Presenter.swift in Sources */,
 				F6392F2120B1D98A00973418 /* AppDelegate.swift in Sources */,
 				F650265522892770007D0B17 /* ProfileVC.swift in Sources */,
 				F6502648228795D3007D0B17 /* AuthenticationGateway.swift in Sources */,
@@ -667,6 +694,7 @@
 				F650265122888CC4007D0B17 /* CreateAccountVCTests.swift in Sources */,
 				F65026532289223D007D0B17 /* RegisterUserPresenterStub.swift in Sources */,
 				F650262722868FE2007D0B17 /* AuthenticationErrorTests.swift in Sources */,
+				F6DCD38122A33750004301E3 /* ErrorPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -111,5 +111,6 @@ class LoginVCTests: XCTestCase {
         guard let createAccountVC = sut.presentedViewController as? CreateAccountVC else { XCTFail(); return}
         XCTAssertNotNil(createAccountVC.gateway)
     }
+    
 }
 
