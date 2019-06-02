@@ -69,8 +69,7 @@ class CreateAccountVC: UIViewController {
                     if let authError = error {
                         self.displayError(authError)
                     } else {
-                        
-                        self.presentMainTabBarController()
+                        self.presentMainTabBarController(gateway: self.gateway, presenter: self.presenter)
                     }
                 })
                 break

@@ -46,7 +46,7 @@ class LoginVC: UIViewController {
                 self.errorLbl.isHidden = false
                 self.errorLbl.text = self.presenter.displayMessage(for: authError)
             } else {
-                self.presentMainTabBarController()
+                self.presentMainTabBarController(gateway: self.gateway, presenter: self.presenter)
             }
         }
     }
