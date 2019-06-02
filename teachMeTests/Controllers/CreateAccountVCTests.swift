@@ -13,7 +13,7 @@ class CreateAccountVCTests : XCTestCase {
     
     override func setUp() {
         super.setUp()
-        sut = CreateAccountVC(gateway: firebaseGateWay, presenter: ErrorPresenter(error: AuthenticationError(rawvalue: 999)))
+        sut = CreateAccountVC(gateway: firebaseGateWay, presenter: defaultErrorpresenter)
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
         window.rootViewController = sut
