@@ -17,6 +17,7 @@
                 <outlet property="emailTxtField" destination="hRG-n8-cPW" id="Khs-ee-uIn"/>
                 <outlet property="errorLbl" destination="gjw-HC-PK9" id="006-2f-3u7"/>
                 <outlet property="passwordTxtField" destination="STd-Bn-hhk" id="n2i-FW-G3j"/>
+                <outlet property="spinner" destination="nnt-hw-KdX" id="lbn-kR-zrO"/>
                 <outlet property="studentBtn" destination="J9X-YY-Nmp" id="Y1w-9g-Lhp"/>
                 <outlet property="tutorBtn" destination="Ake-R0-Rw1" id="p9m-L0-f4j"/>
                 <outlet property="view" destination="ifa-GL-wx4" id="ou6-rO-y08"/>
@@ -107,13 +108,13 @@
                     </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="DPn-ln-4v2">
-                    <rect key="frame" x="23" y="333" width="368" height="130.5"/>
+                    <rect key="frame" x="23" y="333" width="368" height="104"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jZU-hF-NDr">
-                            <rect key="frame" x="0.0" y="0.0" width="174" height="130.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="174" height="104"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9X-YY-Nmp" customClass="CenteredButton" customModule="teachMe" customModuleProvider="target">
-                                    <rect key="frame" x="9.5" y="0.0" width="155" height="130.5"/>
+                                    <rect key="frame" x="9.5" y="0.0" width="155" height="104"/>
                                     <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" title="Student" image="createAccountStudentIconOff">
@@ -129,10 +130,10 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pkL-ct-tKB">
-                            <rect key="frame" x="194" y="0.0" width="174" height="130.5"/>
+                            <rect key="frame" x="194" y="0.0" width="174" height="104"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ake-R0-Rw1" customClass="CenteredButton" customModule="teachMe" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="174" height="130.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="174" height="104"/>
                                     <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" title="Tutor" image="createAccountTutorImageOff">
@@ -150,12 +151,15 @@
                     </subviews>
                 </stackView>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjw-HC-PK9">
-                    <rect key="frame" x="20" y="483.5" width="374" height="30.5"/>
+                    <rect key="frame" x="20" y="457" width="374" height="30.5"/>
                     <accessibility key="accessibilityConfiguration" label="createAccountErrorLbl"/>
                     <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="24"/>
                     <color key="textColor" red="0.90980392160000001" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="nnt-hw-KdX">
+                    <rect key="frame" x="188.5" y="507.5" width="37" height="37"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="0.050980392159999999" green="0.22352941179999999" blue="0.039215686270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -163,11 +167,13 @@
                 <constraint firstItem="VMY-ev-iZD" firstAttribute="centerX" secondItem="ifa-GL-wx4" secondAttribute="centerX" constant="-20.25" id="5ra-i9-WeY"/>
                 <constraint firstItem="HA4-R6-vmr" firstAttribute="trailing" secondItem="gjw-HC-PK9" secondAttribute="trailing" constant="20" id="MhX-tO-XBa"/>
                 <constraint firstItem="pro-OL-G5F" firstAttribute="trailing" secondItem="HA4-R6-vmr" secondAttribute="trailing" id="P2G-Pf-55x"/>
+                <constraint firstItem="nnt-hw-KdX" firstAttribute="top" secondItem="gjw-HC-PK9" secondAttribute="bottom" constant="20" id="QEk-Qo-u13"/>
                 <constraint firstItem="DPn-ln-4v2" firstAttribute="centerX" secondItem="ifa-GL-wx4" secondAttribute="centerX" id="Qml-sq-HKY"/>
                 <constraint firstItem="pro-OL-G5F" firstAttribute="leading" secondItem="HA4-R6-vmr" secondAttribute="leading" id="Ujh-iC-MpO"/>
                 <constraint firstItem="oEI-oz-6TR" firstAttribute="centerX" secondItem="ifa-GL-wx4" secondAttribute="centerX" id="VO6-Kb-0Cl"/>
                 <constraint firstItem="HA4-R6-vmr" firstAttribute="bottom" secondItem="pro-OL-G5F" secondAttribute="bottom" id="dai-fd-HOc"/>
                 <constraint firstItem="vcN-QZ-W4G" firstAttribute="centerX" secondItem="ifa-GL-wx4" secondAttribute="centerX" id="lxl-cM-9I1"/>
+                <constraint firstItem="nnt-hw-KdX" firstAttribute="centerX" secondItem="ifa-GL-wx4" secondAttribute="centerX" id="pf3-jd-ZDx"/>
                 <constraint firstItem="gjw-HC-PK9" firstAttribute="top" secondItem="DPn-ln-4v2" secondAttribute="bottom" constant="20" id="rAx-kY-JzU"/>
                 <constraint firstItem="DPn-ln-4v2" firstAttribute="top" secondItem="oEI-oz-6TR" secondAttribute="bottom" constant="40" id="x0B-wd-mb2"/>
                 <constraint firstItem="oEI-oz-6TR" firstAttribute="top" secondItem="vcN-QZ-W4G" secondAttribute="bottom" constant="20" id="zH3-7A-dFF"/>
