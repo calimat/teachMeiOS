@@ -40,9 +40,9 @@ class teachmeLoginFlowUITests : XCTestCase {
         let exists = NSPredicate(format: "exists == true")
         expectation(for: exists, evaluatedWith: profileLbl, handler: nil)
         waitForExpectations(timeout: 5) { _ in
-            XCTAssert(profileLbl.exists)
+            XCTAssert(profileLbl.exists, "Profile label not  found")
             //click logoutbutton
-          let logoutBtn = self.application.buttons["logoutBtn"]
+          let logoutBtn = self.application.buttons["profileLogoutBtn"]
            logoutBtn.tap()
         }
 
