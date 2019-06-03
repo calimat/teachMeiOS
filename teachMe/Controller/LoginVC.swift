@@ -12,10 +12,13 @@ class LoginVC: UIViewController {
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var createAccountBtn: UIButton!
     @IBOutlet weak var errorLbl: UILabel!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        spinner.isHidden = true
+        spinner.hidesWhenStopped = true
     }
     
     convenience init(gateway:AuthenticationGateway, presenter: Presenter) {
@@ -31,9 +34,12 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func loginBtn_Pressed(_ sender: Any) {
+        spinner.isHidden = false
+        spinner.startAnimating()
         errorLbl.isHidden = false
         validadeInputs()
         gateway.login(email: emailTextField.text!, password: passwordTxtField.text!) { (success, error) in
+            self.spinner.stopAnimating()
             if let authError = error {
                 self.errorLbl.isHidden = false
                 self.errorLbl.text = self.presenter.displayMessage(for: authError)
