@@ -9,7 +9,7 @@ class ProfileVCTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        sut = ProfileVC(gateway:firebaseGateWay)
+        sut = ProfileVC(gateway: firebaseGateWay, dataStore: defaultDataStore)
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
         window.rootViewController = sut

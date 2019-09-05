@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6B6311698DB8AAFC42C9E88E /* Pods_teachMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18EA3650C2A24850044A2BF /* Pods_teachMe.framework */; };
 		EAD0C9D2FBBCE3374DC6577A /* Pods_teachMeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 387D2509110F790BFD6DA9B0 /* Pods_teachMeTests.framework */; };
+		F60E995222A75D4D005CA24A /* ProfileDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60E995122A75D4D005CA24A /* ProfileDataTests.swift */; };
+		F60E995422A76D68005CA24A /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60E995322A76D68005CA24A /* Profile.swift */; };
 		F6392F2120B1D98A00973418 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6392F2020B1D98A00973418 /* AppDelegate.swift */; };
 		F6392F2320B1D98A00973418 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6392F2220B1D98A00973418 /* LoginVC.swift */; };
 		F6392F2B20B1D98C00973418 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6392F2A20B1D98C00973418 /* Assets.xcassets */; };
@@ -76,6 +78,8 @@
 		B18EA3650C2A24850044A2BF /* Pods_teachMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teachMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4AADF1A5FDEB09FCBCB8B45 /* Pods-teachMeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teachMeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-teachMeUITests/Pods-teachMeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E477D0688042F05CB832AB61 /* Pods-teachMeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teachMeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-teachMeTests/Pods-teachMeTests.release.xcconfig"; sourceTree = "<group>"; };
+		F60E995122A75D4D005CA24A /* ProfileDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataTests.swift; sourceTree = "<group>"; };
+		F60E995322A76D68005CA24A /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		F6392F1D20B1D98A00973418 /* teachMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teachMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6392F2020B1D98A00973418 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6392F2220B1D98A00973418 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -213,6 +217,7 @@
 				F650264B228875AD007D0B17 /* Enumerations */,
 				F650263022874C0E007D0B17 /* Constants */,
 				F650262822869009007D0B17 /* Authentications */,
+				F65026292286900F007D0B17 /* Model */,
 				F693BDB1227EB9D300B83944 /* View */,
 				F62424A7227E5D660022ECD0 /* Controller */,
 				F6392F2020B1D98A00973418 /* AppDelegate.swift */,
@@ -229,18 +234,18 @@
 			children = (
 				F6502646228795C4007D0B17 /* Gateways */,
 				F650264022878D54007D0B17 /* Usecases */,
-				F65026292286900F007D0B17 /* Entities */,
 			);
 			path = Authentications;
 			sourceTree = "<group>";
 		};
-		F65026292286900F007D0B17 /* Entities */ = {
+		F65026292286900F007D0B17 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				F650262A2286901A007D0B17 /* AuthenticationError.swift */,
 				F650264922879612007D0B17 /* UserEntity.swift */,
+				F60E995322A76D68005CA24A /* Profile.swift */,
 			);
-			path = Entities;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		F650263022874C0E007D0B17 /* Constants */ = {
@@ -297,6 +302,7 @@
 				F6D65942228A67D500CF6ABE /* IntegrationTests */,
 				F65026432287913E007D0B17 /* Doubles */,
 				F669856E2103FE1B0004CC7F /* Info.plist */,
+				F60E995122A75D4D005CA24A /* ProfileDataTests.swift */,
 			);
 			path = teachMeTests;
 			sourceTree = "<group>";
@@ -664,6 +670,7 @@
 				F650262B2286901A007D0B17 /* AuthenticationError.swift in Sources */,
 				F65EF52D229B7E3600434688 /* CenteredButton.swift in Sources */,
 				F6D6594B2291BBD900CF6ABE /* UIViewControllerExt.swift in Sources */,
+				F60E995422A76D68005CA24A /* Profile.swift in Sources */,
 				F693BDB9227FA7F200B83944 /* CreateAccountVC.swift in Sources */,
 				F650263222874C1B007D0B17 /* Constants.swift in Sources */,
 				F6DCD38722A34603004301E3 /* Presenter.swift in Sources */,
@@ -695,6 +702,7 @@
 				F65026532289223D007D0B17 /* RegisterUserPresenterStub.swift in Sources */,
 				F650262722868FE2007D0B17 /* AuthenticationErrorTests.swift in Sources */,
 				F6DCD38122A33750004301E3 /* ErrorPresenterTests.swift in Sources */,
+				F60E995222A75D4D005CA24A /* ProfileDataTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

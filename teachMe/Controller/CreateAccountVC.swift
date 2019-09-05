@@ -8,6 +8,7 @@ class CreateAccountVC: UIViewController {
     
     var gateway: AuthenticationGateway!
     var presenter: Presenter!
+    var dataStore: DataStore!
     
     @IBOutlet weak var createAccountBtn: UIButton!
     @IBOutlet weak var emailTxtField: UITextField!
@@ -66,7 +67,7 @@ class CreateAccountVC: UIViewController {
                     if let authError = error {
                         self.displayError(authError)
                     } else {
-                        self.presentMainTabBarController(gateway: self.gateway, presenter: self.presenter)
+                        self.presentMainTabBarController(gateway: self.gateway, presenter: self.presenter, dataStore: self.dataStore )
                     }
                 })
                 break

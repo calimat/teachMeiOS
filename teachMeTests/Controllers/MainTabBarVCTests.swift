@@ -8,7 +8,7 @@ class MainTabBarVCTests: XCTestCase {
     var window: UIWindow?
     
     override func setUp() {
-        sut = MainTabBarVC(gateway: firebaseGateWay, presenter: defaultErrorpresenter)
+        sut = MainTabBarVC(gateway: firebaseGateWay, presenter: defaultErrorpresenter, dataStore: defaultDataStore)
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
         window.rootViewController = sut

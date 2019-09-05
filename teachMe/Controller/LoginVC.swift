@@ -6,6 +6,7 @@ class LoginVC: UIViewController {
 
     var gateway:AuthenticationGateway!
     var presenter: Presenter!
+    var dataStore: DataStore!
     
     @IBOutlet weak var emailTextField: ChalkBoardTextField!
     @IBOutlet weak var passwordTxtField: ChalkBoardTextField!
@@ -21,10 +22,11 @@ class LoginVC: UIViewController {
         spinner.hidesWhenStopped = true
     }
     
-    convenience init(gateway:AuthenticationGateway, presenter: Presenter) {
+    convenience init(gateway:AuthenticationGateway, presenter: Presenter, dataStore: DataStore) {
         self.init()
         self.gateway = gateway
         self.presenter = presenter
+        self.dataStore = dataStore
    
     }
     
@@ -44,7 +46,7 @@ class LoginVC: UIViewController {
                 self.errorLbl.isHidden = false
                 self.errorLbl.text = self.presenter.displayMessage(for: authError)
             } else {
-                self.presentMainTabBarController(gateway: self.gateway, presenter: self.presenter)
+                self.presentMainTabBarController(gateway: self.gateway, presenter: self.presenter, dataStore: self.dataStore)
             }
         }
     }

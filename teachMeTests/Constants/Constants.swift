@@ -16,3 +16,8 @@
  var defaultErrorpresenter: ErrorPresenter = {
     return ErrorPresenter(error: AuthenticationError(rawvalue: 999))
  }()
+
+ var defaultDataStore: FirebaseDataStore = {
+    return FirebaseDataStore(fireStore: fireStore)
+ }()
+
