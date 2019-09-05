@@ -63,9 +63,7 @@ platform :ios do
       build_app(scheme: "teachMe", export_method: "app-store")
 
       # Upload the application to Testflight
-      upload_to_testflight(
-        skip_waiting_for_build_processing: true
-      )
+      pilot upload --skip_submission
 
 
     # Remove the temporary keychain leaving
