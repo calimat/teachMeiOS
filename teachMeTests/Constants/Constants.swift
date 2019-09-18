@@ -17,7 +17,6 @@
     return ErrorPresenter(error: AuthenticationError(rawvalue: 999))
  }()
 
- var defaultDataStore: FirebaseDataStore = {
-    return FirebaseDataStore(fireStore: fireStore)
+ var defaultDataStore: DataStore = {
+    return FirebaseDataStoreAdapter(firestore: fireStore)
  }()
-

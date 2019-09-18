@@ -2,28 +2,21 @@ import Firebase
 
 
 protocol DataStore {
-    func getData(for uid: String)
+    func getData(for uid: String, completion: @escaping (DocumentSnapshot?, Error?) -> ())
 }
 
-class FirebaseDataStore : DataStore {
-    private let fireStore: Firestore
-    var email:String!
-    var accounType: AccountType!
+public class FirebaseDataStoreAdapter : DataStore {
     var firestore: Firestore!
     
-    init(fireStore: Firestore) {
-        self.fireStore = fireStore
+    init(firestore:Firestore) {
+        self.firestore = firestore
     }
     
-    func getData(for uid: String) {
-        fireStore.collection("users").document(uid).getDocument { (snapshot, error) in
-            guard let documentSnapshot = snapshot else { return }
-            guard let data = documentSnapshot.data() else { return }
-            self.email = data["email"] as? String
-            guard let accountTypeData = data["accountType"] as? String else { return }
-            self.accounType = AccountType(rawValue: accountTypeData)
+    func getData(for uid: String, completion: @escaping (DocumentSnapshot?, Error?) -> ()) {
+        firestore.collection("users").document(uid).getDocument { (snapshot, error) in
+            completion(snapshot,error)
         }
     }
     
-    
 }
+
