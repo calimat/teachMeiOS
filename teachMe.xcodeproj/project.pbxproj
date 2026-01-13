@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -31,7 +31,6 @@
 		F6698589211682430004CC7F /* LoginVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6698588211682430004CC7F /* LoginVCTests.swift */; };
 		F693BDB7227EBE1400B83944 /* ChalkBoardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693BDB6227EBE1400B83944 /* ChalkBoardTextField.swift */; };
 		F693BDB9227FA7F200B83944 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693BDB8227FA7F200B83944 /* CreateAccountVC.swift */; };
-		F693BDD5227FB2F400B83944 /* teachmeLoginFlowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693BDD4227FB2F400B83944 /* teachmeLoginFlowUITests.swift */; };
 		F6D65945228A67F400CF6ABE /* IntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D65944228A67F400CF6ABE /* IntegrationTests.swift */; };
 		F6D659492290DDC800CF6ABE /* MainTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D659482290DDC800CF6ABE /* MainTabBarVC.swift */; };
 		F6D6594B2291BBD900CF6ABE /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D6594A2291BBD900CF6ABE /* UIViewControllerExt.swift */; };
@@ -57,24 +56,14 @@
 			remoteGlobalIDString = F6392F1C20B1D98A00973418;
 			remoteInfo = teachMe;
 		};
-		F693BDD0227FB2DB00B83944 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F6392F1520B1D98A00973418 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F6392F1C20B1D98A00973418;
-			remoteInfo = teachMe;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		06732029BF0421C4269DDA4B /* Pods-teachMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teachMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-teachMe/Pods-teachMe.debug.xcconfig"; sourceTree = "<group>"; };
-		2F509885E3595C24AA6B959A /* Pods_teachMeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teachMeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		387D2509110F790BFD6DA9B0 /* Pods_teachMeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teachMeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		620984B1226A0729BE1CE323 /* Pods-teachMeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teachMeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-teachMeTests/Pods-teachMeTests.debug.xcconfig"; sourceTree = "<group>"; };
-		8A8449EF634975AFA9416D32 /* Pods-teachMeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teachMeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-teachMeUITests/Pods-teachMeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		94D534B9BDBC9703C4C7A07E /* Pods-teachMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teachMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-teachMe/Pods-teachMe.release.xcconfig"; sourceTree = "<group>"; };
 		B18EA3650C2A24850044A2BF /* Pods_teachMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teachMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C4AADF1A5FDEB09FCBCB8B45 /* Pods-teachMeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teachMeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-teachMeUITests/Pods-teachMeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E477D0688042F05CB832AB61 /* Pods-teachMeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teachMeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-teachMeTests/Pods-teachMeTests.release.xcconfig"; sourceTree = "<group>"; };
 		F6392F1D20B1D98A00973418 /* teachMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teachMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6392F2020B1D98A00973418 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -102,9 +91,6 @@
 		F6698588211682430004CC7F /* LoginVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCTests.swift; sourceTree = "<group>"; };
 		F693BDB6227EBE1400B83944 /* ChalkBoardTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChalkBoardTextField.swift; sourceTree = "<group>"; };
 		F693BDB8227FA7F200B83944 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
-		F693BDCB227FB2DB00B83944 /* teachMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = teachMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F693BDCF227FB2DB00B83944 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F693BDD4227FB2F400B83944 /* teachmeLoginFlowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = teachmeLoginFlowUITests.swift; sourceTree = "<group>"; };
 		F6D65944228A67F400CF6ABE /* IntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationTests.swift; sourceTree = "<group>"; };
 		F6D659482290DDC800CF6ABE /* MainTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVC.swift; sourceTree = "<group>"; };
 		F6D6594A2291BBD900CF6ABE /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
@@ -139,13 +125,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F693BDC8227FB2DB00B83944 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -156,8 +135,6 @@
 				94D534B9BDBC9703C4C7A07E /* Pods-teachMe.release.xcconfig */,
 				620984B1226A0729BE1CE323 /* Pods-teachMeTests.debug.xcconfig */,
 				E477D0688042F05CB832AB61 /* Pods-teachMeTests.release.xcconfig */,
-				8A8449EF634975AFA9416D32 /* Pods-teachMeUITests.debug.xcconfig */,
-				C4AADF1A5FDEB09FCBCB8B45 /* Pods-teachMeUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -167,7 +144,6 @@
 			children = (
 				B18EA3650C2A24850044A2BF /* Pods_teachMe.framework */,
 				387D2509110F790BFD6DA9B0 /* Pods_teachMeTests.framework */,
-				2F509885E3595C24AA6B959A /* Pods_teachMeUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -188,7 +164,6 @@
 			children = (
 				F6392F1F20B1D98A00973418 /* teachMe */,
 				F669856B2103FE1B0004CC7F /* teachMeTests */,
-				F693BDCC227FB2DB00B83944 /* teachMeUITests */,
 				F6392F1E20B1D98A00973418 /* Products */,
 				4D5314065AC4D091CE9B762E /* Pods */,
 				BFF8362FEE9F937FAC5FDC86 /* Frameworks */,
@@ -200,7 +175,6 @@
 			children = (
 				F6392F1D20B1D98A00973418 /* teachMe.app */,
 				F669856A2103FE1B0004CC7F /* teachMeTests.xctest */,
-				F693BDCB227FB2DB00B83944 /* teachMeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -309,15 +283,6 @@
 				F65EF52C229B7E3600434688 /* CenteredButton.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		F693BDCC227FB2DB00B83944 /* teachMeUITests */ = {
-			isa = PBXGroup;
-			children = (
-				F693BDCF227FB2DB00B83944 /* Info.plist */,
-				F693BDD4227FB2F400B83944 /* teachmeLoginFlowUITests.swift */,
-			);
-			path = teachMeUITests;
 			sourceTree = "<group>";
 		};
 		F6D65942228A67D500CF6ABE /* IntegrationTests */ = {
@@ -458,24 +423,6 @@
 			productReference = F669856A2103FE1B0004CC7F /* teachMeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		F693BDCA227FB2DB00B83944 /* teachMeUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F693BDD2227FB2DB00B83944 /* Build configuration list for PBXNativeTarget "teachMeUITests" */;
-			buildPhases = (
-				F693BDC7227FB2DB00B83944 /* Sources */,
-				F693BDC8227FB2DB00B83944 /* Frameworks */,
-				F693BDC9227FB2DB00B83944 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F693BDD1227FB2DB00B83944 /* PBXTargetDependency */,
-			);
-			name = teachMeUITests;
-			productName = teachMeUITests;
-			productReference = F693BDCB227FB2DB00B83944 /* teachMeUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -491,10 +438,6 @@
 					};
 					F66985692103FE1B0004CC7F = {
 						CreatedOnToolsVersion = 9.4.1;
-						TestTargetID = F6392F1C20B1D98A00973418;
-					};
-					F693BDCA227FB2DB00B83944 = {
-						CreatedOnToolsVersion = 10.2.1;
 						TestTargetID = F6392F1C20B1D98A00973418;
 					};
 				};
@@ -514,7 +457,6 @@
 			targets = (
 				F6392F1C20B1D98A00973418 /* teachMe */,
 				F66985692103FE1B0004CC7F /* teachMeTests */,
-				F693BDCA227FB2DB00B83944 /* teachMeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -534,13 +476,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F66985682103FE1B0004CC7F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F693BDC9227FB2DB00B83944 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -573,31 +508,20 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-teachMeTests/Pods-teachMeTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-teachMeTests/Pods-teachMeTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-teachMeTests/Pods-teachMeTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-teachMeTests/Pods-teachMeTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-teachMeTests/Pods-teachMeTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		98FF58FE914E38E8513585DC /* [CP] Embed Pods Frameworks */ = {
@@ -605,31 +529,20 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-teachMe/Pods-teachMe-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-teachMe/Pods-teachMe-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-teachMe/Pods-teachMe-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-teachMe/Pods-teachMe-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-teachMe/Pods-teachMe-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CBD31D0D5166F4489B8823E0 /* [CP] Check Pods Manifest.lock */ = {
@@ -698,14 +611,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F693BDC7227FB2DB00B83944 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F693BDD5227FB2F400B83944 /* teachmeLoginFlowUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -713,11 +618,6 @@
 			isa = PBXTargetDependency;
 			target = F6392F1C20B1D98A00973418 /* teachMe */;
 			targetProxy = F669856F2103FE1B0004CC7F /* PBXContainerItemProxy */;
-		};
-		F693BDD1227FB2DB00B83944 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F6392F1C20B1D98A00973418 /* teachMe */;
-			targetProxy = F693BDD0227FB2DB00B83944 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -770,6 +670,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = x86_64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -778,7 +679,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore *.";
 				SDKROOT = iphoneos;
@@ -822,7 +723,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AMLYNCKP6M;
 				INFOPLIST_FILE = teachMeTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -833,27 +734,6 @@
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/teachMe.app/teachMe";
-			};
-			name = Release;
-		};
-		F693BDD3227FB2DB00B83944 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AMLYNCKP6M;
-				INFOPLIST_FILE = teachMeUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.petitcoding.teachMeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = teachMe;
 			};
 			name = Release;
 		};
@@ -880,14 +760,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F66985732103FE1B0004CC7F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F693BDD2227FB2DB00B83944 /* Build configuration list for PBXNativeTarget "teachMeUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F693BDD3227FB2DB00B83944 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

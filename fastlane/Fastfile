@@ -49,9 +49,9 @@ platform :ios do
 
         # Increment the build number using the
           # latest Testflight build number.
-	#latest_testflight_build_number()
+          #latest_testflight_build_number()
           increment_build_number(
-            build_number:  127 + 1
+            build_number:  latest_testflight_build_number() + 1
           )
 
           disable_automatic_code_signing(code_sign_identity: 'iPhone Distribution')
@@ -63,10 +63,12 @@ platform :ios do
       build_app(scheme: "teachMe", export_method: "app-store")
 
       # Upload the application to Testflight
+      #upload_to_testflight(
+       # skip_waiting_for_build_processing: true
+      #)
       upload_to_testflight(
-        skip_waiting_for_build_processing: true
-      )
-
+	        skip_waiting_for_build_processing: true
+	      )
 
     # Remove the temporary keychain leaving
     # no trace.
