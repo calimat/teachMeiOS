@@ -1,99 +1,169 @@
 # GitHub Actions TestFlight Deployment Setup
 
-This document explains how to configure the GitHub Actions workflow to automatically deploy your iOS app to TestFlight when you push to the `development` branch.
+This workflow uses native xcodebuild commands (no fastlane required) to automatically deploy your iOS app to TestFlight when you push to the `development` branch.
 
 ## Required GitHub Secrets
 
-You need to configure the following secrets in your GitHub repository settings (Settings → Secrets and variables → Actions → New repository secret):
+Configure these secrets in your GitHub repository: Settings → Secrets and variables → Actions → New repository secret
 
-### 1. Fastlane Match Secrets
+### 1. Code Signing Certificate (P12 file)
 
-These are used to access your certificates and provisioning profiles:
+You need your iOS Distribution certificate exported as a P12 file.
 
-- **MATCH_PASSWORD**: The password used to encrypt your certificates in the match repository
-- **MATCH_GIT_URL**: The git URL of your certificates repository (e.g., `https://github.com/yourusername/certificates`)
-- **MATCH_KEYCHAIN_NAME**: Name for the temporary keychain (e.g., `github_actions_keychain`)
-- **MATCH_KEYCHAIN_PASSWORD**: Password for the temporary keychain (use a strong random password)
+**To export your certificate:**
 
-### 2. App Store Connect API Key
+1. Open **Keychain Access** on your Mac
+2. Find your "iPhone Distribution" certificate (under "My Certificates")
+3. Right-click → Export "iPhone Distribution: ..."
+4. Save as `.p12` file and set a password
+5. Convert to base64:
+   ```bash
+   base64 -i YourCertificate.p12 | pbcopy
+   ```
+6. Add to GitHub Secrets:
+   - **CERTIFICATE_BASE64**: Paste the base64 string
+   - **P12_PASSWORD**: The password you set when exporting
 
-Instead of using Apple ID credentials, this workflow uses App Store Connect API keys for authentication. This is more secure and doesn't require 2FA handling.
+### 2. Provisioning Profile
 
-To create an App Store Connect API Key:
+You need your App Store provisioning profile for the app.
+
+**To get your provisioning profile:**
+
+1. Go to [Apple Developer Portal](https://developer.apple.com/account)
+2. Navigate to Certificates, Identifiers & Profiles → Profiles
+3. Download your App Store provisioning profile for `petitcoding.com.teachMe`
+4. Convert to base64:
+   ```bash
+   base64 -i YourProfile.mobileprovision | pbcopy
+   ```
+5. Add to GitHub Secrets:
+   - **PROVISIONING_PROFILE_BASE64**: Paste the base64 string
+
+### 3. App Store Connect API Key
+
+This is used to upload the app to TestFlight without needing your Apple ID password.
+
+**To create an App Store Connect API Key:**
 
 1. Go to [App Store Connect](https://appstoreconnect.apple.com/)
-2. Navigate to Users and Access → Keys
-3. Click the "+" button to create a new key
-4. Give it a name (e.g., "GitHub Actions") and select "Developer" or "Admin" access
-5. Download the API key file (it will be named something like `AuthKey_XXXXXXXXXX.p8`)
-6. Note the Key ID and Issuer ID shown on the page
+2. Navigate to **Users and Access** → **Keys** (under Integrations)
+3. Click **"+"** to create a new key
+4. Give it a name (e.g., "GitHub Actions") and select **"Developer"** or **"Admin"** access
+5. Click **Generate**
+6. Download the `.p8` file (you can only download it once!)
+7. Note the **Key ID** and **Issuer ID** displayed on the page
 
-Then add these secrets:
+**Add to GitHub Secrets:**
 
-- **APP_STORE_CONNECT_API_KEY_KEY_ID**: The Key ID from App Store Connect (e.g., `ABC123XYZ`)
-- **APP_STORE_CONNECT_API_KEY_ISSUER_ID**: The Issuer ID from App Store Connect (UUID format)
-- **APP_STORE_CONNECT_API_KEY_KEY**: The full content of the `.p8` file you downloaded. Copy the entire file content including the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` lines.
+- **APP_STORE_CONNECT_API_KEY_ID**: The Key ID (e.g., `ABC123XYZ`)
+- **APP_STORE_CONNECT_ISSUER_ID**: The Issuer ID (UUID format, e.g., `d12345ab-c123-456d-789e-f12345678901`)
+- **APP_STORE_CONNECT_API_KEY_CONTENT**: The full content of the `.p8` file
+  ```bash
+  cat AuthKey_ABC123XYZ.p8 | pbcopy
+  ```
+  Then paste including the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` lines
 
-## Setting Up Fastlane Match (If Not Already Configured)
+## Summary of Required Secrets
 
-If you haven't set up Fastlane Match yet:
+| Secret Name | Description |
+|-------------|-------------|
+| `CERTIFICATE_BASE64` | Base64-encoded P12 certificate |
+| `P12_PASSWORD` | Password for the P12 certificate |
+| `PROVISIONING_PROFILE_BASE64` | Base64-encoded provisioning profile |
+| `APP_STORE_CONNECT_API_KEY_ID` | App Store Connect API Key ID |
+| `APP_STORE_CONNECT_ISSUER_ID` | App Store Connect Issuer ID |
+| `APP_STORE_CONNECT_API_KEY_CONTENT` | Content of the .p8 API key file |
 
-1. Create a private git repository to store certificates (e.g., `certificates`)
-2. Run `fastlane match init` and follow the prompts
-3. Run `fastlane match appstore` to generate and store your certificates
-4. The MATCH_PASSWORD you set during this process should be added to GitHub secrets
+## How It Works
 
-## Updating the Fastfile (If Using API Key)
+When you push to the `development` branch, the workflow will:
 
-If you want to use the App Store Connect API key instead of Apple ID authentication, update your `fastlane/Fastfile` to include:
-
-```ruby
-lane :beta do
-  # Set up API Key authentication
-  app_store_connect_api_key(
-    key_id: ENV["APP_STORE_CONNECT_API_KEY_KEY_ID"],
-    issuer_id: ENV["APP_STORE_CONNECT_API_KEY_ISSUER_ID"],
-    key_content: ENV["APP_STORE_CONNECT_API_KEY_KEY"]
-  )
-
-  # ... rest of your existing beta lane code
-end
-```
+1. ✅ Checkout the code
+2. ✅ Install CocoaPods dependencies
+3. ✅ Import code signing certificates and provisioning profiles
+4. ✅ Increment build number automatically
+5. ✅ Build and archive the app using `xcodebuild`
+6. ✅ Export the IPA
+7. ✅ Upload to TestFlight using `xcrun altool`
+8. ✅ Clean up security credentials
 
 ## Testing the Workflow
 
 1. Commit your changes to a feature branch
-2. Push to the `development` branch (or merge your feature branch into development)
-3. Go to the "Actions" tab in your GitHub repository
-4. You should see the "Deploy to TestFlight" workflow running
-5. Click on it to see the detailed logs
+2. Push to `development` (or merge into `development`)
+3. Go to your repository's **Actions** tab on GitHub
+4. Watch the "Deploy to TestFlight" workflow run
+5. Check the logs if anything fails
 
 ## Troubleshooting
 
 ### Code Signing Issues
-- Verify that your MATCH_PASSWORD and MATCH_GIT_URL are correct
-- Ensure your match repository contains valid certificates for App Store distribution
-- Run `fastlane match appstore` locally to verify your certificates are valid
+
+**Error: "No signing certificate found"**
+- Verify your `CERTIFICATE_BASE64` is correct
+- Make sure your `P12_PASSWORD` matches the password you set
+- Check that your certificate hasn't expired in Apple Developer Portal
+
+**Error: "No provisioning profile found"**
+- Verify your `PROVISIONING_PROFILE_BASE64` is correct
+- Ensure the provisioning profile matches your bundle identifier (`petitcoding.com.teachMe`)
+- Check that the profile hasn't expired
+
+### Build Failures
+
+**Error: "Build failed"**
+- Make sure your project builds successfully locally first
+- Check that all CocoaPods dependencies are properly configured
+- Review the build logs in the Actions tab for specific errors
 
 ### Upload to TestFlight Fails
-- Verify your App Store Connect API key has the correct permissions
-- Check that the API key hasn't expired
-- Ensure your app's bundle identifier matches what's in App Store Connect
 
-### Build Fails
-- Check the build logs in the Actions tab
-- Verify that all CocoaPods dependencies are properly configured
-- Ensure your Xcode project builds successfully locally first
+**Error: "API key authentication failed"**
+- Verify all three API key secrets are correct
+- Ensure your API key has "Developer" or "Admin" access
+- Check that the API key hasn't been revoked in App Store Connect
 
-## Workflow Trigger
+**Error: "App validation failed"**
+- Ensure your app version and build number are unique
+- Check that your app meets all App Store guidelines
+- Review the specific validation error in the logs
 
-The workflow is currently configured to trigger on:
-- Push to `development` branch
+### Info.plist Not Found
 
-To add more triggers (like manual trigger or specific tags), modify the `on:` section in `.github/workflows/testflight-deploy.yml`.
+**Error: "Could not find Info.plist"**
+- The workflow expects `teachMe/Info.plist` - verify this path exists
+- Update the path in the workflow if your Info.plist is elsewhere
 
-## Additional Notes
+## Advantages Over Fastlane
 
-- The workflow runs on `macos-latest` which provides the latest stable macOS environment with Xcode
-- Build artifacts (logs) are uploaded if the build fails, making debugging easier
-- The temporary keychain is created and destroyed during the build process for security
+This native approach has several benefits:
+
+- ✅ **Simpler**: No Ruby dependencies or Gemfile management
+- ✅ **Faster**: Fewer tools to install and configure
+- ✅ **More transparent**: Direct xcodebuild commands are easier to debug
+- ✅ **Less maintenance**: No need to keep fastlane plugins updated
+- ✅ **Native**: Uses Apple's official command-line tools
+
+## Optional: Manual Trigger
+
+To add the ability to manually trigger the workflow:
+
+```yaml
+on:
+  push:
+    branches:
+      - development
+  workflow_dispatch:  # Add this line
+```
+
+Then you can trigger it manually from the Actions tab in GitHub.
+
+## Need Help?
+
+If you encounter issues:
+
+1. Check the workflow logs in the Actions tab
+2. Verify all secrets are correctly configured
+3. Test your code signing locally with xcodebuild
+4. Ensure your certificates and profiles are valid in Apple Developer Portal
