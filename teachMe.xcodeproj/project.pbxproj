@@ -56,24 +56,14 @@
 			remoteGlobalIDString = F6392F1C20B1D98A00973418;
 			remoteInfo = teachMe;
 		};
-		F693BDD0227FB2DB00B83944 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F6392F1520B1D98A00973418 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F6392F1C20B1D98A00973418;
-			remoteInfo = teachMe;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		06732029BF0421C4269DDA4B /* Pods-teachMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teachMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-teachMe/Pods-teachMe.debug.xcconfig"; sourceTree = "<group>"; };
-		2F509885E3595C24AA6B959A /* Pods_teachMeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teachMeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		387D2509110F790BFD6DA9B0 /* Pods_teachMeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teachMeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		620984B1226A0729BE1CE323 /* Pods-teachMeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teachMeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-teachMeTests/Pods-teachMeTests.debug.xcconfig"; sourceTree = "<group>"; };
-		8A8449EF634975AFA9416D32 /* Pods-teachMeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teachMeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-teachMeUITests/Pods-teachMeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		94D534B9BDBC9703C4C7A07E /* Pods-teachMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teachMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-teachMe/Pods-teachMe.release.xcconfig"; sourceTree = "<group>"; };
 		B18EA3650C2A24850044A2BF /* Pods_teachMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teachMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C4AADF1A5FDEB09FCBCB8B45 /* Pods-teachMeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teachMeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-teachMeUITests/Pods-teachMeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E477D0688042F05CB832AB61 /* Pods-teachMeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teachMeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-teachMeTests/Pods-teachMeTests.release.xcconfig"; sourceTree = "<group>"; };
 		F6392F1D20B1D98A00973418 /* teachMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teachMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6392F2020B1D98A00973418 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,7 +91,6 @@
 		F6698588211682430004CC7F /* LoginVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCTests.swift; sourceTree = "<group>"; };
 		F693BDB6227EBE1400B83944 /* ChalkBoardTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChalkBoardTextField.swift; sourceTree = "<group>"; };
 		F693BDB8227FA7F200B83944 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
-		F693BDCB227FB2DB00B83944 /* teachMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = teachMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6D65944228A67F400CF6ABE /* IntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationTests.swift; sourceTree = "<group>"; };
 		F6D659482290DDC800CF6ABE /* MainTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVC.swift; sourceTree = "<group>"; };
 		F6D6594A2291BBD900CF6ABE /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
@@ -136,13 +125,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F693BDC8227FB2DB00B83944 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -153,8 +135,6 @@
 				94D534B9BDBC9703C4C7A07E /* Pods-teachMe.release.xcconfig */,
 				620984B1226A0729BE1CE323 /* Pods-teachMeTests.debug.xcconfig */,
 				E477D0688042F05CB832AB61 /* Pods-teachMeTests.release.xcconfig */,
-				8A8449EF634975AFA9416D32 /* Pods-teachMeUITests.debug.xcconfig */,
-				C4AADF1A5FDEB09FCBCB8B45 /* Pods-teachMeUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -164,7 +144,6 @@
 			children = (
 				B18EA3650C2A24850044A2BF /* Pods_teachMe.framework */,
 				387D2509110F790BFD6DA9B0 /* Pods_teachMeTests.framework */,
-				2F509885E3595C24AA6B959A /* Pods_teachMeUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -196,7 +175,6 @@
 			children = (
 				F6392F1D20B1D98A00973418 /* teachMe.app */,
 				F669856A2103FE1B0004CC7F /* teachMeTests.xctest */,
-				F693BDCB227FB2DB00B83944 /* teachMeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -445,24 +423,6 @@
 			productReference = F669856A2103FE1B0004CC7F /* teachMeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		F693BDCA227FB2DB00B83944 /* teachMeUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F693BDD2227FB2DB00B83944 /* Build configuration list for PBXNativeTarget "teachMeUITests" */;
-			buildPhases = (
-				F693BDC7227FB2DB00B83944 /* Sources */,
-				F693BDC8227FB2DB00B83944 /* Frameworks */,
-				F693BDC9227FB2DB00B83944 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F693BDD1227FB2DB00B83944 /* PBXTargetDependency */,
-			);
-			name = teachMeUITests;
-			productName = teachMeUITests;
-			productReference = F693BDCB227FB2DB00B83944 /* teachMeUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -478,10 +438,6 @@
 					};
 					F66985692103FE1B0004CC7F = {
 						CreatedOnToolsVersion = 9.4.1;
-						TestTargetID = F6392F1C20B1D98A00973418;
-					};
-					F693BDCA227FB2DB00B83944 = {
-						CreatedOnToolsVersion = 10.2.1;
 						TestTargetID = F6392F1C20B1D98A00973418;
 					};
 				};
@@ -501,7 +457,6 @@
 			targets = (
 				F6392F1C20B1D98A00973418 /* teachMe */,
 				F66985692103FE1B0004CC7F /* teachMeTests */,
-				F693BDCA227FB2DB00B83944 /* teachMeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -521,13 +476,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F66985682103FE1B0004CC7F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F693BDC9227FB2DB00B83944 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -663,13 +611,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F693BDC7227FB2DB00B83944 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -677,11 +618,6 @@
 			isa = PBXTargetDependency;
 			target = F6392F1C20B1D98A00973418 /* teachMe */;
 			targetProxy = F669856F2103FE1B0004CC7F /* PBXContainerItemProxy */;
-		};
-		F693BDD1227FB2DB00B83944 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F6392F1C20B1D98A00973418 /* teachMe */;
-			targetProxy = F693BDD0227FB2DB00B83944 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -801,27 +737,6 @@
 			};
 			name = Release;
 		};
-		F693BDD3227FB2DB00B83944 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AMLYNCKP6M;
-				INFOPLIST_FILE = teachMeUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.petitcoding.teachMeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = teachMe;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -845,14 +760,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F66985732103FE1B0004CC7F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F693BDD2227FB2DB00B83944 /* Build configuration list for PBXNativeTarget "teachMeUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F693BDD3227FB2DB00B83944 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
