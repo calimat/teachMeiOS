@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -31,7 +31,6 @@
 		F6698589211682430004CC7F /* LoginVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6698588211682430004CC7F /* LoginVCTests.swift */; };
 		F693BDB7227EBE1400B83944 /* ChalkBoardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693BDB6227EBE1400B83944 /* ChalkBoardTextField.swift */; };
 		F693BDB9227FA7F200B83944 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693BDB8227FA7F200B83944 /* CreateAccountVC.swift */; };
-		F693BDD5227FB2F400B83944 /* teachmeLoginFlowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693BDD4227FB2F400B83944 /* teachmeLoginFlowUITests.swift */; };
 		F6D65945228A67F400CF6ABE /* IntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D65944228A67F400CF6ABE /* IntegrationTests.swift */; };
 		F6D659492290DDC800CF6ABE /* MainTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D659482290DDC800CF6ABE /* MainTabBarVC.swift */; };
 		F6D6594B2291BBD900CF6ABE /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D6594A2291BBD900CF6ABE /* UIViewControllerExt.swift */; };
@@ -103,8 +102,6 @@
 		F693BDB6227EBE1400B83944 /* ChalkBoardTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChalkBoardTextField.swift; sourceTree = "<group>"; };
 		F693BDB8227FA7F200B83944 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		F693BDCB227FB2DB00B83944 /* teachMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = teachMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F693BDCF227FB2DB00B83944 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F693BDD4227FB2F400B83944 /* teachmeLoginFlowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = teachmeLoginFlowUITests.swift; sourceTree = "<group>"; };
 		F6D65944228A67F400CF6ABE /* IntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationTests.swift; sourceTree = "<group>"; };
 		F6D659482290DDC800CF6ABE /* MainTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVC.swift; sourceTree = "<group>"; };
 		F6D6594A2291BBD900CF6ABE /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
@@ -188,7 +185,6 @@
 			children = (
 				F6392F1F20B1D98A00973418 /* teachMe */,
 				F669856B2103FE1B0004CC7F /* teachMeTests */,
-				F693BDCC227FB2DB00B83944 /* teachMeUITests */,
 				F6392F1E20B1D98A00973418 /* Products */,
 				4D5314065AC4D091CE9B762E /* Pods */,
 				BFF8362FEE9F937FAC5FDC86 /* Frameworks */,
@@ -309,15 +305,6 @@
 				F65EF52C229B7E3600434688 /* CenteredButton.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		F693BDCC227FB2DB00B83944 /* teachMeUITests */ = {
-			isa = PBXGroup;
-			children = (
-				F693BDCF227FB2DB00B83944 /* Info.plist */,
-				F693BDD4227FB2F400B83944 /* teachmeLoginFlowUITests.swift */,
-			);
-			path = teachMeUITests;
 			sourceTree = "<group>";
 		};
 		F6D65942228A67D500CF6ABE /* IntegrationTests */ = {
@@ -576,9 +563,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-teachMeTests/Pods-teachMeTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-teachMeTests/Pods-teachMeTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -593,9 +584,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-teachMe/Pods-teachMe-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-teachMe/Pods-teachMe-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -672,7 +667,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F693BDD5227FB2F400B83944 /* teachmeLoginFlowUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -740,6 +734,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = x86_64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -752,7 +747,6 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore *.";
 				SDKROOT = iphoneos;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = x86_64;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
