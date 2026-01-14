@@ -160,6 +160,8 @@ jobs:
 
       - name: Clean up sensitive files
         if: always()
+        env:
+          APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
         run: |
           # Remove keychain
           KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
