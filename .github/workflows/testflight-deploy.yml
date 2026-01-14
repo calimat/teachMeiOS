@@ -5,13 +5,22 @@ on:
     branches:
       - development
 
+env:
+  XCODE_VERSION: '15.2'
+  BUNDLE_IDENTIFIER: 'petitcoding.com.teachMe'
+  DEVELOPMENT_TEAM: 'AMLYNCKP6M'
+  PROVISIONING_PROFILE_SPECIFIER: 'match AppStore petitcoding.com.teachMe'
+
 jobs:
   build-and-deploy:
-    runs-on: macos-latest
+    runs-on: macos-14
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Select Xcode version
+        run: sudo xcode-select -s /Applications/Xcode_${{ env.XCODE_VERSION }}.app/Contents/Developer
 
       - name: Install CocoaPods
         run: |
@@ -32,8 +41,8 @@ jobs:
           security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
 
           # Import certificate
-          echo "$CERTIFICATE_BASE64" | base64 --decode > $RUNNER_TEMP/certificate.p12
-          security import $RUNNER_TEMP/certificate.p12 \
+          echo "$CERTIFICATE_BASE64" | base64 --decode > "$RUNNER_TEMP/certificate.p12"
+          security import "$RUNNER_TEMP/certificate.p12" \
             -k "$KEYCHAIN_PATH" \
             -P "$P12_PASSWORD" \
             -T /usr/bin/codesign \
@@ -48,14 +57,21 @@ jobs:
           PROVISIONING_PROFILE_BASE64: ${{ secrets.PROVISIONING_PROFILE_BASE64 }}
         run: |
           # Decode and install provisioning profile
-          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-          echo "$PROVISIONING_PROFILE_BASE64" | base64 --decode > ~/Library/MobileDevice/Provisioning\ Profiles/profile.mobileprovision
+          mkdir -p "$HOME/Library/MobileDevice/Provisioning Profiles"
+          echo "$PROVISIONING_PROFILE_BASE64" | base64 --decode > "$HOME/Library/MobileDevice/Provisioning Profiles/profile.mobileprovision"
 
       - name: Increment Build Number
         run: |
           # Get the current build number
           CURRENT_BUILD=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" teachMe/Info.plist)
           echo "Current build number: $CURRENT_BUILD"
+
+          # Validate that build number is a positive integer
+          if ! [[ "$CURRENT_BUILD" =~ ^[0-9]+$ ]]; then
+            echo "Error: CFBundleVersion must be a positive integer, found: $CURRENT_BUILD"
+            echo "If using semantic versioning, use CFBundleShortVersionString instead"
+            exit 1
+          fi
 
           # Increment build number
           NEW_BUILD=$((CURRENT_BUILD + 1))
@@ -68,15 +84,15 @@ jobs:
             -workspace teachMe.xcworkspace \
             -scheme teachMe \
             -configuration Release \
-            -archivePath $RUNNER_TEMP/teachMe.xcarchive \
+            -archivePath "$RUNNER_TEMP/teachMe.xcarchive" \
             CODE_SIGN_IDENTITY="iPhone Distribution" \
-            PROVISIONING_PROFILE_SPECIFIER="match AppStore petitcoding.com.teachMe" \
-            DEVELOPMENT_TEAM="AMLYNCKP6M"
+            PROVISIONING_PROFILE_SPECIFIER="${{ env.PROVISIONING_PROFILE_SPECIFIER }}" \
+            DEVELOPMENT_TEAM="${{ env.DEVELOPMENT_TEAM }}"
 
       - name: Export IPA
         run: |
           # Create export options plist
-          cat > $RUNNER_TEMP/ExportOptions.plist << EOF
+          cat > "$RUNNER_TEMP/ExportOptions.plist" << EOF
           <?xml version="1.0" encoding="UTF-8"?>
           <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
           <plist version="1.0">
@@ -84,7 +100,7 @@ jobs:
             <key>method</key>
             <string>app-store</string>
             <key>teamID</key>
-            <string>AMLYNCKP6M</string>
+            <string>${{ env.DEVELOPMENT_TEAM }}</string>
             <key>uploadBitcode</key>
             <false/>
             <key>compileBitcode</key>
@@ -95,8 +111,8 @@ jobs:
             <string>manual</string>
             <key>provisioningProfiles</key>
             <dict>
-              <key>petitcoding.com.teachMe</key>
-              <string>match AppStore petitcoding.com.teachMe</string>
+              <key>${{ env.BUNDLE_IDENTIFIER }}</key>
+              <string>${{ env.PROVISIONING_PROFILE_SPECIFIER }}</string>
             </dict>
           </dict>
           </plist>
@@ -104,21 +120,24 @@ jobs:
 
           # Export archive to IPA
           xcodebuild -exportArchive \
-            -archivePath $RUNNER_TEMP/teachMe.xcarchive \
-            -exportPath $RUNNER_TEMP/export \
-            -exportOptionsPlist $RUNNER_TEMP/ExportOptions.plist
+            -archivePath "$RUNNER_TEMP/teachMe.xcarchive" \
+            -exportPath "$RUNNER_TEMP/export" \
+            -exportOptionsPlist "$RUNNER_TEMP/ExportOptions.plist"
 
       - name: Upload to TestFlight
         env:
           APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
           APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
-          APP_STORE_CONNECT_API_KEY_CONTENT: ${{ secrets.APP_STORE_CONNECT_API_KEY_CONTENT }}
+          APP_STORE_CONNECT_API_KEY_BASE64: ${{ secrets.APP_STORE_CONNECT_API_KEY_BASE64 }}
         run: |
-          # Save API key to file
-          mkdir -p ~/.appstoreconnect/private_keys
-          echo "$APP_STORE_CONNECT_API_KEY_CONTENT" > ~/.appstoreconnect/private_keys/AuthKey_${APP_STORE_CONNECT_API_KEY_ID}.p8
+          # Create API key directory
+          mkdir -p "$HOME/.appstoreconnect/private_keys"
 
-          # Upload to TestFlight using altool (older method) or notarytool
+          # Save API key to file with base64 decoding and secure permissions
+          echo "$APP_STORE_CONNECT_API_KEY_BASE64" | base64 --decode > "$HOME/.appstoreconnect/private_keys/AuthKey_${APP_STORE_CONNECT_API_KEY_ID}.p8"
+          chmod 600 "$HOME/.appstoreconnect/private_keys/AuthKey_${APP_STORE_CONNECT_API_KEY_ID}.p8"
+
+          # Upload to TestFlight
           xcrun altool --upload-app \
             --type ios \
             --file "$RUNNER_TEMP/export/teachMe.ipa" \

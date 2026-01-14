@@ -58,11 +58,11 @@ This is used to upload the app to TestFlight without needing your Apple ID passw
 
 - **APP_STORE_CONNECT_API_KEY_ID**: The Key ID (e.g., `ABC123XYZ`)
 - **APP_STORE_CONNECT_ISSUER_ID**: The Issuer ID (UUID format, e.g., `d12345ab-c123-456d-789e-f12345678901`)
-- **APP_STORE_CONNECT_API_KEY_CONTENT**: The full content of the `.p8` file
+- **APP_STORE_CONNECT_API_KEY_BASE64**: Base64-encoded content of the `.p8` file
   ```bash
-  cat AuthKey_ABC123XYZ.p8 | pbcopy
+  base64 -i AuthKey_ABC123XYZ.p8 | pbcopy
   ```
-  Then paste including the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` lines
+  This ensures proper handling of the PEM format with secure file permissions.
 
 ## Summary of Required Secrets
 
@@ -73,20 +73,21 @@ This is used to upload the app to TestFlight without needing your Apple ID passw
 | `PROVISIONING_PROFILE_BASE64` | Base64-encoded provisioning profile |
 | `APP_STORE_CONNECT_API_KEY_ID` | App Store Connect API Key ID |
 | `APP_STORE_CONNECT_ISSUER_ID` | App Store Connect Issuer ID |
-| `APP_STORE_CONNECT_API_KEY_CONTENT` | Content of the .p8 API key file |
+| `APP_STORE_CONNECT_API_KEY_BASE64` | Base64-encoded .p8 API key file |
 
 ## How It Works
 
 When you push to the `development` branch, the workflow will:
 
 1. ✅ Checkout the code
-2. ✅ Install CocoaPods dependencies
-3. ✅ Import code signing certificates and provisioning profiles
-4. ✅ Increment build number automatically
-5. ✅ Build and archive the app using `xcodebuild`
-6. ✅ Export the IPA
-7. ✅ Upload to TestFlight using `xcrun altool`
-8. ✅ Clean up security credentials
+2. ✅ Select pinned Xcode version for consistency
+3. ✅ Install CocoaPods dependencies
+4. ✅ Import code signing certificates and provisioning profiles
+5. ✅ Increment build number automatically (validates integer format)
+6. ✅ Build and archive the app using `xcodebuild`
+7. ✅ Export the IPA
+8. ✅ Upload to TestFlight using `xcrun altool`
+9. ✅ Clean up security credentials
 
 ## Testing the Workflow
 
@@ -100,38 +101,49 @@ When you push to the `development` branch, the workflow will:
 
 ### Code Signing Issues
 
-**Error: "No signing certificate found"**
+#### No signing certificate found
+
 - Verify your `CERTIFICATE_BASE64` is correct
 - Make sure your `P12_PASSWORD` matches the password you set
 - Check that your certificate hasn't expired in Apple Developer Portal
 
-**Error: "No provisioning profile found"**
+#### No provisioning profile found
+
 - Verify your `PROVISIONING_PROFILE_BASE64` is correct
 - Ensure the provisioning profile matches your bundle identifier (`petitcoding.com.teachMe`)
 - Check that the profile hasn't expired
 
 ### Build Failures
 
-**Error: "Build failed"**
+#### Build failed
+
 - Make sure your project builds successfully locally first
 - Check that all CocoaPods dependencies are properly configured
 - Review the build logs in the Actions tab for specific errors
 
+#### Build number increment failed
+
+- Ensure `CFBundleVersion` in Info.plist contains only integers (e.g., `42`, not `1.0.0`)
+- Use `CFBundleShortVersionString` for semantic versioning (e.g., `1.0.0`)
+
 ### Upload to TestFlight Fails
 
-**Error: "API key authentication failed"**
+#### API key authentication failed
+
 - Verify all three API key secrets are correct
 - Ensure your API key has "Developer" or "Admin" access
 - Check that the API key hasn't been revoked in App Store Connect
 
-**Error: "App validation failed"**
+#### App validation failed
+
 - Ensure your app version and build number are unique
 - Check that your app meets all App Store guidelines
 - Review the specific validation error in the logs
 
 ### Info.plist Not Found
 
-**Error: "Could not find Info.plist"**
+#### Could not find Info.plist
+
 - The workflow expects `teachMe/Info.plist` - verify this path exists
 - Update the path in the workflow if your Info.plist is elsewhere
 
@@ -144,6 +156,22 @@ This native approach has several benefits:
 - ✅ **More transparent**: Direct xcodebuild commands are easier to debug
 - ✅ **Less maintenance**: No need to keep fastlane plugins updated
 - ✅ **Native**: Uses Apple's official command-line tools
+- ✅ **Secure**: API keys stored with restrictive permissions (chmod 600)
+- ✅ **Consistent**: Pinned macOS and Xcode versions prevent surprises
+
+## Configuration
+
+The workflow uses environment variables at the top of the file for easy customization:
+
+```yaml
+env:
+  XCODE_VERSION: '15.2'
+  BUNDLE_IDENTIFIER: 'petitcoding.com.teachMe'
+  DEVELOPMENT_TEAM: 'AMLYNCKP6M'
+  PROVISIONING_PROFILE_SPECIFIER: 'match AppStore petitcoding.com.teachMe'
+```
+
+Update these values if your project configuration differs.
 
 ## Optional: Manual Trigger
 
