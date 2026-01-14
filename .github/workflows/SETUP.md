@@ -81,13 +81,14 @@ When you push to the `development` branch, the workflow will:
 
 1. ✅ Checkout the code
 2. ✅ Select pinned Xcode version for consistency
-3. ✅ Install CocoaPods dependencies
-4. ✅ Import code signing certificates and provisioning profiles
-5. ✅ Increment build number automatically (validates integer format)
-6. ✅ Build and archive the app using `xcodebuild`
-7. ✅ Export the IPA
-8. ✅ Upload to TestFlight using `xcrun altool`
-9. ✅ Clean up security credentials
+3. ✅ Cache CocoaPods for faster builds
+4. ✅ Install CocoaPods dependencies
+5. ✅ Import code signing certificates and provisioning profiles (with secure file permissions)
+6. ✅ Increment build number automatically (validates integer format)
+7. ✅ Build and archive the app using `xcodebuild`
+8. ✅ Export the IPA
+9. ✅ Upload to TestFlight using `xcrun altool --upload-package`
+10. ✅ Clean up all sensitive files (keychain, certificates, API keys)
 
 ## Testing the Workflow
 
@@ -134,6 +135,12 @@ When you push to the `development` branch, the workflow will:
 - Ensure your API key has "Developer" or "Admin" access
 - Check that the API key hasn't been revoked in App Store Connect
 
+#### Upload package deprecated warning
+
+- The workflow uses `xcrun altool --upload-package` (the current recommended method)
+- If you see deprecation warnings, Apple may be transitioning to newer tools
+- Future-proof alternative: Use the App Store Connect API directly or Transporter app
+
 #### App validation failed
 
 - Ensure your app version and build number are unique
@@ -156,8 +163,10 @@ This native approach has several benefits:
 - ✅ **More transparent**: Direct xcodebuild commands are easier to debug
 - ✅ **Less maintenance**: No need to keep fastlane plugins updated
 - ✅ **Native**: Uses Apple's official command-line tools
-- ✅ **Secure**: API keys stored with restrictive permissions (chmod 600)
+- ✅ **Secure**: API keys and certificates stored with restrictive permissions (chmod 600)
 - ✅ **Consistent**: Pinned macOS and Xcode versions prevent surprises
+- ✅ **Fast**: CocoaPods dependency caching speeds up subsequent builds
+- ✅ **Clean**: Automatic cleanup of all sensitive files after each run
 
 ## Configuration
 
@@ -172,6 +181,17 @@ env:
 ```
 
 Update these values if your project configuration differs.
+
+### Build Number Strategy
+
+The workflow increments the build number based on the current value in `Info.plist`. However, for guaranteed uniqueness across parallel or concurrent builds, you can use GitHub's run number instead:
+
+In the workflow file, uncomment this line in the "Increment Build Number" step:
+```yaml
+# NEW_BUILD=${{ github.run_number }}
+```
+
+This ensures each build has a unique, monotonically increasing build number.
 
 ## Optional: Manual Trigger
 
