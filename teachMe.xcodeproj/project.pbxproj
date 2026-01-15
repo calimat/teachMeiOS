@@ -681,7 +681,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore *.";
+				PROVISIONING_PROFILE_SPECIFIER = "petitcoding.com.teachMe AppStore";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -708,7 +708,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = petitcoding.com.teachMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore petitcoding.com.teachMe";
+				PROVISIONING_PROFILE_SPECIFIER = "petitcoding.com.teachMe AppStore";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
