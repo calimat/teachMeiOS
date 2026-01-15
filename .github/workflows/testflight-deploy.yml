@@ -7,7 +7,7 @@ on:
       - rh/fix-provisioning-profile-name
 
 env:
-  XCODE_VERSION: '15.2'
+  XCODE_VERSION: '16.2'
   BUNDLE_IDENTIFIER: 'petitcoding.com.teachMe'
   DEVELOPMENT_TEAM: 'AMLYNCKP6M'
   PROVISIONING_PROFILE_SPECIFIER: 'TeachMeIOS'
