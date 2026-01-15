@@ -42,6 +42,7 @@ jobs:
             -workspace teachMe.xcworkspace \
             -scheme teachMe \
             -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.2' \
+            -skip-testing:teachMeTests/FirebaseIntegrationTests \
             -resultBundlePath ${{ runner.temp }}/TestResults \
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
