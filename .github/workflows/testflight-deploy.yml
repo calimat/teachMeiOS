@@ -162,9 +162,10 @@ jobs:
           echo "$APP_STORE_CONNECT_API_KEY_BASE64" | base64 --decode > "$API_KEY_PATH"
           chmod 600 "$API_KEY_PATH"
 
-          # Upload to TestFlight using --upload-package (replacement for deprecated --upload-app)
-          xcrun altool --upload-package "$RUNNER_TEMP/export/teachMe.ipa" \
-            --type ios \
+          # Upload to TestFlight
+          xcrun altool --upload-app \
+            -f "$RUNNER_TEMP/export/teachMe.ipa" \
+            -t ios \
             --apiKey "$APP_STORE_CONNECT_API_KEY_ID" \
             --apiIssuer "$APP_STORE_CONNECT_ISSUER_ID"
 
