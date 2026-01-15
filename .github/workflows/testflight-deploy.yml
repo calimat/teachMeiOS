@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - development
+      - rh/fix-provisioning-profile-name
 
 env:
   XCODE_VERSION: '15.2'
