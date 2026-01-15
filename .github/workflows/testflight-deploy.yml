@@ -36,6 +36,24 @@ jobs:
           sudo gem install cocoapods
           pod install
 
+      - name: Run Unit Tests
+        run: |
+          xcodebuild test \
+            -workspace teachMe.xcworkspace \
+            -scheme teachMe \
+            -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.2' \
+            -resultBundlePath ${{ runner.temp }}/TestResults \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            | xcpretty --color && exit ${PIPESTATUS[0]}
+
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: test-results
+          path: ${{ runner.temp }}/TestResults
+
       - name: Import Code Signing Certificates
         env:
           P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
