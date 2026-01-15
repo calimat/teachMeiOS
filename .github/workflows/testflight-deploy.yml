@@ -99,25 +99,46 @@ jobs:
 
           echo "Installed provisioning profile with UUID: $UUID"
 
-      - name: Increment Build Number
+      - name: Get Latest Build Number from App Store Connect
+        env:
+          APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
+          APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+          APP_STORE_CONNECT_API_KEY_BASE64: ${{ secrets.APP_STORE_CONNECT_API_KEY_BASE64 }}
         run: |
-          # Get the current build number
-          CURRENT_BUILD=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" teachMe/Info.plist)
-          echo "Current build number: $CURRENT_BUILD"
+          # Decode API key
+          API_KEY_PATH="$RUNNER_TEMP/AuthKey.p8"
+          echo "$APP_STORE_CONNECT_API_KEY_BASE64" | base64 --decode > "$API_KEY_PATH"
 
-          # Validate that build number is a positive integer
-          if ! [[ "$CURRENT_BUILD" =~ ^[0-9]+$ ]]; then
-            echo "Error: CFBundleVersion must be a positive integer, found: $CURRENT_BUILD"
-            echo "If using semantic versioning, use CFBundleShortVersionString instead"
-            exit 1
-          fi
+          # Generate JWT token for App Store Connect API
+          HEADER=$(echo -n '{"alg":"ES256","kid":"'"$APP_STORE_CONNECT_API_KEY_ID"'","typ":"JWT"}' | base64 | tr -d '=' | tr '/+' '_-' | tr -d '\n')
+          NOW=$(date +%s)
+          EXP=$((NOW + 1200))
+          PAYLOAD=$(echo -n '{"iss":"'"$APP_STORE_CONNECT_ISSUER_ID"'","exp":'"$EXP"',"aud":"appstoreconnect-v1"}' | base64 | tr -d '=' | tr '/+' '_-' | tr -d '\n')
 
-          # Increment build number (or use GitHub run number for guaranteed uniqueness)
-          # Uncomment next line to use GitHub run number instead:
-          # NEW_BUILD=${{ github.run_number }}
-          NEW_BUILD=$((CURRENT_BUILD + 1))
-          /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $NEW_BUILD" teachMe/Info.plist
+          SIGNATURE=$(echo -n "${HEADER}.${PAYLOAD}" | openssl dgst -sha256 -sign "$API_KEY_PATH" | base64 | tr -d '=' | tr '/+' '_-' | tr -d '\n')
+          JWT="${HEADER}.${PAYLOAD}.${SIGNATURE}"
+
+          # Get app ID from bundle identifier
+          APP_RESPONSE=$(curl -s -H "Authorization: Bearer $JWT" \
+            "https://api.appstoreconnect.apple.com/v1/apps?filter[bundleId]=${{ env.BUNDLE_IDENTIFIER }}")
+          APP_ID=$(echo "$APP_RESPONSE" | jq -r '.data[0].id')
+          echo "App ID: $APP_ID"
+
+          # Get latest build number
+          BUILDS_RESPONSE=$(curl -s -H "Authorization: Bearer $JWT" \
+            "https://api.appstoreconnect.apple.com/v1/builds?filter[app]=$APP_ID&sort=-version&limit=1")
+          LATEST_BUILD=$(echo "$BUILDS_RESPONSE" | jq -r '.data[0].attributes.version // "0"')
+          echo "Latest build in App Store Connect: $LATEST_BUILD"
+
+          # Increment build number
+          NEW_BUILD=$((LATEST_BUILD + 1))
           echo "New build number: $NEW_BUILD"
+
+          # Update Info.plist
+          /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $NEW_BUILD" teachMe/Info.plist
+
+          # Clean up
+          rm -f "$API_KEY_PATH"
 
       - name: Build Archive
         run: |
