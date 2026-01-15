@@ -121,7 +121,7 @@ jobs:
           <plist version="1.0">
           <dict>
             <key>method</key>
-            <string>app-store</string>
+            <string>app-store-connect</string>
             <key>teamID</key>
             <string>${{ env.DEVELOPMENT_TEAM }}</string>
             <key>uploadBitcode</key>
@@ -130,6 +130,13 @@ jobs:
             <false/>
             <key>uploadSymbols</key>
             <true/>
+            <key>signingStyle</key>
+            <string>manual</string>
+            <key>provisioningProfiles</key>
+            <dict>
+              <key>${{ env.BUNDLE_IDENTIFIER }}</key>
+              <string>${{ env.PROVISIONING_PROFILE_SPECIFIER }}</string>
+            </dict>
           </dict>
           </plist>
           EOF
