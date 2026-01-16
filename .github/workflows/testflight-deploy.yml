@@ -6,10 +6,10 @@ on:
       - development
 
 env:
-  XCODE_VERSION: '15.2'
+  XCODE_VERSION: '16.2'
   BUNDLE_IDENTIFIER: 'petitcoding.com.teachMe'
   DEVELOPMENT_TEAM: 'AMLYNCKP6M'
-  PROVISIONING_PROFILE_SPECIFIER: 'petitcoding.com.teachMe AppStore'
+  PROVISIONING_PROFILE_SPECIFIER: 'TeachMeIOS'
 
 jobs:
   build-and-deploy:
@@ -34,6 +34,25 @@ jobs:
         run: |
           sudo gem install cocoapods
           pod install
+
+      - name: Run Unit Tests
+        run: |
+          xcodebuild test \
+            -workspace teachMe.xcworkspace \
+            -scheme teachMe \
+            -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.2' \
+            -skip-testing:teachMeTests/FirebaseIntegrationTests \
+            -resultBundlePath ${{ runner.temp }}/TestResults \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            | xcpretty --color && exit ${PIPESTATUS[0]}
+
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: test-results
+          path: ${{ runner.temp }}/TestResults
 
       - name: Import Code Signing Certificates
         env:
@@ -80,25 +99,19 @@ jobs:
 
           echo "Installed provisioning profile with UUID: $UUID"
 
-      - name: Increment Build Number
+      - name: Set Build Number
         run: |
-          # Get the current build number
-          CURRENT_BUILD=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" teachMe/Info.plist)
-          echo "Current build number: $CURRENT_BUILD"
-
-          # Validate that build number is a positive integer
-          if ! [[ "$CURRENT_BUILD" =~ ^[0-9]+$ ]]; then
-            echo "Error: CFBundleVersion must be a positive integer, found: $CURRENT_BUILD"
-            echo "If using semantic versioning, use CFBundleShortVersionString instead"
-            exit 1
-          fi
-
-          # Increment build number (or use GitHub run number for guaranteed uniqueness)
-          # Uncomment next line to use GitHub run number instead:
-          # NEW_BUILD=${{ github.run_number }}
-          NEW_BUILD=$((CURRENT_BUILD + 1))
-          /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $NEW_BUILD" teachMe/Info.plist
+          # Use GitHub run number + offset to ensure unique, incrementing build numbers
+          # Offset 132 ensures we're always higher than the last TestFlight build (132)
+          BUILD_OFFSET=132
+          NEW_BUILD=$(( ${{ github.run_number }} + BUILD_OFFSET ))
+          echo "GitHub run number: ${{ github.run_number }}"
+          echo "Build offset: $BUILD_OFFSET"
           echo "New build number: $NEW_BUILD"
+
+          # Update Info.plist
+          /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $NEW_BUILD" teachMe/Info.plist
+          echo "Updated Info.plist with build number $NEW_BUILD"
 
       - name: Build Archive
         run: |
@@ -129,6 +142,13 @@ jobs:
             <false/>
             <key>uploadSymbols</key>
             <true/>
+            <key>signingStyle</key>
+            <string>manual</string>
+            <key>provisioningProfiles</key>
+            <dict>
+              <key>${{ env.BUNDLE_IDENTIFIER }}</key>
+              <string>${{ env.PROVISIONING_PROFILE_SPECIFIER }}</string>
+            </dict>
           </dict>
           </plist>
           EOF
@@ -154,9 +174,10 @@ jobs:
           echo "$APP_STORE_CONNECT_API_KEY_BASE64" | base64 --decode > "$API_KEY_PATH"
           chmod 600 "$API_KEY_PATH"
 
-          # Upload to TestFlight using --upload-package (replacement for deprecated --upload-app)
-          xcrun altool --upload-package "$RUNNER_TEMP/export/teachMe.ipa" \
-            --type ios \
+          # Upload to TestFlight
+          xcrun altool --upload-app \
+            -f "$RUNNER_TEMP/export/teachMe.ipa" \
+            -t ios \
             --apiKey "$APP_STORE_CONNECT_API_KEY_ID" \
             --apiIssuer "$APP_STORE_CONNECT_ISSUER_ID"
 
