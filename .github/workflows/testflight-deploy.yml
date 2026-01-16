@@ -100,114 +100,19 @@ jobs:
 
           echo "Installed provisioning profile with UUID: $UUID"
 
-      - name: Get Latest Build Number from App Store Connect
-        env:
-          APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
-          APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
-          APP_STORE_CONNECT_API_KEY_BASE64: ${{ secrets.APP_STORE_CONNECT_API_KEY_BASE64 }}
+      - name: Set Build Number
         run: |
-          # Decode API key
-          API_KEY_PATH="$RUNNER_TEMP/AuthKey.p8"
-          echo "$APP_STORE_CONNECT_API_KEY_BASE64" | base64 --decode > "$API_KEY_PATH"
-          echo "API key decoded successfully"
-
-          # Generate JWT token for App Store Connect API
-          HEADER=$(printf '{"alg":"ES256","kid":"%s","typ":"JWT"}' "$APP_STORE_CONNECT_API_KEY_ID" | openssl base64 -A | tr '+/' '-_' | tr -d '=')
-          NOW=$(date +%s)
-          EXP=$((NOW + 1200))
-          PAYLOAD=$(printf '{"iss":"%s","exp":%d,"aud":"appstoreconnect-v1"}' "$APP_STORE_CONNECT_ISSUER_ID" "$EXP" | openssl base64 -A | tr '+/' '-_' | tr -d '=')
-
-          SIGNATURE=$(printf '%s.%s' "$HEADER" "$PAYLOAD" | openssl dgst -sha256 -sign "$API_KEY_PATH" -binary | openssl base64 -A | tr '+/' '-_' | tr -d '=')
-          JWT="${HEADER}.${PAYLOAD}.${SIGNATURE}"
-
-          # Remove any newlines from JWT components
-          JWT=$(echo "$JWT" | tr -d '\n\r')
-          echo "JWT token generated (length: ${#JWT})"
-
-          # Get app ID from bundle identifier
-          echo "Fetching app ID for bundle: ${{ env.BUNDLE_IDENTIFIER }}"
-
-          # Debug: Check for special characters in JWT
-          echo "JWT first 50 chars: ${JWT:0:50}..."
-
-          curl -s -w "\n%{http_code}" \
-            --header "Authorization: Bearer ${JWT}" \
-            "https://api.appstoreconnect.apple.com/v1/apps?filter[bundleId]=${{ env.BUNDLE_IDENTIFIER }}" \
-            > "$RUNNER_TEMP/app_response_full.txt" 2>&1 || echo "Curl exit code: $?"
-
-          # Extract HTTP code (last line) and response (everything else)
-          HTTP_CODE=$(tail -1 "$RUNNER_TEMP/app_response_full.txt")
-          APP_RESPONSE=$(sed '$ d' "$RUNNER_TEMP/app_response_full.txt")
-          echo "HTTP Status: $HTTP_CODE"
-
-          if [ "$HTTP_CODE" != "200" ]; then
-            echo "API request failed with status $HTTP_CODE"
-            echo "Response: $APP_RESPONSE"
-            exit 1
-          fi
-
-          # Check if response is valid JSON
-          if ! echo "$APP_RESPONSE" | jq . > /dev/null 2>&1; then
-            echo "Error: Response is not valid JSON"
-            echo "Response: $APP_RESPONSE"
-            exit 1
-          fi
-
-          # Check for API errors
-          if echo "$APP_RESPONSE" | jq -e '.errors' > /dev/null 2>&1; then
-            echo "API Error:"
-            echo "$APP_RESPONSE" | jq '.errors'
-            exit 1
-          fi
-
-          APP_ID=$(echo "$APP_RESPONSE" | jq -r '.data[0].id // empty')
-          if [ -z "$APP_ID" ]; then
-            echo "Error: Could not find app ID"
-            echo "Response: $APP_RESPONSE"
-            exit 1
-          fi
-          echo "App ID: $APP_ID"
-
-          # Get latest build number
-          echo "Fetching latest build number..."
-          curl -s -w "\n%{http_code}" \
-            --header "Authorization: Bearer ${JWT}" \
-            "https://api.appstoreconnect.apple.com/v1/builds?filter[app]=${APP_ID}&sort=-version&limit=1" \
-            > "$RUNNER_TEMP/builds_response_full.txt" 2>&1 || echo "Curl exit code: $?"
-
-          HTTP_CODE=$(tail -1 "$RUNNER_TEMP/builds_response_full.txt")
-          BUILDS_RESPONSE=$(sed '$ d' "$RUNNER_TEMP/builds_response_full.txt")
-          echo "HTTP Status: $HTTP_CODE"
-
-          if [ "$HTTP_CODE" != "200" ]; then
-            echo "API request failed with status $HTTP_CODE"
-            echo "Response: $BUILDS_RESPONSE"
-            exit 1
-          fi
-
-          # Check for API errors
-          if echo "$BUILDS_RESPONSE" | jq -e '.errors' > /dev/null 2>&1; then
-            echo "API Error:"
-            echo "$BUILDS_RESPONSE" | jq '.errors'
-            exit 1
-          fi
-
-          LATEST_BUILD=$(echo "$BUILDS_RESPONSE" | jq -r '.data[0].attributes.version // "0"')
-          echo "Latest build in App Store Connect: $LATEST_BUILD"
-
-          # Increment build number
-          if ! [[ "$LATEST_BUILD" =~ ^[0-9]+$ ]]; then
-            echo "Warning: Latest build '$LATEST_BUILD' is not a number, defaulting to 0"
-            LATEST_BUILD=0
-          fi
-          NEW_BUILD=$((LATEST_BUILD + 1))
+          # Use GitHub run number + offset to ensure unique, incrementing build numbers
+          # Offset 132 ensures we're always higher than the last TestFlight build (132)
+          BUILD_OFFSET=132
+          NEW_BUILD=$(( ${{ github.run_number }} + BUILD_OFFSET ))
+          echo "GitHub run number: ${{ github.run_number }}"
+          echo "Build offset: $BUILD_OFFSET"
           echo "New build number: $NEW_BUILD"
 
           # Update Info.plist
           /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $NEW_BUILD" teachMe/Info.plist
-
-          # Clean up
-          rm -f "$API_KEY_PATH"
+          echo "Updated Info.plist with build number $NEW_BUILD"
 
       - name: Build Archive
         run: |
