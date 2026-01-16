@@ -106,11 +106,10 @@ jobs:
           APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
           APP_STORE_CONNECT_API_KEY_BASE64: ${{ secrets.APP_STORE_CONNECT_API_KEY_BASE64 }}
         run: |
-          set -e
-
           # Decode API key
           API_KEY_PATH="$RUNNER_TEMP/AuthKey.p8"
           echo "$APP_STORE_CONNECT_API_KEY_BASE64" | base64 --decode > "$API_KEY_PATH"
+          echo "API key decoded successfully"
 
           # Generate JWT token for App Store Connect API
           HEADER=$(printf '{"alg":"ES256","kid":"%s","typ":"JWT"}' "$APP_STORE_CONNECT_API_KEY_ID" | openssl base64 -A | tr '+/' '-_' | tr -d '=')
@@ -120,12 +119,23 @@ jobs:
 
           SIGNATURE=$(printf '%s.%s' "$HEADER" "$PAYLOAD" | openssl dgst -sha256 -sign "$API_KEY_PATH" -binary | openssl base64 -A | tr '+/' '-_' | tr -d '=')
           JWT="${HEADER}.${PAYLOAD}.${SIGNATURE}"
+          echo "JWT token generated (length: ${#JWT})"
 
           # Get app ID from bundle identifier
           echo "Fetching app ID for bundle: ${{ env.BUNDLE_IDENTIFIER }}"
-          HTTP_CODE=$(curl -s -w "%{http_code}" -o "$RUNNER_TEMP/app_response.json" -H "Authorization: Bearer $JWT" \
-            "https://api.appstoreconnect.apple.com/v1/apps?filter[bundleId]=${{ env.BUNDLE_IDENTIFIER }}")
-          APP_RESPONSE=$(cat "$RUNNER_TEMP/app_response.json")
+
+          # Store JWT in file to avoid shell escaping issues
+          echo "$JWT" > "$RUNNER_TEMP/jwt_token.txt"
+          JWT_TOKEN=$(cat "$RUNNER_TEMP/jwt_token.txt")
+
+          curl -s -w "\n%{http_code}" \
+            -H "Authorization: Bearer $JWT_TOKEN" \
+            "https://api.appstoreconnect.apple.com/v1/apps?filter[bundleId]=${{ env.BUNDLE_IDENTIFIER }}" \
+            > "$RUNNER_TEMP/app_response_full.txt" 2>&1 || echo "Curl exit code: $?"
+
+          # Extract HTTP code (last line) and response (everything else)
+          HTTP_CODE=$(tail -1 "$RUNNER_TEMP/app_response_full.txt")
+          APP_RESPONSE=$(sed '$ d' "$RUNNER_TEMP/app_response_full.txt")
           echo "HTTP Status: $HTTP_CODE"
 
           if [ "$HTTP_CODE" != "200" ]; then
@@ -158,9 +168,13 @@ jobs:
 
           # Get latest build number
           echo "Fetching latest build number..."
-          HTTP_CODE=$(curl -s -w "%{http_code}" -o "$RUNNER_TEMP/builds_response.json" -H "Authorization: Bearer $JWT" \
-            "https://api.appstoreconnect.apple.com/v1/builds?filter[app]=$APP_ID&sort=-version&limit=1")
-          BUILDS_RESPONSE=$(cat "$RUNNER_TEMP/builds_response.json")
+          curl -s -w "\n%{http_code}" \
+            -H "Authorization: Bearer $JWT_TOKEN" \
+            "https://api.appstoreconnect.apple.com/v1/builds?filter[app]=$APP_ID&sort=-version&limit=1" \
+            > "$RUNNER_TEMP/builds_response_full.txt" 2>&1 || echo "Curl exit code: $?"
+
+          HTTP_CODE=$(tail -1 "$RUNNER_TEMP/builds_response_full.txt")
+          BUILDS_RESPONSE=$(sed '$ d' "$RUNNER_TEMP/builds_response_full.txt")
           echo "HTTP Status: $HTTP_CODE"
 
           if [ "$HTTP_CODE" != "200" ]; then
