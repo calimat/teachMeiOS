@@ -119,17 +119,19 @@ jobs:
 
           SIGNATURE=$(printf '%s.%s' "$HEADER" "$PAYLOAD" | openssl dgst -sha256 -sign "$API_KEY_PATH" -binary | openssl base64 -A | tr '+/' '-_' | tr -d '=')
           JWT="${HEADER}.${PAYLOAD}.${SIGNATURE}"
+
+          # Remove any newlines from JWT components
+          JWT=$(echo "$JWT" | tr -d '\n\r')
           echo "JWT token generated (length: ${#JWT})"
 
           # Get app ID from bundle identifier
           echo "Fetching app ID for bundle: ${{ env.BUNDLE_IDENTIFIER }}"
 
-          # Store JWT in file to avoid shell escaping issues
-          echo "$JWT" > "$RUNNER_TEMP/jwt_token.txt"
-          JWT_TOKEN=$(cat "$RUNNER_TEMP/jwt_token.txt")
+          # Debug: Check for special characters in JWT
+          echo "JWT first 50 chars: ${JWT:0:50}..."
 
           curl -s -w "\n%{http_code}" \
-            -H "Authorization: Bearer $JWT_TOKEN" \
+            --header "Authorization: Bearer ${JWT}" \
             "https://api.appstoreconnect.apple.com/v1/apps?filter[bundleId]=${{ env.BUNDLE_IDENTIFIER }}" \
             > "$RUNNER_TEMP/app_response_full.txt" 2>&1 || echo "Curl exit code: $?"
 
@@ -169,8 +171,8 @@ jobs:
           # Get latest build number
           echo "Fetching latest build number..."
           curl -s -w "\n%{http_code}" \
-            -H "Authorization: Bearer $JWT_TOKEN" \
-            "https://api.appstoreconnect.apple.com/v1/builds?filter[app]=$APP_ID&sort=-version&limit=1" \
+            --header "Authorization: Bearer ${JWT}" \
+            "https://api.appstoreconnect.apple.com/v1/builds?filter[app]=${APP_ID}&sort=-version&limit=1" \
             > "$RUNNER_TEMP/builds_response_full.txt" 2>&1 || echo "Curl exit code: $?"
 
           HTTP_CODE=$(tail -1 "$RUNNER_TEMP/builds_response_full.txt")
