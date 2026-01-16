@@ -123,10 +123,25 @@ jobs:
 
           # Get app ID from bundle identifier
           echo "Fetching app ID for bundle: ${{ env.BUNDLE_IDENTIFIER }}"
-          APP_RESPONSE=$(curl -s -H "Authorization: Bearer $JWT" \
+          HTTP_CODE=$(curl -s -w "%{http_code}" -o "$RUNNER_TEMP/app_response.json" -H "Authorization: Bearer $JWT" \
             "https://api.appstoreconnect.apple.com/v1/apps?filter[bundleId]=${{ env.BUNDLE_IDENTIFIER }}")
+          APP_RESPONSE=$(cat "$RUNNER_TEMP/app_response.json")
+          echo "HTTP Status: $HTTP_CODE"
 
-          # Debug: Check for errors in response
+          if [ "$HTTP_CODE" != "200" ]; then
+            echo "API request failed with status $HTTP_CODE"
+            echo "Response: $APP_RESPONSE"
+            exit 1
+          fi
+
+          # Check if response is valid JSON
+          if ! echo "$APP_RESPONSE" | jq . > /dev/null 2>&1; then
+            echo "Error: Response is not valid JSON"
+            echo "Response: $APP_RESPONSE"
+            exit 1
+          fi
+
+          # Check for API errors
           if echo "$APP_RESPONSE" | jq -e '.errors' > /dev/null 2>&1; then
             echo "API Error:"
             echo "$APP_RESPONSE" | jq '.errors'
@@ -143,10 +158,18 @@ jobs:
 
           # Get latest build number
           echo "Fetching latest build number..."
-          BUILDS_RESPONSE=$(curl -s -H "Authorization: Bearer $JWT" \
+          HTTP_CODE=$(curl -s -w "%{http_code}" -o "$RUNNER_TEMP/builds_response.json" -H "Authorization: Bearer $JWT" \
             "https://api.appstoreconnect.apple.com/v1/builds?filter[app]=$APP_ID&sort=-version&limit=1")
+          BUILDS_RESPONSE=$(cat "$RUNNER_TEMP/builds_response.json")
+          echo "HTTP Status: $HTTP_CODE"
 
-          # Debug: Check for errors
+          if [ "$HTTP_CODE" != "200" ]; then
+            echo "API request failed with status $HTTP_CODE"
+            echo "Response: $BUILDS_RESPONSE"
+            exit 1
+          fi
+
+          # Check for API errors
           if echo "$BUILDS_RESPONSE" | jq -e '.errors' > /dev/null 2>&1; then
             echo "API Error:"
             echo "$BUILDS_RESPONSE" | jq '.errors'
