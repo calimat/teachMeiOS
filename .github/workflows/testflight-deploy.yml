@@ -22,27 +22,41 @@ jobs:
       - name: Select Xcode version
         run: sudo xcode-select -s /Applications/Xcode_${{ env.XCODE_VERSION }}.app/Contents/Developer
 
-      - name: Cache CocoaPods
+      - name: Cache SPM Dependencies
         uses: actions/cache@v4
         with:
-          path: Pods
-          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+          path: |
+            ~/Library/Caches/org.swift.swiftpm
+            .build
+          key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
           restore-keys: |
-            ${{ runner.os }}-pods-
+            ${{ runner.os }}-spm-
 
-      - name: Install CocoaPods
+      - name: Cache DerivedData
+        uses: actions/cache@v4
+        with:
+          path: ~/Library/Developer/Xcode/DerivedData
+          key: ${{ runner.os }}-deriveddata-${{ hashFiles('**/*.swift', '**/project.pbxproj') }}
+          restore-keys: |
+            ${{ runner.os }}-deriveddata-
+
+      - name: Resolve SPM Dependencies
         run: |
-          sudo gem install cocoapods
-          pod install
+          xcodebuild -resolvePackageDependencies \
+            -project teachMe.xcodeproj \
+            -scheme teachMe \
+            -clonedSourcePackagesDirPath .build
 
       - name: Run Unit Tests
         run: |
           xcodebuild test \
-            -workspace teachMe.xcworkspace \
+            -project teachMe.xcodeproj \
             -scheme teachMe \
             -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.2' \
             -skip-testing:teachMeTests/FirebaseIntegrationTests \
             -resultBundlePath ${{ runner.temp }}/TestResults \
+            -clonedSourcePackagesDirPath .build \
+            -parallelizeTargets \
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
             | xcpretty --color && exit ${PIPESTATUS[0]}
@@ -116,10 +130,12 @@ jobs:
       - name: Build Archive
         run: |
           xcodebuild archive \
-            -workspace teachMe.xcworkspace \
+            -project teachMe.xcodeproj \
             -scheme teachMe \
             -configuration Release \
             -archivePath "$RUNNER_TEMP/teachMe.xcarchive" \
+            -clonedSourcePackagesDirPath .build \
+            -parallelizeTargets \
             -allowProvisioningUpdates \
             CODE_SIGN_STYLE=Manual \
             DEVELOPMENT_TEAM="${{ env.DEVELOPMENT_TEAM }}"
