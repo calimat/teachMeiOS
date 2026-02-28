@@ -1,12 +1,14 @@
 import UIKit
 import CoreData
 import Firebase
+import FirebaseAuth
+import FirebaseFirestore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
          FirebaseApp.configure()
         let window = UIWindow(frame: UIScreen.main.bounds)
         let tabbarVC = MainTabBarVC(gateway: AuthenticationGatewayFirebase(firAuth: Auth.auth(), fireStore: Firestore.firestore()), presenter: ErrorPresenter(error: AuthenticationError(rawvalue: 999)))

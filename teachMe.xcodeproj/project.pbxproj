@@ -44,7 +44,6 @@
 		F6DCD38122A33750004301E3 /* ErrorPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCD38022A33750004301E3 /* ErrorPresenterTests.swift */; };
 		F6DCD38322A337A4004301E3 /* ErrorPresenterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCD38222A337A4004301E3 /* ErrorPresenterImpl.swift */; };
 		F6DCD38722A34603004301E3 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCD38622A34603004301E3 /* Presenter.swift */; };
-		/* SPM Firebase packages */
 		SPM001 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = SPM002 /* FirebaseAuth */; };
 		SPM003 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = SPM004 /* FirebaseFirestore */; };
 /* End PBXBuildFile section */
@@ -573,7 +572,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE_SPECIFIER = TeachMeIOS;
 				SDKROOT = iphoneos;
@@ -615,7 +614,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AMLYNCKP6M;
 				INFOPLIST_FILE = teachMeTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
